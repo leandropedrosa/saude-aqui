@@ -31,7 +31,7 @@ services:
       db:
         condition: service_healthy
     ports:
-      - "8000:8000"
+      - "${API_PORTA:-8000}:8000"   # mude API_PORTA no .env se a 8000 estiver ocupada
     mem_limit: 192m
     restart: unless-stopped
 

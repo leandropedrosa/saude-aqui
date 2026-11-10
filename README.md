@@ -63,4 +63,40 @@ docker compose exec db psql -U saude_aqui -d saude_aqui   # inspecionar
 
 Para recriar o banco do zero (apaga os dados): `docker compose down -v`.
 
-*(Seções de API, front-end, coletor e implantação no Easypanel serão adicionadas nas próximas etapas.)*
+Antes de existir coleta real, dá para carregar **dados fictícios** (para desenvolver o front-end):
+
+```bash
+docker compose exec -T db psql -U saude_aqui -d saude_aqui < db/dados_ficticios.sql
+```
+
+## API
+
+```bash
+docker compose up -d --build api
+# Documentação interativa: http://localhost:8000/api/docs
+# (se a porta 8000 estiver ocupada, defina API_PORTA=8001 no .env)
+```
+
+| Método | Rota | Descrição |
+|---|---|---|
+| GET | `/api/health` | Verificação de saúde |
+| GET | `/api/status` | Última atualização, última verificação e competência (mês) do CNES |
+| GET | `/api/bairros` | Bairros que têm unidades |
+| GET | `/api/especialidades` | Ocupações presentes (CBO, nome, categoria, total) |
+| GET | `/api/unidades?bairro=` | Unidades com coordenadas (para o mapa) |
+| GET | `/api/unidades/proximas?lat=&lng=&raio_km=&bairro=&categoria=&cbo=` | Unidades com os **profissionais vinculados**; com lat/lng, ordena por distância e retorna `distancia_km` |
+
+### Testes da API
+
+Os testes usam um banco separado (`saude_aqui_teste`), recriado a cada execução com
+`db/init.sql` + `db/dados_ficticios.sql`. É preciso ter o banco no ar.
+
+```bash
+docker compose up -d db
+cd api
+python -m venv .venv && . .venv/bin/activate
+pip install -r requirements-dev.txt
+pytest
+```
+
+*(Seções de front-end, coletor e implantação no Easypanel serão adicionadas nas próximas etapas.)*
