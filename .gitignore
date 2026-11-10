@@ -1,0 +1,9 @@
+.venv/
+.env
+__pycache__/
+node_modules/
+dist/
+# PDFs do CNES trazem o número do Cartão SUS (CNS) — não versionar
+coletor/amostras/*.pdf
+coletor/amostras/*.xlsx
+.idea/

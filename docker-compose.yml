@@ -1,0 +1,62 @@
+# Ambiente de DESENVOLVIMENTO local.
+# Em produção (Easypanel) usamos imagens prontas do GHCR: veja docker-compose.prod.yml.
+#
+#   cp .env.example .env
+#   docker compose up -d db                      # só o banco
+#   docker compose up -d --build                 # tudo
+#   docker compose run --rm coletor python coletar.py   # coleta manual
+
+services:
+  db:
+    build: ./db
+    env_file: .env
+    environment:
+      TZ: ${TZ:-America/Sao_Paulo}
+    volumes:
+      - dados_db:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"            # exposto só em dev, para inspecionar com psql/DBeaver
+    mem_limit: 384m
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+    restart: unless-stopped
+
+  api:
+    build: ./api
+    env_file: .env
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "8000:8000"
+    mem_limit: 192m
+    restart: unless-stopped
+
+  coletor:
+    build:
+      context: .                 # raiz, para copiar db/unidades.csv e db/ocupacoes.csv
+      dockerfile: coletor/Dockerfile
+    env_file: .env
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - dados_brutos:/dados/brutos   # arquivos originais baixados do DATASUS
+    mem_limit: 256m
+    restart: unless-stopped
+
+  web:
+    build: ./web
+    depends_on:
+      - api
+    ports:
+      - "8080:80"
+    mem_limit: 64m
+    restart: unless-stopped
+
+volumes:
+  dados_db:
+  dados_brutos:

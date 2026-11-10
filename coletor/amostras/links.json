@@ -1,0 +1,714 @@
+[
+  {
+    "texto": "Início",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/"
+  },
+  {
+    "texto": "Atos Norm.",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/cidadao/legislacao/portarias"
+  },
+  {
+    "texto": "Portarias",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/cidadao/legislacao/portarias"
+  },
+  {
+    "texto": "Decretos",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/cidadao/legislacao/decretos"
+  },
+  {
+    "texto": "Leis",
+    "href": "https://cidadeocidental.go.gov.br/leis"
+  },
+  {
+    "texto": "Diário Oficial",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/atos_adm/mp/id=19"
+  },
+  {
+    "texto": "Decretos Orçamentários",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/cidadao/informacao/mp/id=23"
+  },
+  {
+    "texto": "Ofícios",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/cidadao/informacao/mp/id=20"
+  },
+  {
+    "texto": "Receitas",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/cidadao/transparencia/sgreceitas"
+  },
+  {
+    "texto": "Receitas",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/cidadao/transparencia/sgreceitas"
+  },
+  {
+    "texto": "Balanço Patrimonial",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/cidadao/transparencia/mp/id=4"
+  },
+  {
+    "texto": "Inscritos em Dívida Ativa",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/cidadao/transparencia/divida_ativa_pdt"
+  },
+  {
+    "texto": "Despesas",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/cidadao/transparencia/sgdespesas"
+  },
+  {
+    "texto": "Despesas",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/cidadao/transparencia/sgdespesas"
+  },
+  {
+    "texto": "Rec. Humanos",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/cidadao/transparencia/sgservidores"
+  },
+  {
+    "texto": "Folha de Pagamento",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/cidadao/transparencia/sgservidores"
+  },
+  {
+    "texto": "Padrão Remuneratório",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/cidadao/transparencia/padraoremuneratorio"
+  },
+  {
+    "texto": "Lista de Estagiários",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/cidadao/outras_informacoes/lista_estagiarios"
+  },
+  {
+    "texto": "Lista de Terceirizados",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/cidadao/outras_informacoes/lista_terceirizados"
+  },
+  {
+    "texto": "Concursos Públicos",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/cidadao/concursos_selecoes/concursos"
+  },
+  {
+    "texto": "Processos Seletivos",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/cidadao/concursos_selecoes/selecoes"
+  },
+  {
+    "texto": "Eleição de Conselhos Municipais",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/cidadao/concursos_selecoes/eleicoes"
+  },
+  {
+    "texto": "Edital de Convocação e Comunicado",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/cidadao/concursos_selecoes/mp/id=1"
+  },
+  {
+    "texto": "Licitações",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/cidadao/informacao/licitacoes"
+  },
+  {
+    "texto": "Licitações",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/cidadao/informacao/licitacoes"
+  },
+  {
+    "texto": "Licitações Fracassadas e Desertas",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/cidadao/informacao/licitacoes_fd"
+  },
+  {
+    "texto": "Dispensas e Inexigibilidades",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/cidadao/informacao/dispensas"
+  },
+  {
+    "texto": "Plano de Contratações Anual (PCA)",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/cidadao/informacao/plano_anual_contratacoes"
+  },
+  {
+    "texto": "Sanções Administrativas",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/cidadao/informacao/sancoes_administrativas"
+  },
+  {
+    "texto": "Comunicado de Intenção de Registro de Preço",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/cidadao/informacao/mp/id=22"
+  },
+  {
+    "texto": "Contratos",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/cidadao/informacao/contratos"
+  },
+  {
+    "texto": "Contratos",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/cidadao/informacao/contratos"
+  },
+  {
+    "texto": "Fiscais de Contratos",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/cidadao/informacao/fiscais_contratos"
+  },
+  {
+    "texto": "Atas de Registro de Preço",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/cidadao/informacao/atasregistropreco"
+  },
+  {
+    "texto": "Ordem Cronológica de Pagamentos",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/cidadao/informacao/ordem_cronologica_pagamentos_pdt"
+  },
+  {
+    "texto": "Prest. Contas",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/cidadao/resp_fiscal/balancos"
+  },
+  {
+    "texto": "Prestação de Contas (Balanço Anual)",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/cidadao/resp_fiscal/balancos"
+  },
+  {
+    "texto": "Relatório de Gestão ou Atividades",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/cidadao/resp_fiscal/relatorios_circunstanciados"
+  },
+  {
+    "texto": "Parecer do Tribunal de Contas",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/cidadao/resp_fiscal/tcpareceres"
+  },
+  {
+    "texto": "Julgamento de Contas pelo legislativo",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/cidadao/resp_fiscal/julgamento_contas"
+  },
+  {
+    "texto": "Relatórios de Gestão Fiscal",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/cidadao/resp_fiscal/rgfs"
+  },
+  {
+    "texto": "Relatórios Resumido de Execução Orçamentária",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/cidadao/resp_fiscal/rreos"
+  },
+  {
+    "texto": "Plano Estratégico",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/cidadao/outras_informacoes/plano_estrategico"
+  },
+  {
+    "texto": "Planejamento Orçamentário",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/cidadao/resp_fiscal/planejamento"
+  },
+  {
+    "texto": "SIC",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/cidadao/informacao/sic"
+  },
+  {
+    "texto": "SIC - Serviço de Informação ao Cidadão",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/cidadao/informacao/sic"
+  },
+  {
+    "texto": "Regulamentação da LAI",
+    "href": "http://acessoainformacao.cidadeocidental.go.gov.br/legislacao/lei/id=112"
+  },
+  {
+    "texto": "Relatório Estatístico do e-SIC",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/impressao/relatorio_sic"
+  },
+  {
+    "texto": "Informações Classificadas como Sigilosas",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/ouvidoria/infoclassificadas"
+  },
+  {
+    "texto": "Informações Desclassificadas como Sigilosas",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/ouvidoria/infodesclassificadas"
+  },
+  {
+    "texto": "Ouvidoria",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/cidadao/ouvidoria/inicio"
+  },
+  {
+    "texto": "Início",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/cidadao/ouvidoria/inicio"
+  },
+  {
+    "texto": "Solicitação",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/cidadao/ouvidoria/solicitacaoservico"
+  },
+  {
+    "texto": "Elogios",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/cidadao/ouvidoria/elogio"
+  },
+  {
+    "texto": "Sugestões",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/cidadao/ouvidoria/sugestao"
+  },
+  {
+    "texto": "Reclamações",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/cidadao/ouvidoria/reclamacao"
+  },
+  {
+    "texto": "Denúncias",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/cidadao/ouvidoria/denuncia"
+  },
+  {
+    "texto": "Carta de Serviços aos Usuários",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/cidadao/outras_informacoes/mp/id=18"
+  },
+  {
+    "texto": "ACESSIBILIDADE",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/p/acessibilidade"
+  },
+  {
+    "texto": "A+",
+    "href": "javascript:void(0)"
+  },
+  {
+    "texto": "A",
+    "href": "javascript:void(0)"
+  },
+  {
+    "texto": "A-",
+    "href": "javascript:void(0)"
+  },
+  {
+    "texto": "",
+    "href": "javascript:void(0)"
+  },
+  {
+    "texto": "PÁGINA INICIAL",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/"
+  },
+  {
+    "texto": "SAÚDE",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/cidadao/outras_informacoes/plano_municipal_saude"
+  },
+  {
+    "texto": "SERVIÇOS DE SAÚDE (ESCALAS)",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/outras_informacoes/escalasmedicas"
+  },
+  {
+    "texto": ".",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/#teste"
+  },
+  {
+    "texto": ".",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/painel/outras_informacoes/escalasmedicas"
+  },
+  {
+    "texto": "Portal do Cidadão da Prefeitura de Cidade Ocidental - GO",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/"
+  },
+  {
+    "texto": "A+",
+    "href": "javascript:void(0)"
+  },
+  {
+    "texto": "A",
+    "href": "javascript:void(0)"
+  },
+  {
+    "texto": "A-",
+    "href": "javascript:void(0)"
+  },
+  {
+    "texto": "Acessibilidade",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/p/acessibilidade"
+  },
+  {
+    "texto": "Alto Contraste",
+    "href": "javascript:void(0)"
+  },
+  {
+    "texto": "Portal do Cidadão",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/"
+  },
+  {
+    "texto": "PLANO MUNICIPAL DE SAÚDE",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/cidadao/outras_informacoes/plano_municipal_saude"
+  },
+  {
+    "texto": "PROGRAMAÇÃO ANUAL DA SAÚDE",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/cidadao/outras_informacoes/programacao_anual_saude"
+  },
+  {
+    "texto": "RELATÓRIO DE GESTÃO DA SAÚDE",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/cidadao/outras_informacoes/relatoriosanualdegestao"
+  },
+  {
+    "texto": "SERVIÇOS DE SAÚDE (ESCALAS)",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/cidadao/outras_informacoes/escalasmedicas"
+  },
+  {
+    "texto": "Lista de Medicamentos SUS",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/cidadao/outras_informacoes/medicamentos_sus"
+  },
+  {
+    "texto": "Medicamentos de Alto Custo",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/cidadao/outras_informacoes/medicamentos_altocusto"
+  },
+  {
+    "texto": "Vacinação da Covid-19",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/cidadao/outras_informacoes/mp/id=17"
+  },
+  {
+    "texto": "Estoques de Medicamentos das Farmácias Públicas",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/cidadao/outras_informacoes/estoque_medicamentos_farmacias"
+  },
+  {
+    "texto": "Lista de Espera da Regulação Municipal",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/cidadao/outras_informacoes/lista_espera_regulacoes"
+  },
+  {
+    "texto": "Conselho de Saúde",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/cidadao/outras_informacoes/conselho_saude"
+  },
+  {
+    "texto": "Lista de Espera da Regulação Estadual",
+    "href": "https://indicadores.saude.go.gov.br/public/transparencia_regulacao.html"
+  },
+  {
+    "texto": "Atas do Conselho de Saúde",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/cidadao/outras_informacoes/atas_conselhos?conselho=1"
+  },
+  {
+    "texto": "Resoluções do Conselho de Saúde",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/cidadao/outras_informacoes/resolucoes_conselhos_saude"
+  },
+  {
+    "texto": "Pareceres do Conselho de Saúde",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/cidadao/outras_informacoes/pareceres_conselhos_saude"
+  },
+  {
+    "texto": "Relatórios do Conselho de Saúde",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/cidadao/outras_informacoes/relatorios_conselhos_saude"
+  },
+  {
+    "texto": "Lista de Medicamentos SUS",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/cidadao/outras_informacoes/medicamentos_sus"
+  },
+  {
+    "texto": "Medicamentos de Alto Custo",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/cidadao/outras_informacoes/medicamentos_altocusto"
+  },
+  {
+    "texto": "Vacinação da Covid-19",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/cidadao/outras_informacoes/mp/id=17"
+  },
+  {
+    "texto": "Estoques de Medicamentos das Farmácias Públicas",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/cidadao/outras_informacoes/estoque_medicamentos_farmacias"
+  },
+  {
+    "texto": "Lista de Espera da Regulação Municipal",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/cidadao/outras_informacoes/lista_espera_regulacoes"
+  },
+  {
+    "texto": "Conselho de Saúde",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/cidadao/outras_informacoes/conselho_saude"
+  },
+  {
+    "texto": "Lista de Espera da Regulação Estadual",
+    "href": "https://indicadores.saude.go.gov.br/public/transparencia_regulacao.html"
+  },
+  {
+    "texto": "Atas do Conselho de Saúde",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/cidadao/outras_informacoes/atas_conselhos?conselho=1"
+  },
+  {
+    "texto": "Resoluções do Conselho de Saúde",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/cidadao/outras_informacoes/resolucoes_conselhos_saude"
+  },
+  {
+    "texto": "Pareceres do Conselho de Saúde",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/cidadao/outras_informacoes/pareceres_conselhos_saude"
+  },
+  {
+    "texto": "Relatórios do Conselho de Saúde",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/cidadao/outras_informacoes/relatorios_conselhos_saude"
+  },
+  {
+    "texto": "Últimos 7 dias",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/7_days"
+  },
+  {
+    "texto": "Mês de Novembro",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/11_2026"
+  },
+  {
+    "texto": "Mês de Outubro",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/10_2026"
+  },
+  {
+    "texto": "Ano de 2026",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/2026"
+  },
+  {
+    "texto": "Ano de 2025",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/2025"
+  },
+  {
+    "texto": "Ano de 2024",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/2024"
+  },
+  {
+    "texto": "Ano de 2023",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/2023"
+  },
+  {
+    "texto": "Ano de 2022",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/2022"
+  },
+  {
+    "texto": "Personalizado",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/personalizado"
+  },
+  {
+    "texto": "SAMU – CENTRO",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/22"
+  },
+  {
+    "texto": "UBSF JARDIM ABC",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/35"
+  },
+  {
+    "texto": "ACADEMIA DE SAÚDE ARAGUARI",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/6"
+  },
+  {
+    "texto": "ACADEMIA DE SAÚDE FRIBURGO B",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/7"
+  },
+  {
+    "texto": "ACADEMIA DE SAÚDE JARDIM ABC",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/9"
+  },
+  {
+    "texto": "ACADEMIA DE SAÚDE OCIDENTAL PARQUE",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/10"
+  },
+  {
+    "texto": "ACADEMIA DE SAÚDE PARQUE NÁPOLES A",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/8"
+  },
+  {
+    "texto": "ATENÇÃO BÁSICA",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/29"
+  },
+  {
+    "texto": "CAPS",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/24"
+  },
+  {
+    "texto": "CENTRO DE SAÚDE",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/25"
+  },
+  {
+    "texto": "CONSELHO MUNICIPAL DE SAÚDE",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/20"
+  },
+  {
+    "texto": "CTA - CENTRO DE TESTAGEM E ACONSELHAMENTO",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/34"
+  },
+  {
+    "texto": "EMAD - EQUIPE MULTIDISCIPLINAR DE ATENDIMENTO DOMICILIAR",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/27"
+  },
+  {
+    "texto": "ENDEMIAS",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/33"
+  },
+  {
+    "texto": "FÁRMACIA MUNICIPAL CENTRAL",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/19"
+  },
+  {
+    "texto": "HOSPITAL MUNICIPAL DE CIDADE OCIDENTAL",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/26"
+  },
+  {
+    "texto": "REGULAÇÃO DE SERVIÇOS DE SAÚDE E TFD (TRATAMENTO FORA DE DOMICÍLIO)",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/28"
+  },
+  {
+    "texto": "SAMU – JARDIM ABC",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/23"
+  },
+  {
+    "texto": "SEDE DA SECRETARIA MUNICIPAL DE SAÚDE",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/21"
+  },
+  {
+    "texto": "UBSF ARAGUARI",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/36"
+  },
+  {
+    "texto": "UBSF DOM BOSCO",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/13"
+  },
+  {
+    "texto": "UBSF FRIBURGO A/RECREIO MOSSORÓ",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/5"
+  },
+  {
+    "texto": "UBSF FRIBURGO B",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/4"
+  },
+  {
+    "texto": "UBSF OCIDENTAL PARQUE/NÁPOLES B",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/11"
+  },
+  {
+    "texto": "UBSF PARQUE ESTRELA DALVA III",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/3"
+  },
+  {
+    "texto": "UBSF PARQUE NÁPOLES A/PARQUE NÁPOLES A1",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/12"
+  },
+  {
+    "texto": "UBSF POVOADO MESQUITA",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/1"
+  },
+  {
+    "texto": "UBSF SÃO MATHEUS",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/2"
+  },
+  {
+    "texto": "UBSF SQ 11/12",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/18"
+  },
+  {
+    "texto": "UBSF SQ 13",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/17"
+  },
+  {
+    "texto": "UBSF SQ 15",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/15"
+  },
+  {
+    "texto": "UBSF SQ 16",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/16"
+  },
+  {
+    "texto": "UBSF SQ 18",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/14"
+  },
+  {
+    "texto": "UBSF SQ 19",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/37"
+  },
+  {
+    "texto": "VIGILÂNCIA EM SAÚDE",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/30"
+  },
+  {
+    "texto": "VIGILÂNCIA EPIDEMIOLÓGICA",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/31"
+  },
+  {
+    "texto": "VIGILÂNCIA SANITÁRIA",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/32"
+  },
+  {
+    "texto": "CIRURGIÃO DENTISTA",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/36"
+  },
+  {
+    "texto": "CLÍNICA GERAL",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/2"
+  },
+  {
+    "texto": "DERMATOLOGIA",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/3"
+  },
+  {
+    "texto": "EDUCAÇÃO FÍSICA",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/4"
+  },
+  {
+    "texto": "ENDOCRINOLOGIA",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/26"
+  },
+  {
+    "texto": "ENFERMAGEM",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/1000"
+  },
+  {
+    "texto": "FARMÁCIA",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/6"
+  },
+  {
+    "texto": "FISIOTERAPIA",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/7"
+  },
+  {
+    "texto": "GINECOLOGIA",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/30"
+  },
+  {
+    "texto": "NUTRIÇÃO",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/9"
+  },
+  {
+    "texto": "OBSTETRÍCIA",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/25"
+  },
+  {
+    "texto": "RADIOLOGIA",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/1001"
+  },
+  {
+    "texto": "REGULAÇÃO",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/16"
+  },
+  {
+    "texto": "SERVIÇO SOCIAL",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/17"
+  },
+  {
+    "texto": "",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/#"
+  },
+  {
+    "texto": "",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/#"
+  },
+  {
+    "texto": "",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/#"
+  },
+  {
+    "texto": "",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/#"
+  },
+  {
+    "texto": "",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/#"
+  },
+  {
+    "texto": "",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/#"
+  },
+  {
+    "texto": "",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/#"
+  },
+  {
+    "texto": "",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/#"
+  },
+  {
+    "texto": "",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/#"
+  },
+  {
+    "texto": "",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/#"
+  },
+  {
+    "texto": "",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/#"
+  },
+  {
+    "texto": "",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/#"
+  },
+  {
+    "texto": "",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/#"
+  },
+  {
+    "texto": "",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/#"
+  },
+  {
+    "texto": "",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/#"
+  },
+  {
+    "texto": "Loading...",
+    "href": "javascript:;"
+  },
+  {
+    "texto": "Políticas de Privacidade",
+    "href": "https://acessoainformacao.cidadeocidental.go.gov.br/p/politica_privacidade"
+  }
+]

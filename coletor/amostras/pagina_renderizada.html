@@ -1,0 +1,562 @@
+<!DOCTYPE html><html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta property="og:locale" content="pt_BR">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+    <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="https://static.nucleogov.com.br/res/js/cidadao/boot.js?v=5.4.165" src="https://static.nucleogov.com.br/res/js/cidadao/boot.js?v=5.4.165"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="https://static.nucleogov.com.br//res/js/common.js?v=5.4.165" src="https://static.nucleogov.com.br//res/js/common.js?v=5.4.165"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="cidadao/controller/escala_medica/escalasmedicas" src="https://static.nucleogov.com.br/res/js/cidadao/controller/escala_medica/escalasmedicas.js?v=5.4.165"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="customscrollbar" src="https://static.nucleogov.com.br/res/js/libs/custom-scrollbar/jquery.mCustomScrollbar.js?v=5.4.165"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="select" src="https://static.nucleogov.com.br/res/js/nucleo/componentes/select.js?v=5.4.165"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="selectPeriodo" src="https://static.nucleogov.com.br/res/js/nucleo/componentes/selectPeriodo.js?v=5.4.165"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="month_scroll" src="https://static.nucleogov.com.br/res/js/nucleo/componentes/month_scroll.js?v=5.4.165"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="painel/requisicoes/escalamedica" src="https://static.nucleogov.com.br/res/js/painel/requisicoes/escalamedica.js?v=5.4.165"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="filtros" src="https://static.nucleogov.com.br/res/js/nucleo/componentes/filtros.js?v=5.4.165"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="jquery-ui" src="https://static.nucleogov.com.br/res/js/libs/jquery-ui/jquery-ui.js?v=5.4.165"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="datetimepicker" src="https://static.nucleogov.com.br/res/js/libs/calendar/jquery-ui-timepicker-addon.js?v=5.4.165"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="datepicker-bootstrap" src="https://static.nucleogov.com.br/res/js/libs/datepicker-bootstrap/bootstrap-datepicker.min.js?v=5.4.165"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="datetimepickerbr" src="https://static.nucleogov.com.br/res/js/libs/calendar/jquery-ui-timepicker-pt-BR.js?v=5.4.165"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="datepicker-bootstrap-br" src="https://static.nucleogov.com.br/res/js/libs/datepicker-bootstrap/bootstrap-datepicker.pt-br.min.js?v=5.4.165"></script><base href="https://acessoainformacao.cidadeocidental.go.gov.br/">
+    <link rel="shortcut icon" href="https://static.nucleogov.com.br/res/img/nucleo/prefeitura.ico">
+    <!-- Fontes -->
+    <link rel="stylesheet" type="text/css" href="https://static.nucleogov.com.br/res/fonts/font-icon/font-face.css?v=5.4.165">
+    <link rel="stylesheet" type="text/css" href="https://static.nucleogov.com.br/res/fonts/icones/styles.css?v=5.4.165">
+
+            <script>
+            (function (h, o, t, j, a, r) {
+                h.hj = h.hj || function () {
+                    (h.hj.q = h.hj.q || []).push(arguments)
+                };
+                h._hjSettings = {hjid: 1419555, hjsv: 6};
+                a = o.getElementsByTagName('head')[0];
+                r = o.createElement('script');
+                r.async = 1;
+                r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+                a.appendChild(r);
+            })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
+
+            hj('stateChange', 'http://www.nucleogov.com.br/ng.cidadeocidental.go.gov.br/cidadao/outras_informacoes/escalasmedicas');
+        </script><script async="" src="https://static.hotjar.com/c/hotjar-1419555.js?sv=6"></script>
+    
+
+    <link rel="stylesheet" type="text/css" href="https://static.nucleogov.com.br/res/css/index.css?v=5.4.165">
+<link rel="stylesheet" type="text/css" href="https://nucleogov.s3.us-east-2.amazonaws.com/pf_cidadeocidental/custom-theme/custom-index-133.css?v=5.4.165">
+<link rel="stylesheet" type="text/css" href="https://static.nucleogov.com.br/res/css/painel/padroes.css?v=5.4.165">
+<link rel="stylesheet" type="text/css" href="https://static.nucleogov.com.br/res/css/cidadao/index.css?v=5.4.165">
+<link rel="stylesheet" type="text/css" href="https://static.nucleogov.com.br/res/css/auxiliares.css?v=5.4.165">
+<link rel="stylesheet" type="text/css" href="https://static.nucleogov.com.br/res/css/cidadao/escala_medica/escalasmedicas.css?v=5.4.165">
+<link rel="stylesheet" type="text/css" href="https://static.nucleogov.com.br/res/css/cidadao/informacao.css?v=5.4.165">
+    <script type="text/javascript">
+        window.APP = "cidadao";
+        window.SPACE = "https://nucleogov.s3.us-east-2.amazonaws.com/pf_cidadeocidental/";
+        window.VERSAO = "5.4.165";
+        window.URL_PARAMS = window.URL_PARAMS || [];
+        window.TIPO_CLIENTE = 1;
+        window.TIPO_CLIENTE_DESCRICAO = "Prefeitura";
+        window.NOME_CLIENTE = "Cidade Ocidental";
+        window.CLIENTE_ID = 133;
+        window.SISTEMA_GESTAO = 2;
+        window.CALL_JS = ["cidadao\/controller\/index","cidadao\/controller\/escala_medica\/escalasmedicas"];
+        url_arr = ["cidadao","index","outras_informacoes","escalasmedicas"];
+        path_cookie = "/";
+        window.static_version = "5.4.165";
+        window.static_files = "https://static.nucleogov.com.br/";
+        window.NG_MOBILE = ((/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)));
+
+            </script>
+
+    <script src="https://static.nucleogov.com.br/res/js/libs/require/require.min.js?v=5.4.165" data-main="https://static.nucleogov.com.br/res/js/cidadao/boot.js?v=5.4.165"></script>
+
+    <title>Serviços de Saúde (Escalas) - Prefeitura de Cidade Ocidental - GO</title>
+<script async="" src="https://script.hotjar.com/modules.47ae0ae40a423a71e31f.js" charset="utf-8"></script><style type="text/css">.highslide img {cursor: url(https://static.nucleogov.com.br/res/js/libs/highslide/graphics/zoomin.cur), pointer !important;}.highslide-viewport-size {position: fixed; width: 100%; height: 100%; left: 0; top: 0}</style><link type="text/css" rel="stylesheet" href="https://static.nucleogov.com.br/res/js/nucleo/nucleo/nucleo.css?v=5.4.165"><link type="text/css" rel="stylesheet" href="https://static.nucleogov.com.br/res/js/nucleo/componentes/campos.css?v=5.4.165"><link type="text/css" rel="stylesheet" href="https://static.nucleogov.com.br/res/js/nucleo/componentes/popup.css?v=5.4.165"><link type="text/css" rel="stylesheet" href="https://static.nucleogov.com.br/res/js/nucleo/componentes/table.css?v=5.4.165"><link type="text/css" rel="stylesheet" href="https://static.nucleogov.com.br/res/css/cidadao/home_popup.css?v=5.4.165"><link type="text/css" rel="stylesheet" href="https://static.nucleogov.com.br/res/js/nucleo/componentes/select.css?v=5.4.165"><link type="text/css" rel="stylesheet" href="https://static.nucleogov.com.br/res/js/nucleo/componentes/filtros.css?v=5.4.165"><link type="text/css" rel="stylesheet" href="https://static.nucleogov.com.br/res/js/nucleo/componentes/selectPeriodo.css?v=5.4.165"><link type="text/css" rel="stylesheet" href="https://static.nucleogov.com.br/res/js/libs/datepicker-bootstrap/bootstrap-datepicker3.min.css?v=5.4.165"><link type="text/css" rel="stylesheet" href="https://static.nucleogov.com.br/res/js/nucleo/componentes/month_scroll.css?v=5.4.165"><link type="text/css" rel="stylesheet" href="https://static.nucleogov.com.br/res/js/libs/jquery-ui/jquery-ui.css?v=5.4.165"><link type="text/css" rel="stylesheet" href="https://static.nucleogov.com.br/res/js/libs/uploadifive/uploadifive.css?v=5.4.165"><link type="text/css" rel="stylesheet" href="https://static.nucleogov.com.br/res/js/libs/custom-scrollbar/jquery.mCustomScrollbar.css?v=5.4.165"></head>
+
+<body class="">
+<noscript>
+    Habilite o JavaScript para utilizar o NúcleoGov.
+</noscript>
+
+    <div class="linha_topo"></div>
+
+    <nav class="">
+        <div class="fundo"></div>
+
+        <ul class="top">
+            <li class="topo_aux"></li>
+                                <li>
+                        <a data-tipo-menu="custom">
+                            <div class="icone_menu">
+                                <span></span>
+                            </div>
+                            Menu                        </a>
+                        <div class="short_menu icon-stoption-a"></div>
+                    </li>
+                        </ul>
+
+        <ul class="middle">
+                                <li class="">
+                        <a class="icon-home" href="https://acessoainformacao.cidadeocidental.go.gov.br/">
+                            Início                        </a>
+
+                                            </li>
+                                    <li class="md">
+                        <a class="icon-lei" href="cidadao/legislacao/portarias">
+                            Atos Norm.                        </a>
+
+                                                    <div class="seta icon-stoption-a"></div>
+                            <div class="sub-menu ">
+                                <ul>
+                                                                            <li>
+                                            <a href="cidadao/legislacao/portarias" target="" title="Portarias">
+                                                Portarias                                            </a>
+                                        </li>
+                                                                            <li>
+                                            <a href="cidadao/legislacao/decretos" target="" title="Decretos">
+                                                Decretos                                            </a>
+                                        </li>
+                                                                            <li>
+                                            <a href="https://cidadeocidental.go.gov.br/leis" target="" title="Leis">
+                                                Leis                                            </a>
+                                        </li>
+                                                                            <li>
+                                            <a href="atos_adm/mp/id=19" target="_blank" title="Diário Oficial">
+                                                Diário Oficial                                            </a>
+                                        </li>
+                                                                            <li>
+                                            <a href="cidadao/informacao/mp/id=23" target="" title="Decretos Orçamentários">
+                                                Decretos Orçamentários                                            </a>
+                                        </li>
+                                                                            <li>
+                                            <a href="cidadao/informacao/mp/id=20" target="" title="Ofícios">
+                                                Ofícios                                            </a>
+                                        </li>
+                                                                    </ul>
+                            </div>
+                                            </li>
+                                    <li class="md">
+                        <a class="icon-receitas" href="cidadao/transparencia/sgreceitas">
+                            Receitas                        </a>
+
+                                                    <div class="seta icon-stoption-a"></div>
+                            <div class="sub-menu ">
+                                <ul>
+                                                                            <li>
+                                            <a href="cidadao/transparencia/sgreceitas" target="" title="Receitas">
+                                                Receitas                                            </a>
+                                        </li>
+                                                                            <li>
+                                            <a href="cidadao/transparencia/mp/id=4" target="" title="Balanço Patrimonial">
+                                                Balanço Patrimonial                                            </a>
+                                        </li>
+                                                                            <li>
+                                            <a href="cidadao/transparencia/divida_ativa_pdt" target="" title="Inscritos em Dívida Ativa">
+                                                Inscritos em Dívida Ativa                                            </a>
+                                        </li>
+                                                                    </ul>
+                            </div>
+                                            </li>
+                                    <li class="md">
+                        <a class="icon-despesas" href="cidadao/transparencia/sgdespesas">
+                            Despesas                        </a>
+
+                                                    <div class="seta icon-stoption-a"></div>
+                            <div class="sub-menu ">
+                                <ul>
+                                                                            <li>
+                                            <a href="cidadao/transparencia/sgdespesas" target="" title="Despesas">
+                                                Despesas                                            </a>
+                                        </li>
+                                                                    </ul>
+                            </div>
+                                            </li>
+                                    <li class="md">
+                        <a class="icon-pessoal" href="cidadao/transparencia/sgservidores">
+                            Rec. Humanos                        </a>
+
+                                                    <div class="seta icon-stoption-a"></div>
+                            <div class="sub-menu full-sub-menu mCustomScrollbar _mCS_3 mCS-autoHide mCS_no_scrollbar" style="top: -225px; overflow: visible;"><div id="mCSB_3" class="mCustomScrollBox mCS-minimal mCSB_vertical mCSB_outside" tabindex="0" style="max-height: none;"><div id="mCSB_3_container" class="mCSB_container mCS_y_hidden mCS_no_scrollbar_y" style="position:relative; top:0; left:0;" dir="ltr">
+                                <ul>
+                                                                            <li>
+                                            <a href="cidadao/transparencia/sgservidores" target="" title="Folha de Pagamento">
+                                                Folha de Pagamento                                            </a>
+                                        </li>
+                                                                            <li>
+                                            <a href="cidadao/transparencia/padraoremuneratorio" target="" title="Padrão Remuneratório">
+                                                Padrão Remuneratório                                            </a>
+                                        </li>
+                                                                            <li>
+                                            <a href="cidadao/outras_informacoes/lista_estagiarios" target="" title="Lista de Estagiários">
+                                                Lista de Estagiários                                            </a>
+                                        </li>
+                                                                            <li>
+                                            <a href="cidadao/outras_informacoes/lista_terceirizados" target="" title="Lista de Terceirizados">
+                                                Lista de Terceirizados                                            </a>
+                                        </li>
+                                                                            <li>
+                                            <a href="cidadao/concursos_selecoes/concursos" target="" title="Concursos Públicos">
+                                                Concursos Públicos                                            </a>
+                                        </li>
+                                                                            <li>
+                                            <a href="cidadao/concursos_selecoes/selecoes" target="" title="Processos Seletivos">
+                                                Processos Seletivos                                            </a>
+                                        </li>
+                                                                            <li>
+                                            <a href="cidadao/concursos_selecoes/eleicoes" target="" title="Eleição de Conselhos Municipais">
+                                                Eleição de Conselhos Municipais                                            </a>
+                                        </li>
+                                                                            <li>
+                                            <a href="cidadao/concursos_selecoes/mp/id=1" target="" title="Edital de Convocação e Comunicado">
+                                                Edital de Convocação e Comunicado                                            </a>
+                                        </li>
+                                                                    </ul>
+                            </div></div><div id="mCSB_3_scrollbar_vertical" class="mCSB_scrollTools mCSB_3_scrollbar mCS-minimal mCSB_scrollTools_vertical" style="display: none;"><div class="mCSB_draggerContainer"><div id="mCSB_3_dragger_vertical" class="mCSB_dragger" style="position: absolute; min-height: 50px; height: 0px; top: 0px;"><div class="mCSB_dragger_bar" style="line-height: 50px;"></div></div><div class="mCSB_draggerRail"></div></div></div></div>
+                                            </li>
+                                    <li class="md">
+                        <a class="icon-licitacoes" href="cidadao/informacao/licitacoes">
+                            Licitações                        </a>
+
+                                                    <div class="seta icon-stoption-a"></div>
+                            <div class="sub-menu ">
+                                <ul>
+                                                                            <li>
+                                            <a href="cidadao/informacao/licitacoes" target="" title="Licitações">
+                                                Licitações                                            </a>
+                                        </li>
+                                                                            <li>
+                                            <a href="cidadao/informacao/licitacoes_fd" target="" title="Licitações Fracassadas e Desertas">
+                                                Licitações Fracassadas e Desertas                                            </a>
+                                        </li>
+                                                                            <li>
+                                            <a href="cidadao/informacao/dispensas" target="" title="Dispensas e Inexigibilidades">
+                                                Dispensas e Inexigibilidades                                            </a>
+                                        </li>
+                                                                            <li>
+                                            <a href="cidadao/informacao/plano_anual_contratacoes" target="" title="Plano de Contratações Anual (PCA)">
+                                                Plano de Contratações Anual (PCA)                                            </a>
+                                        </li>
+                                                                            <li>
+                                            <a href="cidadao/informacao/sancoes_administrativas" target="" title="Sanções Administrativas">
+                                                Sanções Administrativas                                            </a>
+                                        </li>
+                                                                            <li>
+                                            <a href="cidadao/informacao/mp/id=22" target="" title="Comunicado de Intenção de Registro de Preço">
+                                                Comunicado de Intenção de Registro de Preço                                            </a>
+                                        </li>
+                                                                    </ul>
+                            </div>
+                                            </li>
+                                    <li class="md">
+                        <a class="icon-file" href="cidadao/informacao/contratos">
+                            Contratos                        </a>
+
+                                                    <div class="seta icon-stoption-a"></div>
+                            <div class="sub-menu ">
+                                <ul>
+                                                                            <li>
+                                            <a href="cidadao/informacao/contratos" target="" title="Contratos">
+                                                Contratos                                            </a>
+                                        </li>
+                                                                            <li>
+                                            <a href="cidadao/informacao/fiscais_contratos" target="" title="Fiscais de Contratos">
+                                                Fiscais de Contratos                                            </a>
+                                        </li>
+                                                                            <li>
+                                            <a href="cidadao/informacao/atasregistropreco" target="" title="Atas de Registro de Preço">
+                                                Atas de Registro de Preço                                            </a>
+                                        </li>
+                                                                            <li>
+                                            <a href="cidadao/informacao/ordem_cronologica_pagamentos_pdt" target="" title="Ordem Cronológica de Pagamentos">
+                                                Ordem Cronológica de Pagamentos                                            </a>
+                                        </li>
+                                                                    </ul>
+                            </div>
+                                            </li>
+                                    <li class="md">
+                        <a class="icon-analitic" href="cidadao/resp_fiscal/balancos">
+                            Prest. Contas                        </a>
+
+                                                    <div class="seta icon-stoption-a"></div>
+                            <div class="sub-menu full-sub-menu mCustomScrollbar _mCS_4 mCS-autoHide mCS_no_scrollbar" style="top: -354px; overflow: visible;"><div id="mCSB_4" class="mCustomScrollBox mCS-minimal mCSB_vertical mCSB_outside" tabindex="0" style="max-height: none;"><div id="mCSB_4_container" class="mCSB_container mCS_y_hidden mCS_no_scrollbar_y" style="position:relative; top:0; left:0;" dir="ltr">
+                                <ul>
+                                                                            <li>
+                                            <a href="cidadao/resp_fiscal/balancos" target="" title="Prestação de Contas (Balanço Anual)">
+                                                Prestação de Contas (Balanço Anual)                                            </a>
+                                        </li>
+                                                                            <li>
+                                            <a href="cidadao/resp_fiscal/relatorios_circunstanciados" target="" title="Relatório de Gestão ou Atividades">
+                                                Relatório de Gestão ou Atividades                                            </a>
+                                        </li>
+                                                                            <li>
+                                            <a href="cidadao/resp_fiscal/tcpareceres" target="" title="Parecer do Tribunal de Contas">
+                                                Parecer do Tribunal de Contas                                            </a>
+                                        </li>
+                                                                            <li>
+                                            <a href="cidadao/resp_fiscal/julgamento_contas" target="" title="Julgamento de Contas pelo legislativo">
+                                                Julgamento de Contas pelo legislativo                                            </a>
+                                        </li>
+                                                                            <li>
+                                            <a href="cidadao/resp_fiscal/rgfs" target="" title="Relatórios de Gestão Fiscal">
+                                                Relatórios de Gestão Fiscal                                            </a>
+                                        </li>
+                                                                            <li>
+                                            <a href="cidadao/resp_fiscal/rreos" target="" title="Relatórios Resumido de Execução Orçamentária">
+                                                Relatórios Resumido de Execução Orçamentária                                            </a>
+                                        </li>
+                                                                            <li>
+                                            <a href="cidadao/outras_informacoes/plano_estrategico" target="" title="Plano Estratégico">
+                                                Plano Estratégico                                            </a>
+                                        </li>
+                                                                            <li>
+                                            <a href="cidadao/resp_fiscal/planejamento" target="" title="Planejamento Orçamentário">
+                                                Planejamento Orçamentário                                            </a>
+                                        </li>
+                                                                    </ul>
+                            </div></div><div id="mCSB_4_scrollbar_vertical" class="mCSB_scrollTools mCSB_4_scrollbar mCS-minimal mCSB_scrollTools_vertical" style="display: none;"><div class="mCSB_draggerContainer"><div id="mCSB_4_dragger_vertical" class="mCSB_dragger" style="position: absolute; min-height: 50px; height: 0px; top: 0px;"><div class="mCSB_dragger_bar" style="line-height: 50px;"></div></div><div class="mCSB_draggerRail"></div></div></div></div>
+                                            </li>
+                                    <li class="md">
+                        <a class="icon-sic" href="cidadao/informacao/sic">
+                            SIC                        </a>
+
+                                                    <div class="seta icon-stoption-a"></div>
+                            <div class="sub-menu " style="top: -172px;">
+                                <ul>
+                                                                            <li>
+                                            <a href="cidadao/informacao/sic" target="" title="SIC - Serviço de Informação ao Cidadão">
+                                                SIC - Serviço de Informação ao Cidadão                                            </a>
+                                        </li>
+                                                                            <li>
+                                            <a href="http://acessoainformacao.cidadeocidental.go.gov.br/legislacao/lei/id=112" target="" title="Regulamentação da LAI">
+                                                Regulamentação da LAI                                            </a>
+                                        </li>
+                                                                            <li>
+                                            <a href="https://acessoainformacao.cidadeocidental.go.gov.br/impressao/relatorio_sic" target="" title="Relatório Estatístico do e-SIC">
+                                                Relatório Estatístico do e-SIC                                            </a>
+                                        </li>
+                                                                            <li>
+                                            <a href="https://acessoainformacao.cidadeocidental.go.gov.br/ouvidoria/infoclassificadas" target="" title="Informações Classificadas como Sigilosas">
+                                                Informações Classificadas como Sigilosas                                            </a>
+                                        </li>
+                                                                            <li>
+                                            <a href="https://acessoainformacao.cidadeocidental.go.gov.br/ouvidoria/infodesclassificadas" target="" title="Informações Desclassificadas como Sigilosas">
+                                                Informações Desclassificadas como Sigilosas                                            </a>
+                                        </li>
+                                                                    </ul>
+                            </div>
+                                            </li>
+                                    <li class="md">
+                        <a class="icon-chat" href="cidadao/ouvidoria/inicio">
+                            Ouvidoria                        </a>
+
+                                                    <div class="seta icon-stoption-a"></div>
+                            <div class="sub-menu full-sub-menu mCustomScrollbar _mCS_5 mCS-autoHide mCS_no_scrollbar" style="top: -440px; overflow: visible;"><div id="mCSB_5" class="mCustomScrollBox mCS-minimal mCSB_vertical mCSB_outside" tabindex="0" style="max-height: none;"><div id="mCSB_5_container" class="mCSB_container mCS_y_hidden mCS_no_scrollbar_y" style="position:relative; top:0; left:0;" dir="ltr">
+                                <ul>
+                                                                            <li>
+                                            <a href="cidadao/ouvidoria/inicio" target="" title="Início">
+                                                Início                                            </a>
+                                        </li>
+                                                                            <li>
+                                            <a href="cidadao/ouvidoria/solicitacaoservico" target="" title="Solicitação">
+                                                Solicitação                                            </a>
+                                        </li>
+                                                                            <li>
+                                            <a href="cidadao/ouvidoria/elogio" target="" title="Elogios">
+                                                Elogios                                            </a>
+                                        </li>
+                                                                            <li>
+                                            <a href="cidadao/ouvidoria/sugestao" target="" title="Sugestões">
+                                                Sugestões                                            </a>
+                                        </li>
+                                                                            <li>
+                                            <a href="cidadao/ouvidoria/reclamacao" target="" title="Reclamações">
+                                                Reclamações                                            </a>
+                                        </li>
+                                                                            <li>
+                                            <a href="cidadao/ouvidoria/denuncia" target="" title="Denúncias">
+                                                Denúncias                                            </a>
+                                        </li>
+                                                                            <li>
+                                            <a href="cidadao/outras_informacoes/mp/id=18" target="" title="Carta de Serviços aos Usuários">
+                                                Carta de Serviços aos Usuários                                            </a>
+                                        </li>
+                                                                    </ul>
+                            </div></div><div id="mCSB_5_scrollbar_vertical" class="mCSB_scrollTools mCSB_5_scrollbar mCS-minimal mCSB_scrollTools_vertical" style="display: none;"><div class="mCSB_draggerContainer"><div id="mCSB_5_dragger_vertical" class="mCSB_dragger" style="position: absolute; min-height: 50px; height: 0px; top: 0px;"><div class="mCSB_dragger_bar" style="line-height: 50px;"></div></div><div class="mCSB_draggerRail"></div></div></div></div>
+                                            </li>
+                                    <li class="">
+                        <a class="icon-mais" data-tipo-menu="custom">
+                            Ver mais                        </a>
+
+                                            </li>
+                        </ul>
+
+        <ul class="down">
+                    </ul>
+
+            </nav>
+
+<div class="content ">
+
+    <div class="acessibilidade_mobile">
+        <a href="p/acessibilidade" id="link_acessibilidade">
+            <img src="https://static.nucleogov.com.br/res/img/nucleo/acessibilidade.svg" class="acessibilidade" alt="Acessibilidade">
+            ACESSIBILIDADE
+        </a>
+        <a href="javascript:void(0)" id="font_more_mobile" title="Aumentar fonte">A+</a>
+        <a href="javascript:void(0)" id="font_default_mobile" title="Fonte padrão">A</a>
+        <a href="javascript:void(0)" id="font_less_mobile" title="Diminuir fonte">A-</a>
+        <a href="javascript:void(0)" id="alto_contr_mobile">
+            <span class="yin"></span>
+            <span class="yang"></span>
+        </a>
+    </div>
+
+    <header class="">
+                    <div class="arvore_links">
+                <h1>Saúde</h1>
+                <ul>
+                    <li><span>VOCÊ ESTÁ AQUI:</span></li>
+                    <li>&nbsp;<a href="">PÁGINA INICIAL</a></li>
+                                                <li>&nbsp; &gt; &nbsp;<a href="cidadao/outras_informacoes/plano_municipal_saude">Saúde</a></li>
+                                                    <li>&nbsp; &gt; &nbsp;<a href="outras_informacoes/escalasmedicas">Serviços de Saúde (Escalas)</a></li>
+                                        </ul>
+            </div>
+        
+        <div class="user-logo-verticalboxs">
+            <div class="logo-verticalboxs">
+                <a class="logo" href="#teste">
+                    <!----><!--? //= $img_topo ?--> .
+                </a>
+
+                <a href="painel/outras_informacoes/escalasmedicas" accesskey="p" class="icon-password" title="Painel"> <span id="teste">.</span> </a>
+            </div>
+        </div>
+
+        <div class="logo-name">
+            <div class="name">
+                <a href="">
+                                        <h2>Portal do Cidadão da                    <span>Prefeitura de Cidade Ocidental - GO</span></h2>                </a>
+            </div>
+
+                            <div class="acess">
+                    <a href="javascript:void(0)" id="font_more" title="Aumentar fonte">A+</a>
+                    <a href="javascript:void(0)" id="font_default" title="Fonte padrão">A</a>
+                    <a href="javascript:void(0)" id="font_less" title="Diminuir fonte">A-</a>
+                    <a href="p/acessibilidade">
+                        <img src="https://static.nucleogov.com.br/res/img/nucleo/acessibilidade.svg" class="acessibilidade" alt="Acessibilidade">
+                        Acessibilidade
+                    </a>
+                    <a href="javascript:void(0)" id="alto_contr">Alto Contraste</a>
+                    <!--                <a href="p/mapa_do_site">Mapa do Site</a>-->
+                </div>
+                    </div>
+
+        <div class="cont_mobile">
+            <div class="menu_mobile" data-tipo-menu="custom">
+                <span></span>
+            </div>
+
+            <div class="name">
+                <a href="">
+                    <h1>Portal do Cidadão <br></h1>
+                </a>
+            </div>
+
+            <div class="header_container">
+                
+                    <span>Serviços de Saúde (Escalas) </span>
+
+                    <div class="containerbuscamobilefiltro">
+                        <div class="icon-lupa"></div>
+                        <input id="search" class="busca" placeholder="Buscar" type="text">
+                    </div>
+
+                    <div class="filtro_mobile">FILTRO</div>
+                            </div>
+        </div>
+    </header>
+
+    <main class="">    <div class="abas">
+        <ul>
+                            <li>
+                    <a href="cidadao/outras_informacoes/plano_municipal_saude" class="button " target="_self">Plano Municipal de Saúde</a>
+                </li>
+                            <li>
+                    <a href="cidadao/outras_informacoes/programacao_anual_saude" class="button " target="_self">Programação Anual da Saúde</a>
+                </li>
+                            <li>
+                    <a href="cidadao/outras_informacoes/relatoriosanualdegestao" class="button " target="_self">Relatório de Gestão da Saúde</a>
+                </li>
+                            <li>
+                    <a href="cidadao/outras_informacoes/escalasmedicas" class="button active" target="_self">Serviços de Saúde (Escalas)</a>
+                </li>
+                            <li style="display: none;">
+                    <a href="cidadao/outras_informacoes/medicamentos_sus" class="button " target="_self">Lista de Medicamentos SUS</a>
+                </li>
+                            <li style="display: none;">
+                    <a href="cidadao/outras_informacoes/medicamentos_altocusto" class="button " target="_self">Medicamentos de Alto Custo</a>
+                </li>
+                            <li style="display: none;">
+                    <a href="cidadao/outras_informacoes/mp/id=17" class="button " target="_self">Vacinação da Covid-19</a>
+                </li>
+                            <li style="display: none;">
+                    <a href="cidadao/outras_informacoes/estoque_medicamentos_farmacias" class="button " target="_self">Estoques de Medicamentos das Farmácias Públicas</a>
+                </li>
+                            <li style="display: none;">
+                    <a href="cidadao/outras_informacoes/lista_espera_regulacoes" class="button " target="_self">Lista de Espera da Regulação Municipal</a>
+                </li>
+                            <li style="display: none;">
+                    <a href="cidadao/outras_informacoes/conselho_saude" class="button " target="_self">Conselho de Saúde</a>
+                </li>
+                            <li style="display: none;">
+                    <a href="https://indicadores.saude.go.gov.br/public/transparencia_regulacao.html" class="button " target="_blank">Lista de Espera da Regulação Estadual</a>
+                </li>
+                            <li style="display: none;">
+                    <a href="cidadao/outras_informacoes/atas_conselhos?conselho=1" class="button " target="_self">Atas do Conselho de Saúde</a>
+                </li>
+                            <li style="display: none;">
+                    <a href="cidadao/outras_informacoes/resolucoes_conselhos_saude" class="button " target="_self">Resoluções do Conselho de Saúde</a>
+                </li>
+                            <li style="display: none;">
+                    <a href="cidadao/outras_informacoes/pareceres_conselhos_saude" class="button " target="_self">Pareceres do Conselho de Saúde</a>
+                </li>
+                            <li style="display: none;">
+                    <a href="cidadao/outras_informacoes/relatorios_conselhos_saude" class="button " target="_self">Relatórios do Conselho de Saúde</a>
+                </li>
+                    <div class="aba_broken button">                                            <div class="seta icon-stoption" style="display: block;"></div>                                            <div class="sub_modulos">                                                <div class="orelha"></div>                                                <ul class="list mCustomScrollbar _mCS_6 mCS-autoHide mCS_no_scrollbar" style="position: relative; overflow: visible;"><div id="mCSB_6" class="mCustomScrollBox mCS-minimal-dark mCSB_vertical mCSB_outside" tabindex="0" style="max-height: none;"><div id="mCSB_6_container" class="mCSB_container mCS_y_hidden mCS_no_scrollbar_y" style="position:relative; top:0; left:0;" dir="ltr"> <li>                                        <a href="cidadao/outras_informacoes/medicamentos_sus">Lista de Medicamentos SUS</a>                                    </li> <li>                                        <a href="cidadao/outras_informacoes/medicamentos_altocusto">Medicamentos de Alto Custo</a>                                    </li> <li>                                        <a href="cidadao/outras_informacoes/mp/id=17">Vacinação da Covid-19</a>                                    </li> <li>                                        <a href="cidadao/outras_informacoes/estoque_medicamentos_farmacias">Estoques de Medicamentos das Farmácias Públicas</a>                                    </li> <li>                                        <a href="cidadao/outras_informacoes/lista_espera_regulacoes">Lista de Espera da Regulação Municipal</a>                                    </li> <li>                                        <a href="cidadao/outras_informacoes/conselho_saude">Conselho de Saúde</a>                                    </li> <li>                                        <a href="https://indicadores.saude.go.gov.br/public/transparencia_regulacao.html">Lista de Espera da Regulação Estadual</a>                                    </li> <li>                                        <a href="cidadao/outras_informacoes/atas_conselhos?conselho=1">Atas do Conselho de Saúde</a>                                    </li> <li>                                        <a href="cidadao/outras_informacoes/resolucoes_conselhos_saude">Resoluções do Conselho de Saúde</a>                                    </li> <li>                                        <a href="cidadao/outras_informacoes/pareceres_conselhos_saude">Pareceres do Conselho de Saúde</a>                                    </li> <li>                                        <a href="cidadao/outras_informacoes/relatorios_conselhos_saude">Relatórios do Conselho de Saúde</a>                                    </li></div></div><div id="mCSB_6_scrollbar_vertical" class="mCSB_scrollTools mCSB_6_scrollbar mCS-minimal-dark mCSB_scrollTools_vertical" style="display: none;"><div class="mCSB_draggerContainer"><div id="mCSB_6_dragger_vertical" class="mCSB_dragger" style="position: absolute; min-height: 50px; top: 0px;"><div class="mCSB_dragger_bar" style="line-height: 50px;"></div></div><div class="mCSB_draggerRail"></div></div></div></ul>                                            </div>                                        </div></ul>
+    </div>
+
+<div class="sub_content" style="overflow-y: auto;">
+    
+
+
+    <div class="filtro">
+
+        <div class="campo containerbusca containerbusca_listagem">
+            <label for="search"></label>
+            <input id="search" class="busca" placeholder="Buscar por Unidade ou Especialidade" type="text">
+            <div class="icon-lupa"></div>
+        </div>
+
+        <div id="filtro_periodo" style="display: flex;"><div class="select select-fat button select_from_periodo" style="width: 115px;">                    <div class="options">                        <div class="orelha"></div>                                                <ul class="list mCustomScrollbar _mCS_1 mCS-autoHide mCS_no_scrollbar" style="position: relative; overflow: visible;"><div id="mCSB_1" class="mCustomScrollBox mCS-minimal-dark mCSB_vertical mCSB_outside" style="max-height: none;" tabindex="0"><div id="mCSB_1_container" class="mCSB_container mCS_y_hidden mCS_no_scrollbar_y" style="position:relative; top:0; left:0;" dir="ltr">                                                        <li>                                <a href="7_days">Últimos 7 dias</a>                            </li>                                                        <li>                                <a href="11_2026">Mês de Novembro</a>                            </li>                                                        <li>                                <a href="10_2026">Mês de Outubro</a>                            </li>                                                        <li>                                <a href="2026">Ano de 2026</a>                            </li>                                                        <li>                                <a href="2025">Ano de 2025</a>                            </li>                                                        <li>                                <a href="2024">Ano de 2024</a>                            </li>                                                        <li>                                <a href="2023">Ano de 2023</a>                            </li>                                                        <li>                                <a href="2022">Ano de 2022</a>                            </li>                                                        <li>                                <a href="personalizado">Personalizado</a>                            </li>                                                                                </div></div><div id="mCSB_1_scrollbar_vertical" class="mCSB_scrollTools mCSB_1_scrollbar mCS-minimal-dark mCSB_scrollTools_vertical" style="display: none;"><div class="mCSB_draggerContainer"><div id="mCSB_1_dragger_vertical" class="mCSB_dragger" style="position: absolute; min-height: 0px; top: 0px;"><div class="mCSB_dragger_bar" style="line-height: 0px;"></div></div><div class="mCSB_draggerRail"></div></div></div></ul>                    </div>                    <div id="" class="selected" title="Período">                        <p>Período</p>                        <span class="icon-stoption-a"></span>                    </div>                </div><div class="filtro_intervalo campo button icon-date-a "></div></div>
+
+        <div id="search_unidades" class="campo containerunidades"><div class="select button select-fat">                    <div class="options">                        <div class="orelha"></div>                        <div class="containerbusca"><input id="search" type="text" class="busca" placeholder="Buscar" autocomplete="off"><div class="icon-lupa"></div></div>                        <ul class="list mCustomScrollbar _mCS_2 mCS-autoHide mCS_no_scrollbar" style="position: relative; overflow: visible;"><div id="mCSB_2" class="mCustomScrollBox mCS-minimal-dark mCSB_vertical mCSB_outside" tabindex="0" style="max-height: none;"><div id="mCSB_2_container" class="mCSB_container mCS_y_hidden mCS_no_scrollbar_y" style="position:relative; top:0; left:0;" dir="ltr">                                                        <li>                                <a href="22"> SAMU – CENTRO</a>                            </li>                                                        <li>                                <a href="35"> UBSF JARDIM ABC</a>                            </li>                                                        <li>                                <a href="6">ACADEMIA DE SAÚDE ARAGUARI</a>                            </li>                                                        <li>                                <a href="7">ACADEMIA DE SAÚDE FRIBURGO B </a>                            </li>                                                        <li>                                <a href="9">ACADEMIA DE SAÚDE JARDIM ABC</a>                            </li>                                                        <li>                                <a href="10">ACADEMIA DE SAÚDE OCIDENTAL PARQUE</a>                            </li>                                                        <li>                                <a href="8">ACADEMIA DE SAÚDE PARQUE NÁPOLES A</a>                            </li>                                                        <li>                                <a href="29">ATENÇÃO BÁSICA</a>                            </li>                                                        <li>                                <a href="24">CAPS</a>                            </li>                                                        <li>                                <a href="25">CENTRO DE SAÚDE</a>                            </li>                                                        <li>                                <a href="20">CONSELHO MUNICIPAL DE SAÚDE</a>                            </li>                                                        <li>                                <a href="34">CTA - CENTRO DE TESTAGEM E ACONSELHAMENTO</a>                            </li>                                                        <li>                                <a href="27">EMAD - EQUIPE MULTIDISCIPLINAR DE ATENDIMENTO DOMICILIAR</a>                            </li>                                                        <li>                                <a href="33">ENDEMIAS</a>                            </li>                                                        <li>                                <a href="19">FÁRMACIA MUNICIPAL CENTRAL</a>                            </li>                                                        <li>                                <a href="26">HOSPITAL MUNICIPAL DE CIDADE OCIDENTAL</a>                            </li>                                                        <li>                                <a href="28">REGULAÇÃO DE SERVIÇOS DE SAÚDE E TFD (TRATAMENTO FORA DE DOMICÍLIO)</a>                            </li>                                                        <li>                                <a href="23">SAMU – JARDIM ABC</a>                            </li>                                                        <li>                                <a href="21">SEDE DA SECRETARIA MUNICIPAL DE SAÚDE</a>                            </li>                                                        <li>                                <a href="36">UBSF ARAGUARI</a>                            </li>                                                        <li>                                <a href="13">UBSF DOM BOSCO</a>                            </li>                                                        <li>                                <a href="5">UBSF FRIBURGO A/RECREIO MOSSORÓ</a>                            </li>                                                        <li>                                <a href="4">UBSF FRIBURGO B</a>                            </li>                                                        <li>                                <a href="11">UBSF OCIDENTAL PARQUE/NÁPOLES B</a>                            </li>                                                        <li>                                <a href="3">UBSF PARQUE ESTRELA DALVA III</a>                            </li>                                                        <li>                                <a href="12">UBSF PARQUE NÁPOLES A/PARQUE NÁPOLES A1</a>                            </li>                                                        <li>                                <a href="1">UBSF POVOADO MESQUITA </a>                            </li>                                                        <li>                                <a href="2">UBSF SÃO MATHEUS</a>                            </li>                                                        <li>                                <a href="18">UBSF SQ 11/12</a>                            </li>                                                        <li>                                <a href="17">UBSF SQ 13</a>                            </li>                                                        <li>                                <a href="15">UBSF SQ 15</a>                            </li>                                                        <li>                                <a href="16">UBSF SQ 16</a>                            </li>                                                        <li>                                <a href="14">UBSF SQ 18</a>                            </li>                                                        <li>                                <a href="37">UBSF SQ 19</a>                            </li>                                                        <li>                                <a href="30">VIGILÂNCIA EM SAÚDE</a>                            </li>                                                        <li>                                <a href="31">VIGILÂNCIA EPIDEMIOLÓGICA</a>                            </li>                                                        <li>                                <a href="32">VIGILÂNCIA SANITÁRIA</a>                            </li>                                                                                </div></div><div id="mCSB_2_scrollbar_vertical" class="mCSB_scrollTools mCSB_2_scrollbar mCS-minimal-dark mCSB_scrollTools_vertical" style="display: none;"><div class="mCSB_draggerContainer"><div id="mCSB_2_dragger_vertical" class="mCSB_dragger" style="position: absolute; min-height: 0px; top: 0px;"><div class="mCSB_dragger_bar" style="line-height: 0px;"></div></div><div class="mCSB_draggerRail"></div></div></div></ul>                    </div>                    <div id="" class="selected" title="Unidade">                        <p>Unidade</p>                        <span class="icon-stoption-a"></span>                    </div>                </div></div>
+
+        <div id="search_especialidade" class="campo"><div class="select button select-fat">                    <div class="options">                        <div class="orelha"></div>                        <div class="containerbusca"><input id="search" type="text" class="busca" placeholder="Buscar" autocomplete="off"><div class="icon-lupa"></div></div>                        <ul class="list mCustomScrollbar _mCS_7 mCS-autoHide mCS_no_scrollbar" style="position: relative; overflow: visible;"><div id="mCSB_7" class="mCustomScrollBox mCS-minimal-dark mCSB_vertical mCSB_outside" tabindex="0" style="max-height: none;"><div id="mCSB_7_container" class="mCSB_container mCS_y_hidden mCS_no_scrollbar_y" style="position:relative; top:0; left:0;" dir="ltr">                                                        <li>                                <a href="36">CIRURGIÃO DENTISTA</a>                            </li>                                                        <li>                                <a href="2">CLÍNICA GERAL</a>                            </li>                                                        <li>                                <a href="3">DERMATOLOGIA</a>                            </li>                                                        <li>                                <a href="4">EDUCAÇÃO FÍSICA</a>                            </li>                                                        <li>                                <a href="26">ENDOCRINOLOGIA</a>                            </li>                                                        <li>                                <a href="1000">ENFERMAGEM</a>                            </li>                                                        <li>                                <a href="6">FARMÁCIA</a>                            </li>                                                        <li>                                <a href="7">FISIOTERAPIA</a>                            </li>                                                        <li>                                <a href="30">GINECOLOGIA</a>                            </li>                                                        <li>                                <a href="9">NUTRIÇÃO</a>                            </li>                                                        <li>                                <a href="25">OBSTETRÍCIA</a>                            </li>                                                        <li>                                <a href="1001">RADIOLOGIA</a>                            </li>                                                        <li>                                <a href="16">REGULAÇÃO</a>                            </li>                                                        <li>                                <a href="17">SERVIÇO SOCIAL</a>                            </li>                                                                                </div></div><div id="mCSB_7_scrollbar_vertical" class="mCSB_scrollTools mCSB_7_scrollbar mCS-minimal-dark mCSB_scrollTools_vertical" style="display: none;"><div class="mCSB_draggerContainer"><div id="mCSB_7_dragger_vertical" class="mCSB_dragger" style="position: absolute; min-height: 50px; top: 0px;"><div class="mCSB_dragger_bar" style="line-height: 50px;"></div></div><div class="mCSB_draggerRail"></div></div></div></ul>                    </div>                    <div id="" class="selected" title="Especialidade">                        <p>Especialidade</p>                        <span class="icon-stoption-a"></span>                    </div>                </div></div>
+
+        <div id="x_filtros" class="campo button x_filtros icon-clean" title="Limpar Filtros" style="display: none;"></div>
+    </div>
+
+    <div class="filtros_ativos" style="margin-bottom: 0px;"><p class="filtros_vazios">Não há filtros selecionados</p></div>
+
+    <div class="cont_dados"><div class="tabela">                        <div class="tb_box tb_overflow">                            <div class="titulo">                                <table><tbody><tr><th title="Menu" class="" style="width: 40px;"></th><th class="" style="width: 270px;">Período</th><th class="" style="width: 25%;">Unidade</th><th class="" style="width: 200px;">Horário de Atendimento</th><th class="">Especialidades</th></tr></tbody></table>                            </div>                            <div class="tb_scroll">                                <table class="tb"><tr id="template_row" data-key="template_row"><td style="width: 40px"></td><td style="width: 270px"></td><td style="width: 25%"></td><td style="width: 200px"></td><td style=""></td></tr><tr id="60" data-key="60">                                                <td class="tb_menu icon-menutable bf_none" colspan="" style="width: 40px;"><ul><li><a href="#" class="icon-download" title="Baixar"></a></li></ul></td>                                                <td class="col4 colReferencia link" colspan="1" style="width: 270px;">01/Janeiro/2026 &nbsp;<strong>à</strong>&nbsp; 31/Dezembro/2026</td>                                                <td class="col5 colUnidade link" colspan="1" style="width: 25%;">HOSPITAL MUNICIPAL DE CIDADE OCIDENTAL</td>                                                <td class="col6 colHorario link" colspan="1" style="width: 200px;">24H</td>                                                <td class="col7 colEspecialidades link" colspan="1" style="width: 100%;">CLÍNICA GERAL<b>; </b>ENFERMAGEM<b>; </b>FARMÁCIA<b>; </b>NUTRIÇÃO<b>; </b>RADIOLOGIA<b>; </b></td>                                            </tr><tr id="61" data-key="61">                                                <td class="tb_menu icon-menutable bf_none" colspan="" style="width: 40px;"><ul><li><a href="#" class="icon-download" title="Baixar"></a></li></ul></td>                                                <td class="col4 colReferencia link" colspan="1" style="width: 270px;">01/Janeiro/2026 &nbsp;<strong>à</strong>&nbsp; 31/Dezembro/2026</td>                                                <td class="col5 colUnidade link" colspan="1" style="width: 25%;">UBSF DOM BOSCO</td>                                                <td class="col6 colHorario link" colspan="1" style="width: 200px;"> SEGUNDA A SEXTA FEIRA DAS 8H ÁS 17H</td>                                                <td class="col7 colEspecialidades link" colspan="1" style="width: 100%;">CLÍNICA GERAL<b>; </b>ENFERMAGEM<b>; </b></td>                                            </tr><tr id="56" data-key="56">                                                <td class="tb_menu icon-menutable bf_none" colspan="" style="width: 40px;"><ul><li><a href="#" class="icon-download" title="Baixar"></a></li></ul></td>                                                <td class="col4 colReferencia link" colspan="1" style="width: 270px;">01/Janeiro/2026 &nbsp;<strong>à</strong>&nbsp; 31/Dezembro/2026</td>                                                <td class="col5 colUnidade link" colspan="1" style="width: 25%;"> SAMU – CENTRO</td>                                                <td class="col6 colHorario link" colspan="1" style="width: 200px;">24H</td>                                                <td class="col7 colEspecialidades link" colspan="1" style="width: 100%;"></td>                                            </tr><tr id="57" data-key="57">                                                <td class="tb_menu icon-menutable bf_none" colspan="" style="width: 40px;"><ul><li><a href="#" class="icon-download" title="Baixar"></a></li></ul></td>                                                <td class="col4 colReferencia link" colspan="1" style="width: 270px;">01/Janeiro/2026 &nbsp;<strong>à</strong>&nbsp; 31/Dezembro/2026</td>                                                <td class="col5 colUnidade link" colspan="1" style="width: 25%;"> UBSF JARDIM ABC</td>                                                <td class="col6 colHorario link" colspan="1" style="width: 200px;">SEGUNDA A SEXTA DAS 8H ÀS 22H E SÁBADOS DAS 8H ÀS 12H</td>                                                <td class="col7 colEspecialidades link" colspan="1" style="width: 100%;"></td>                                            </tr><tr id="58" data-key="58">                                                <td class="tb_menu icon-menutable bf_none" colspan="" style="width: 40px;"><ul><li><a href="#" class="icon-download" title="Baixar"></a></li></ul></td>                                                <td class="col4 colReferencia link" colspan="1" style="width: 270px;">01/Janeiro/2026 &nbsp;<strong>à</strong>&nbsp; 31/Dezembro/2026</td>                                                <td class="col5 colUnidade link" colspan="1" style="width: 25%;">CAPS</td>                                                <td class="col6 colHorario link" colspan="1" style="width: 200px;"> SEGUNDA A SEXTA FEIRA DAS 8H ÁS 17H</td>                                                <td class="col7 colEspecialidades link" colspan="1" style="width: 100%;"></td>                                            </tr><tr id="59" data-key="59">                                                <td class="tb_menu icon-menutable bf_none" colspan="" style="width: 40px;"><ul><li><a href="#" class="icon-download" title="Baixar"></a></li></ul></td>                                                <td class="col4 colReferencia link" colspan="1" style="width: 270px;">01/Janeiro/2026 &nbsp;<strong>à</strong>&nbsp; 31/Dezembro/2026</td>                                                <td class="col5 colUnidade link" colspan="1" style="width: 25%;">FÁRMACIA MUNICIPAL CENTRAL</td>                                                <td class="col6 colHorario link" colspan="1" style="width: 200px;"> SEGUNDA A SEXTA FEIRA DAS 8H ÁS 17H</td>                                                <td class="col7 colEspecialidades link" colspan="1" style="width: 100%;"></td>                                            </tr><tr id="62" data-key="62">                                                <td class="tb_menu icon-menutable bf_none" colspan="" style="width: 40px;"><ul><li><a href="#" class="icon-download" title="Baixar"></a></li></ul></td>                                                <td class="col4 colReferencia link" colspan="1" style="width: 270px;">01/Janeiro/2026 &nbsp;<strong>à</strong>&nbsp; 31/Dezembro/2026</td>                                                <td class="col5 colUnidade link" colspan="1" style="width: 25%;">UBSF FRIBURGO A/RECREIO MOSSORÓ</td>                                                <td class="col6 colHorario link" colspan="1" style="width: 200px;"> SEGUNDA A SEXTA FEIRA DAS 8H ÁS 17H</td>                                                <td class="col7 colEspecialidades link" colspan="1" style="width: 100%;"></td>                                            </tr><tr id="63" data-key="63">                                                <td class="tb_menu icon-menutable bf_none" colspan="" style="width: 40px;"><ul><li><a href="#" class="icon-download" title="Baixar"></a></li></ul></td>                                                <td class="col4 colReferencia link" colspan="1" style="width: 270px;">01/Janeiro/2026 &nbsp;<strong>à</strong>&nbsp; 31/Dezembro/2026</td>                                                <td class="col5 colUnidade link" colspan="1" style="width: 25%;">UBSF POVOADO MESQUITA </td>                                                <td class="col6 colHorario link" colspan="1" style="width: 200px;"> SEGUNDA A SEXTA FEIRA DAS 8H ÁS 17H</td>                                                <td class="col7 colEspecialidades link" colspan="1" style="width: 100%;"></td>                                            </tr><tr id="64" data-key="64">                                                <td class="tb_menu icon-menutable bf_none" colspan="" style="width: 40px;"><ul><li><a href="#" class="icon-download" title="Baixar"></a></li></ul></td>                                                <td class="col4 colReferencia link" colspan="1" style="width: 270px;">01/Janeiro/2026 &nbsp;<strong>à</strong>&nbsp; 31/Dezembro/2026</td>                                                <td class="col5 colUnidade link" colspan="1" style="width: 25%;">UBSF SQ 11/12</td>                                                <td class="col6 colHorario link" colspan="1" style="width: 200px;">SEGUNDA A SEXTA FEIRA DAS 8H ÁS 17H</td>                                                <td class="col7 colEspecialidades link" colspan="1" style="width: 100%;"></td>                                            </tr><tr id="65" data-key="65">                                                <td class="tb_menu icon-menutable bf_none" colspan="" style="width: 40px;"><ul><li><a href="#" class="icon-download" title="Baixar"></a></li></ul></td>                                                <td class="col4 colReferencia link" colspan="1" style="width: 270px;">01/Janeiro/2026 &nbsp;<strong>à</strong>&nbsp; 31/Dezembro/2026</td>                                                <td class="col5 colUnidade link" colspan="1" style="width: 25%;">UBSF SQ 13</td>                                                <td class="col6 colHorario link" colspan="1" style="width: 200px;">SEGUNDA A SEXTA FEIRA DAS 8H ÁS 17H</td>                                                <td class="col7 colEspecialidades link" colspan="1" style="width: 100%;"></td>                                            </tr><tr id="52" data-key="52">                                                <td class="tb_menu icon-menutable bf_none" colspan="" style="width: 40px;"><ul><li><a href="#" class="icon-download" title="Baixar"></a></li></ul></td>                                                <td class="col4 colReferencia link" colspan="1" style="width: 270px;">01/Maio/2025 &nbsp;<strong>à</strong>&nbsp; 31/Maio/2025</td>                                                <td class="col5 colUnidade link" colspan="1" style="width: 25%;">HOSPITAL MUNICIPAL DE CIDADE OCIDENTAL</td>                                                <td class="col6 colHorario link" colspan="1" style="width: 200px;">24H</td>                                                <td class="col7 colEspecialidades link" colspan="1" style="width: 100%;">CLÍNICA GERAL<b>; </b>ENFERMAGEM<b>; </b>FARMÁCIA<b>; </b>NUTRIÇÃO<b>; </b>RADIOLOGIA<b>; </b></td>                                            </tr><tr id="55" data-key="55">                                                <td class="tb_menu icon-menutable bf_none" colspan="" style="width: 40px;"><ul><li><a href="#" class="icon-download" title="Baixar"></a></li></ul></td>                                                <td class="col4 colReferencia link" colspan="1" style="width: 270px;">01/Maio/2025 &nbsp;<strong>à</strong>&nbsp; 30/Novembro/2025</td>                                                <td class="col5 colUnidade link" colspan="1" style="width: 25%;">UBSF SQ 19</td>                                                <td class="col6 colHorario link" colspan="1" style="width: 200px;">SEGUNDA A SEXTA DAS 8H ÀS 22H E SÁBADOS DAS 8H ÀS 12H</td>                                                <td class="col7 colEspecialidades link" colspan="1" style="width: 100%;">CIRURGIÃO DENTISTA<b>; </b>CLÍNICA GERAL<b>; </b>ENFERMAGEM<b>; </b>FISIOTERAPIA<b>; </b>NUTRIÇÃO<b>; </b></td>                                            </tr><tr id="53" data-key="53">                                                <td class="tb_menu icon-menutable bf_none" colspan="" style="width: 40px;"><ul><li><a href="#" class="icon-download" title="Baixar"></a></li></ul></td>                                                <td class="col4 colReferencia link" colspan="1" style="width: 270px;">01/Maio/2025 &nbsp;<strong>à</strong>&nbsp; 30/Novembro/2025</td>                                                <td class="col5 colUnidade link" colspan="1" style="width: 25%;"> UBSF JARDIM ABC</td>                                                <td class="col6 colHorario link" colspan="1" style="width: 200px;">SEGUNDA A SEXTA DAS 8H ÀS 22H E SÁBADOS DAS 8H ÀS 12H</td>                                                <td class="col7 colEspecialidades link" colspan="1" style="width: 100%;"></td>                                            </tr><tr id="54" data-key="54">                                                <td class="tb_menu icon-menutable bf_none" colspan="" style="width: 40px;"><ul><li><a href="#" class="icon-download" title="Baixar"></a></li></ul></td>                                                <td class="col4 colReferencia link" colspan="1" style="width: 270px;">01/Maio/2025 &nbsp;<strong>à</strong>&nbsp; 30/Novembro/2025</td>                                                <td class="col5 colUnidade link" colspan="1" style="width: 25%;">UBSF ARAGUARI</td>                                                <td class="col6 colHorario link" colspan="1" style="width: 200px;">SEGUNDA A SEXTA DAS 8H ÀS 22H E SÁBADOS DAS 8H ÀS 12H</td>                                                <td class="col7 colEspecialidades link" colspan="1" style="width: 100%;"></td>                                            </tr><tr id="45" data-key="45">                                                <td class="tb_menu icon-menutable bf_none" colspan="" style="width: 40px;"><ul><li><a href="#" class="icon-download" title="Baixar"></a></li></ul></td>                                                <td class="col4 colReferencia link" colspan="1" style="width: 270px;">01/Fevereiro/2025 &nbsp;<strong>à</strong>&nbsp; 31/Março/2025</td>                                                <td class="col5 colUnidade link" colspan="1" style="width: 25%;">UBSF DOM BOSCO</td>                                                <td class="col6 colHorario link" colspan="1" style="width: 200px;"> SEGUNDA A SEXTA FEIRA DAS 8H ÁS 17H</td>                                                <td class="col7 colEspecialidades link" colspan="1" style="width: 100%;">CLÍNICA GERAL<b>; </b>ENFERMAGEM<b>; </b></td>                                            </tr></table>                            </div>                        </div>                        <div class="paginacao" style="display: block;">                            <button class="button button-disabled" id="pg_ant">&lt;</button>                            <ul class="pgs"><li id="1"><button class="button button-disabled">1</button></li><li id="2"><button class="button ">2</button></li><li id="3"><button class="button ">3</button></li><li id="4"><button class="button ">4</button></li><li id="5"><button class="button ">5</button></li></ul>                            <button class="button" id="pg_pro">&gt;</button>                            <div class="filtros">                                <p>Ir para: </p>                                <select name="ir_para"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select>                                <p>Linha: </p>                                <select name="quant_linhas"><option value="15" selected="">15</option><option value="20">20</option><option value="30">30</option><option value="40">40</option><option value="50">50</option></select>                            </div>                            <div class="total"><p>1-15 de 65</p></div>                        </div>                    </div></div>
+
+    <div class="ultima_at" style="width: 100%; display: flex; margin-bottom: 16px">
+                        <span style="color: #666666; font-size: 13px;">Atualizado em 10/11/2026</span>
+                    </div></div>
+</main>
+
+    <!--    <footer></footer>-->
+</div>
+
+
+<!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-TR6NKC7LFF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-TR6NKC7LFF');
+</script>
+
+
+
+
+
+<iframe id="_hjSafeContext_89537734" title="_hjSafeContext" tabindex="-1" aria-hidden="true" src="about:blank" style="display: none !important; width: 1px !important; height: 1px !important; opacity: 0 !important; pointer-events: none !important;"></iframe><div class="highslide-container" style="padding: 0px; border-width: medium; border-style: none; border-color: currentcolor; border-image: none; margin: 0px; position: absolute; left: 0px; top: 0px; width: 100%; z-index: 1001; direction: ltr;"><a class="highslide-loading" title="Click to cancel" href="javascript:;" style="position: absolute; top: -9999px; opacity: 0.75; z-index: 1;">Loading...</a><div style="display: none;"></div><div class="highslide-viewport highslide-viewport-size" style="padding: 0px; border-width: medium; border-style: none; border-color: currentcolor; border-image: none; margin: 0px; visibility: hidden;"></div><table cellspacing="0" style="padding: 0px; border-width: medium; border-style: none; border-color: currentcolor; border-image: none; margin: 0px; visibility: hidden; position: absolute; border-collapse: collapse; width: 0px;"><tbody style="padding: 0px; border-width: medium; border-style: none; border-color: currentcolor; border-image: none; margin: 0px;"><tr style="padding: 0px; border-width: medium; border-style: none; border-color: currentcolor; border-image: none; margin: 0px; height: auto;"><td style="padding: 0px; border-width: medium; border-style: none; border-color: currentcolor; border-image: none; margin: 0px; line-height: 0; font-size: 0px; background: url(&quot;https://static.nucleogov.com.br/res/js/libs/highslide/graphics/outlines/drop-shadow.png&quot;) 0px 0px; height: 20px; width: 20px;"></td><td style="padding: 0px; border-width: medium; border-style: none; border-color: currentcolor; border-image: none; margin: 0px; line-height: 0; font-size: 0px; background: url(&quot;https://static.nucleogov.com.br/res/js/libs/highslide/graphics/outlines/drop-shadow.png&quot;) 0px -40px; height: 20px; width: 20px;"></td><td style="padding: 0px; border-width: medium; border-style: none; border-color: currentcolor; border-image: none; margin: 0px; line-height: 0; font-size: 0px; background: url(&quot;https://static.nucleogov.com.br/res/js/libs/highslide/graphics/outlines/drop-shadow.png&quot;) -20px 0px; height: 20px; width: 20px;"></td></tr><tr style="padding: 0px; border-width: medium; border-style: none; border-color: currentcolor; border-image: none; margin: 0px; height: auto;"><td style="padding: 0px; border-width: medium; border-style: none; border-color: currentcolor; border-image: none; margin: 0px; line-height: 0; font-size: 0px; background: url(&quot;https://static.nucleogov.com.br/res/js/libs/highslide/graphics/outlines/drop-shadow.png&quot;) 0px -80px; height: 20px; width: 20px;"></td><td class="drop-shadow highslide-outline" style="padding: 0px; border-width: medium; border-style: none; border-color: currentcolor; border-image: none; margin: 0px; position: relative;"></td><td style="padding: 0px; border-width: medium; border-style: none; border-color: currentcolor; border-image: none; margin: 0px; line-height: 0; font-size: 0px; background: url(&quot;https://static.nucleogov.com.br/res/js/libs/highslide/graphics/outlines/drop-shadow.png&quot;) -20px -80px; height: 20px; width: 20px;"></td></tr><tr style="padding: 0px; border-width: medium; border-style: none; border-color: currentcolor; border-image: none; margin: 0px; height: auto;"><td style="padding: 0px; border-width: medium; border-style: none; border-color: currentcolor; border-image: none; margin: 0px; line-height: 0; font-size: 0px; background: url(&quot;https://static.nucleogov.com.br/res/js/libs/highslide/graphics/outlines/drop-shadow.png&quot;) 0px -20px; height: 20px; width: 20px;"></td><td style="padding: 0px; border-width: medium; border-style: none; border-color: currentcolor; border-image: none; margin: 0px; line-height: 0; font-size: 0px; background: url(&quot;https://static.nucleogov.com.br/res/js/libs/highslide/graphics/outlines/drop-shadow.png&quot;) 0px -60px; height: 20px; width: 20px;"></td><td style="padding: 0px; border-width: medium; border-style: none; border-color: currentcolor; border-image: none; margin: 0px; line-height: 0; font-size: 0px; background: url(&quot;https://static.nucleogov.com.br/res/js/libs/highslide/graphics/outlines/drop-shadow.png&quot;) -20px -20px; height: 20px; width: 20px;"></td></tr></tbody></table></div><div class="container-termos-uso">                                                <div class="texto">                                                    <p>                                                        Utilizamos cookies de acordo com nossas <a href="/p/politica_privacidade" target="_blank">Políticas de Privacidade</a>, ao continuar, você concorda com estas condições.                                                    </p>                                                </div>                                                <div class="opcoes">                                                    <div class="botao-aceitar-termos">                                                        <button type="button" id="aceitar_termos">                                                            <span>Continuar</span>                                                        </button>                                                    </div>                                                </div>                                            </div></body></html>

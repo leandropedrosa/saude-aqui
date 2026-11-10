@@ -1,0 +1,275 @@
+{
+  "0-0ewje8": [
+    {
+      "id": "36",
+      "valor": "CIRURGIÃO DENTISTA"
+    },
+    {
+      "id": "2",
+      "valor": "CLÍNICA GERAL"
+    },
+    {
+      "id": "3",
+      "valor": "DERMATOLOGIA"
+    },
+    {
+      "id": "4",
+      "valor": "EDUCAÇÃO FÍSICA"
+    },
+    {
+      "id": "26",
+      "valor": "ENDOCRINOLOGIA"
+    },
+    {
+      "id": "1000",
+      "valor": "ENFERMAGEM"
+    },
+    {
+      "id": "6",
+      "valor": "FARMÁCIA"
+    },
+    {
+      "id": "7",
+      "valor": "FISIOTERAPIA"
+    },
+    {
+      "id": "30",
+      "valor": "GINECOLOGIA"
+    },
+    {
+      "id": "9",
+      "valor": "NUTRIÇÃO"
+    },
+    {
+      "id": "25",
+      "valor": "OBSTETRÍCIA"
+    },
+    {
+      "id": "1001",
+      "valor": "RADIOLOGIA"
+    },
+    {
+      "id": "16",
+      "valor": "REGULAÇÃO"
+    },
+    {
+      "id": "17",
+      "valor": "SERVIÇO SOCIAL"
+    }
+  ],
+  "1-o8ibrq": {
+    "dados": [
+      {
+        "id": "60",
+        "escala_medica_id": "22",
+        "unidade_id": "26",
+        "data_inicio": "2026-01-01",
+        "data_fim": "2026-12-31",
+        "nome": "HOSPITAL MUNICIPAL DE CIDADE OCIDENTAL",
+        "horario_funcionamento": "24H",
+        "especialidades": "[2,1000,6,9,1001]",
+        "midia": "54dcc8c0cd20f007d4fb936631696b16.pdf",
+        "tipo_midia": "outros",
+        "titulo_midia": "profissionalEstabelecimento (36).pdf",
+        "total": "65"
+      },
+      {
+        "id": "61",
+        "escala_medica_id": "23",
+        "unidade_id": "13",
+        "data_inicio": "2026-01-01",
+        "data_fim": "2026-12-31",
+        "nome": "UBSF DOM BOSCO",
+        "horario_funcionamento": " SEGUNDA A SEXTA FEIRA DAS 8H ÁS 17H",
+        "especialidades": "[2,1000]",
+        "midia": "340bf5ae9fd16d1b768b2c9b70ba97e9.pdf",
+        "tipo_midia": "outros",
+        "titulo_midia": "profissionalEstabelecimento (37).pdf",
+        "total": "65"
+      },
+      {
+        "id": "56",
+        "escala_medica_id": "18",
+        "unidade_id": "22",
+        "data_inicio": "2026-01-01",
+        "data_fim": "2026-12-31",
+        "nome": " SAMU – CENTRO",
+        "horario_funcionamento": "24H",
+        "especialidades": null,
+        "midia": "265caed44a5c304ec8df21b0e7f02cc3.pdf",
+        "tipo_midia": "outros",
+        "titulo_midia": "profissionalEstabelecimento (32).pdf",
+        "total": "65"
+      },
+      {
+        "id": "57",
+        "escala_medica_id": "19",
+        "unidade_id": "35",
+        "data_inicio": "2026-01-01",
+        "data_fim": "2026-12-31",
+        "nome": " UBSF JARDIM ABC",
+        "horario_funcionamento": "SEGUNDA A SEXTA DAS 8H ÀS 22H E SÁBADOS DAS 8H ÀS 12H",
+        "especialidades": null,
+        "midia": "8d2382f61ff5746f13392b27408ee47a.pdf",
+        "tipo_midia": "outros",
+        "titulo_midia": "profissionalEstabelecimento (33).pdf",
+        "total": "65"
+      },
+      {
+        "id": "58",
+        "escala_medica_id": "20",
+        "unidade_id": "24",
+        "data_inicio": "2026-01-01",
+        "data_fim": "2026-12-31",
+        "nome": "CAPS",
+        "horario_funcionamento": " SEGUNDA A SEXTA FEIRA DAS 8H ÁS 17H",
+        "especialidades": null,
+        "midia": "5bafd630bfa09497f7eefa53c1c68de9.pdf",
+        "tipo_midia": "outros",
+        "titulo_midia": "profissionalEstabelecimento (34).pdf",
+        "total": "65"
+      },
+      {
+        "id": "59",
+        "escala_medica_id": "21",
+        "unidade_id": "19",
+        "data_inicio": "2026-01-01",
+        "data_fim": "2026-12-31",
+        "nome": "FÁRMACIA MUNICIPAL CENTRAL",
+        "horario_funcionamento": " SEGUNDA A SEXTA FEIRA DAS 8H ÁS 17H",
+        "especialidades": null,
+        "midia": "c1e4c84806ccb47e6183911111c987b2.pdf",
+        "tipo_midia": "outros",
+        "titulo_midia": "profissionalEstabelecimento (35).pdf",
+        "total": "65"
+      },
+      {
+        "id": "62",
+        "escala_medica_id": "24",
+        "unidade_id": "5",
+        "data_inicio": "2026-01-01",
+        "data_fim": "2026-12-31",
+        "nome": "UBSF FRIBURGO A/RECREIO MOSSORÓ",
+        "horario_funcionamento": " SEGUNDA A SEXTA FEIRA DAS 8H ÁS 17H",
+        "especialidades": null,
+        "midia": "a52e6fd5ce7a3cf7fe836df89a896741.pdf",
+        "tipo_midia": "outros",
+        "titulo_midia": "profissionalEstabelecimento (38).pdf",
+        "total": "65"
+      },
+      {
+        "id": "63",
+        "escala_medica_id": "25",
+        "unidade_id": "1",
+        "data_inicio": "2026-01-01",
+        "data_fim": "2026-12-31",
+        "nome": "UBSF POVOADO MESQUITA ",
+        "horario_funcionamento": " SEGUNDA A SEXTA FEIRA DAS 8H ÁS 17H",
+        "especialidades": null,
+        "midia": "20141654ab0a35910abcddc1ad35c115.pdf",
+        "tipo_midia": "outros",
+        "titulo_midia": "profissionalEstabelecimento (40).pdf",
+        "total": "65"
+      },
+      {
+        "id": "64",
+        "escala_medica_id": "26",
+        "unidade_id": "18",
+        "data_inicio": "2026-01-01",
+        "data_fim": "2026-12-31",
+        "nome": "UBSF SQ 11/12",
+        "horario_funcionamento": "SEGUNDA A SEXTA FEIRA DAS 8H ÁS 17H",
+        "especialidades": null,
+        "midia": "27b86f9ba665ef3334628a97671b932b.pdf",
+        "tipo_midia": "outros",
+        "titulo_midia": "profissionalEstabelecimento (41).pdf",
+        "total": "65"
+      },
+      {
+        "id": "65",
+        "escala_medica_id": "27",
+        "unidade_id": "17",
+        "data_inicio": "2026-01-01",
+        "data_fim": "2026-12-31",
+        "nome": "UBSF SQ 13",
+        "horario_funcionamento": "SEGUNDA A SEXTA FEIRA DAS 8H ÁS 17H",
+        "especialidades": null,
+        "midia": "412b9fe87c32fb00baf4d6c44816b326.pdf",
+        "tipo_midia": "outros",
+        "titulo_midia": "profissionalEstabelecimento (42).pdf",
+        "total": "65"
+      },
+      {
+        "id": "52",
+        "escala_medica_id": "16",
+        "unidade_id": "26",
+        "data_inicio": "2025-05-01",
+        "data_fim": "2025-05-31",
+        "nome": "HOSPITAL MUNICIPAL DE CIDADE OCIDENTAL",
+        "horario_funcionamento": "24H",
+        "especialidades": "[2,1000,6,9,1001]",
+        "midia": "d0e36db2699035c63dd94b88f0faf2b2.xlsx",
+        "tipo_midia": "outros",
+        "titulo_midia": "ESCALA MÉDICA.xlsx",
+        "total": "65"
+      },
+      {
+        "id": "55",
+        "escala_medica_id": "17",
+        "unidade_id": "37",
+        "data_inicio": "2025-05-01",
+        "data_fim": "2025-11-30",
+        "nome": "UBSF SQ 19",
+        "horario_funcionamento": "SEGUNDA A SEXTA DAS 8H ÀS 22H E SÁBADOS DAS 8H ÀS 12H",
+        "especialidades": "[36,2,1000,7,9]",
+        "midia": "c207af6b3de5e45454b38a2d6868ec1a.xlsx",
+        "tipo_midia": "outros",
+        "titulo_midia": "ESCALA MÉDICA.xlsx",
+        "total": "65"
+      },
+      {
+        "id": "53",
+        "escala_medica_id": "17",
+        "unidade_id": "35",
+        "data_inicio": "2025-05-01",
+        "data_fim": "2025-11-30",
+        "nome": " UBSF JARDIM ABC",
+        "horario_funcionamento": "SEGUNDA A SEXTA DAS 8H ÀS 22H E SÁBADOS DAS 8H ÀS 12H",
+        "especialidades": null,
+        "midia": "c207af6b3de5e45454b38a2d6868ec1a.xlsx",
+        "tipo_midia": "outros",
+        "titulo_midia": "ESCALA MÉDICA.xlsx",
+        "total": "65"
+      },
+      {
+        "id": "54",
+        "escala_medica_id": "17",
+        "unidade_id": "36",
+        "data_inicio": "2025-05-01",
+        "data_fim": "2025-11-30",
+        "nome": "UBSF ARAGUARI",
+        "horario_funcionamento": "SEGUNDA A SEXTA DAS 8H ÀS 22H E SÁBADOS DAS 8H ÀS 12H",
+        "especialidades": null,
+        "midia": "c207af6b3de5e45454b38a2d6868ec1a.xlsx",
+        "tipo_midia": "outros",
+        "titulo_midia": "ESCALA MÉDICA.xlsx",
+        "total": "65"
+      },
+      {
+        "id": "45",
+        "escala_medica_id": "9",
+        "unidade_id": "13",
+        "data_inicio": "2025-02-01",
+        "data_fim": "2025-03-31",
+        "nome": "UBSF DOM BOSCO",
+        "horario_funcionamento": " SEGUNDA A SEXTA FEIRA DAS 8H ÁS 17H",
+        "especialidades": "[2,1000]",
+        "midia": "b3ca6509f35d8feb4dd22a678a0f34c7.pdf",
+        "tipo_midia": "outros",
+        "titulo_midia": "UBS FAMILIA DOM BOSCO.pdf",
+        "total": "65"
+      }
+    ],
+    "total": "65"
+  }
+}

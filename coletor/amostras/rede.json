@@ -1,0 +1,461 @@
+[
+  {
+    "url": "https://acessoainformacao.cidadeocidental.go.gov.br/cidadao/outras_informacoes/escalasmedicas",
+    "metodo": "GET",
+    "tipo_recurso": "document",
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "tamanho": 46506,
+    "post_data": null
+  },
+  {
+    "url": "https://static.nucleogov.com.br/res/fonts/font-icon/font-face.css?v=5.4.165",
+    "metodo": "GET",
+    "tipo_recurso": "stylesheet",
+    "status": 200,
+    "content_type": "text/css",
+    "tamanho": 9258,
+    "post_data": null
+  },
+  {
+    "url": "https://static.nucleogov.com.br/res/fonts/icones/styles.css?v=5.4.165",
+    "metodo": "GET",
+    "tipo_recurso": "stylesheet",
+    "status": 200,
+    "content_type": "text/css",
+    "tamanho": 3596,
+    "post_data": null
+  },
+  {
+    "url": "https://nucleogov.s3.us-east-2.amazonaws.com/pf_cidadeocidental/custom-theme/custom-index-133.css?v=5.4.165",
+    "metodo": "GET",
+    "tipo_recurso": "stylesheet",
+    "status": 200,
+    "content_type": "text/css",
+    "tamanho": 465,
+    "post_data": null
+  },
+  {
+    "url": "https://static.nucleogov.com.br/res/css/auxiliares.css?v=5.4.165",
+    "metodo": "GET",
+    "tipo_recurso": "stylesheet",
+    "status": 200,
+    "content_type": "text/css; charset=utf-8",
+    "tamanho": 7944,
+    "post_data": null
+  },
+  {
+    "url": "https://static.nucleogov.com.br/res/css/painel/padroes.css?v=5.4.165",
+    "metodo": "GET",
+    "tipo_recurso": "stylesheet",
+    "status": 200,
+    "content_type": "text/css; charset=utf-8",
+    "tamanho": 11860,
+    "post_data": null
+  },
+  {
+    "url": "https://static.nucleogov.com.br/res/css/index.css?v=5.4.165",
+    "metodo": "GET",
+    "tipo_recurso": "stylesheet",
+    "status": 200,
+    "content_type": "text/css; charset=utf-8",
+    "tamanho": 465,
+    "post_data": null
+  },
+  {
+    "url": "https://static.nucleogov.com.br/res/css/cidadao/escala_medica/escalasmedicas.css?v=5.4.165",
+    "metodo": "GET",
+    "tipo_recurso": "stylesheet",
+    "status": 200,
+    "content_type": "text/css; charset=utf-8",
+    "tamanho": 3796,
+    "post_data": null
+  },
+  {
+    "url": "https://static.nucleogov.com.br/res/css/cidadao/informacao.css?v=5.4.165",
+    "metodo": "GET",
+    "tipo_recurso": "stylesheet",
+    "status": 200,
+    "content_type": "text/css; charset=utf-8",
+    "tamanho": 3689,
+    "post_data": null
+  },
+  {
+    "url": "https://static.nucleogov.com.br/res/css/cidadao/index.css?v=5.4.165",
+    "metodo": "GET",
+    "tipo_recurso": "stylesheet",
+    "status": 200,
+    "content_type": "text/css; charset=utf-8",
+    "tamanho": 32123,
+    "post_data": null
+  },
+  {
+    "url": "https://static.nucleogov.com.br/res/js/libs/require/require.min.js?v=5.4.165",
+    "metodo": "GET",
+    "tipo_recurso": "script",
+    "status": 200,
+    "content_type": "application/javascript",
+    "tamanho": 17536,
+    "post_data": null
+  },
+  {
+    "url": "https://static.nucleogov.com.br/res/img/nucleo/acessibilidade.svg",
+    "metodo": "GET",
+    "tipo_recurso": "image",
+    "status": 200,
+    "content_type": "image/svg+xml",
+    "tamanho": 975,
+    "post_data": null
+  },
+  {
+    "url": "https://static.nucleogov.com.br/res/img/nucleo/gif.png",
+    "metodo": "GET",
+    "tipo_recurso": "image",
+    "status": 200,
+    "content_type": "image/png",
+    "tamanho": 1750,
+    "post_data": null
+  },
+  {
+    "url": "https://static.hotjar.com/c/hotjar-1419555.js?sv=6",
+    "metodo": "GET",
+    "tipo_recurso": "script",
+    "status": 200,
+    "content_type": "application/javascript; charset=UTF-8",
+    "tamanho": 16993,
+    "post_data": null
+  },
+  {
+    "url": "https://static.nucleogov.com.br/res/js/cidadao/boot.js?v=5.4.165",
+    "metodo": "GET",
+    "tipo_recurso": "script",
+    "status": 200,
+    "content_type": "application/javascript",
+    "tamanho": 276173,
+    "post_data": null
+  },
+  {
+    "url": "https://www.googletagmanager.com/gtag/js?id=G-TR6NKC7LFF",
+    "metodo": "GET",
+    "tipo_recurso": "script",
+    "status": 200,
+    "content_type": "application/javascript; charset=UTF-8",
+    "tamanho": 540581,
+    "post_data": null
+  },
+  {
+    "url": "https://script.hotjar.com/modules.47ae0ae40a423a71e31f.js",
+    "metodo": "GET",
+    "tipo_recurso": "script",
+    "status": 200,
+    "content_type": "application/javascript; charset=utf-8",
+    "tamanho": 240380,
+    "post_data": null
+  },
+  {
+    "url": "https://static.nucleogov.com.br/res/fonts/font-icon/icones.woff",
+    "metodo": "GET",
+    "tipo_recurso": "font",
+    "status": 200,
+    "content_type": "font/woff",
+    "tamanho": 28297,
+    "post_data": null
+  },
+  {
+    "url": "https://static.nucleogov.com.br//res/js/common.js?v=5.4.165",
+    "metodo": "GET",
+    "tipo_recurso": "script",
+    "status": 200,
+    "content_type": "application/javascript",
+    "tamanho": 4251,
+    "post_data": null
+  },
+  {
+    "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-TR6NKC7LFF&gtm=45je6b91v9172094421za208zd9172094421xf1&_p=1794350044431&gcd=13l3l3l3l1l1&npa=0&dma=0&cid=2031311147.1794350045&frm=0&ngs=1&pscdl=noapi&rcb=3&sr=1280x720&uaa=x86&uab=64&uafvl=Chromium%3B158.0.8127.18%7CNot.A%252FBrand%3B24.0.0.0%7CHeadlessChrome%3B158.0.8127.18&uam=&uamb=0&uap=Linux&uapv=&uaw=0&ul=pt-br&_s=1&tag_exp=115938466~115938468~118897920~118897930~120213116~120385423~120412528~120420414~120469145~120469153~121246026~121246034~123329123~123814185&sid=1794350044&sct=1&seg=0&dl=https%3A%2F%2Facessoainformacao.cidadeocidental.go.gov.br%2Fcidadao%2Foutras_informacoes%2Fescalasmedicas&dt=Servi%C3%A7os%20de%20Sa%C3%BAde%20(Escalas)%20-%20Prefeitura%20de%20Cidade%20Ocidental%20-%20GO&en=page_view&_fv=1&_nsi=1&_ss=1&_ee=1&tfd=2140",
+    "metodo": "POST",
+    "tipo_recurso": "fetch",
+    "status": 204,
+    "content_type": "text/plain",
+    "tamanho": 0,
+    "post_data": null
+  },
+  {
+    "url": "https://static.nucleogov.com.br/res/js/libs/highslide/graphics/outlines/drop-shadow.png",
+    "metodo": "GET",
+    "tipo_recurso": "image",
+    "status": 200,
+    "content_type": "image/png",
+    "tamanho": 2091,
+    "post_data": null
+  },
+  {
+    "url": "https://static.nucleogov.com.br/res/js/libs/highslide/graphics/zoomout.cur",
+    "metodo": "GET",
+    "tipo_recurso": "image",
+    "status": 200,
+    "content_type": "application/octet-stream",
+    "tamanho": 326,
+    "post_data": null
+  },
+  {
+    "url": "https://static.nucleogov.com.br/res/js/nucleo/nucleo/nucleo.css?v=5.4.165",
+    "metodo": "GET",
+    "tipo_recurso": "stylesheet",
+    "status": 200,
+    "content_type": "text/css",
+    "tamanho": 3901,
+    "post_data": null
+  },
+  {
+    "url": "https://static.nucleogov.com.br/res/js/nucleo/componentes/campos.css?v=5.4.165",
+    "metodo": "GET",
+    "tipo_recurso": "stylesheet",
+    "status": 200,
+    "content_type": "text/css",
+    "tamanho": 11565,
+    "post_data": null
+  },
+  {
+    "url": "https://static.nucleogov.com.br/res/js/cidadao/controller/escala_medica/escalasmedicas.js?v=5.4.165",
+    "metodo": "GET",
+    "tipo_recurso": "script",
+    "status": 200,
+    "content_type": "application/javascript",
+    "tamanho": 11107,
+    "post_data": null
+  },
+  {
+    "url": "https://static.nucleogov.com.br/res/js/libs/custom-scrollbar/jquery.mCustomScrollbar.js?v=5.4.165",
+    "metodo": "GET",
+    "tipo_recurso": "script",
+    "status": 200,
+    "content_type": "application/javascript",
+    "tamanho": 40218,
+    "post_data": null
+  },
+  {
+    "url": "https://static.nucleogov.com.br/res/js/nucleo/componentes/select.js?v=5.4.165",
+    "metodo": "GET",
+    "tipo_recurso": "script",
+    "status": 200,
+    "content_type": "application/javascript",
+    "tamanho": 6698,
+    "post_data": null
+  },
+  {
+    "url": "https://static.nucleogov.com.br/res/js/nucleo/componentes/popup.css?v=5.4.165",
+    "metodo": "GET",
+    "tipo_recurso": "stylesheet",
+    "status": 200,
+    "content_type": "text/css",
+    "tamanho": 11829,
+    "post_data": null
+  },
+  {
+    "url": "https://static.nucleogov.com.br/res/js/nucleo/componentes/table.css?v=5.4.165",
+    "metodo": "GET",
+    "tipo_recurso": "stylesheet",
+    "status": 200,
+    "content_type": "text/css",
+    "tamanho": 8869,
+    "post_data": null
+  },
+  {
+    "url": "https://static.nucleogov.com.br/res/css/cidadao/home_popup.css?v=5.4.165",
+    "metodo": "GET",
+    "tipo_recurso": "stylesheet",
+    "status": 200,
+    "content_type": "text/css; charset=utf-8",
+    "tamanho": 11949,
+    "post_data": null
+  },
+  {
+    "url": "https://static.nucleogov.com.br/res/js/nucleo/componentes/month_scroll.js?v=5.4.165",
+    "metodo": "GET",
+    "tipo_recurso": "script",
+    "status": 200,
+    "content_type": "application/javascript",
+    "tamanho": 3582,
+    "post_data": null
+  },
+  {
+    "url": "https://static.nucleogov.com.br/res/js/painel/requisicoes/escalamedica.js?v=5.4.165",
+    "metodo": "GET",
+    "tipo_recurso": "script",
+    "status": 200,
+    "content_type": "application/javascript",
+    "tamanho": 1870,
+    "post_data": null
+  },
+  {
+    "url": "https://static.nucleogov.com.br/res/js/nucleo/componentes/filtros.js?v=5.4.165",
+    "metodo": "GET",
+    "tipo_recurso": "script",
+    "status": 200,
+    "content_type": "application/javascript",
+    "tamanho": 3761,
+    "post_data": null
+  },
+  {
+    "url": "https://static.nucleogov.com.br/res/js/nucleo/componentes/selectPeriodo.js?v=5.4.165",
+    "metodo": "GET",
+    "tipo_recurso": "script",
+    "status": 200,
+    "content_type": "application/javascript",
+    "tamanho": 28202,
+    "post_data": null
+  },
+  {
+    "url": "https://static.nucleogov.com.br/res/js/libs/jquery-ui/jquery-ui.js?v=5.4.165",
+    "metodo": "GET",
+    "tipo_recurso": "script",
+    "status": 200,
+    "content_type": "application/javascript",
+    "tamanho": 67993,
+    "post_data": null
+  },
+  {
+    "url": "https://static.nucleogov.com.br/res/js/nucleo/componentes/select.css?v=5.4.165",
+    "metodo": "GET",
+    "tipo_recurso": "stylesheet",
+    "status": 200,
+    "content_type": "text/css",
+    "tamanho": 7181,
+    "post_data": null
+  },
+  {
+    "url": "https://static.nucleogov.com.br/res/js/nucleo/componentes/filtros.css?v=5.4.165",
+    "metodo": "GET",
+    "tipo_recurso": "stylesheet",
+    "status": 200,
+    "content_type": "text/css",
+    "tamanho": 1444,
+    "post_data": null
+  },
+  {
+    "url": "https://static.nucleogov.com.br/res/js/libs/calendar/jquery-ui-timepicker-addon.js?v=5.4.165",
+    "metodo": "GET",
+    "tipo_recurso": "script",
+    "status": 200,
+    "content_type": "application/javascript",
+    "tamanho": 41117,
+    "post_data": null
+  },
+  {
+    "url": "https://static.nucleogov.com.br/res/js/libs/datepicker-bootstrap/bootstrap-datepicker.min.js?v=5.4.165",
+    "metodo": "GET",
+    "tipo_recurso": "script",
+    "status": 200,
+    "content_type": "application/javascript",
+    "tamanho": 33951,
+    "post_data": null
+  },
+  {
+    "url": "https://static.nucleogov.com.br/res/js/libs/calendar/jquery-ui-timepicker-pt-BR.js?v=5.4.165",
+    "metodo": "GET",
+    "tipo_recurso": "script",
+    "status": 200,
+    "content_type": "application/javascript",
+    "tamanho": 429,
+    "post_data": null
+  },
+  {
+    "url": "https://static.nucleogov.com.br/res/js/libs/datepicker-bootstrap/bootstrap-datepicker.pt-br.min.js?v=5.4.165",
+    "metodo": "GET",
+    "tipo_recurso": "script",
+    "status": 200,
+    "content_type": "application/javascript",
+    "tamanho": 506,
+    "post_data": null
+  },
+  {
+    "url": "https://acessoainformacao.cidadeocidental.go.gov.br/api/escalasmedicas",
+    "metodo": "POST",
+    "tipo_recurso": "xhr",
+    "status": 200,
+    "content_type": "text/json; charset=utf-8",
+    "tamanho": 1833,
+    "post_data": "acao=listar_unidades"
+  },
+  {
+    "url": "https://static.nucleogov.com.br/res/js/nucleo/componentes/selectPeriodo.css?v=5.4.165",
+    "metodo": "GET",
+    "tipo_recurso": "stylesheet",
+    "status": 200,
+    "content_type": "text/css",
+    "tamanho": 6859,
+    "post_data": null
+  },
+  {
+    "url": "https://static.nucleogov.com.br/res/js/nucleo/componentes/month_scroll.css?v=5.4.165",
+    "metodo": "GET",
+    "tipo_recurso": "stylesheet",
+    "status": 200,
+    "content_type": "text/css",
+    "tamanho": 3145,
+    "post_data": null
+  },
+  {
+    "url": "https://static.nucleogov.com.br/res/js/libs/datepicker-bootstrap/bootstrap-datepicker3.min.css?v=5.4.165",
+    "metodo": "GET",
+    "tipo_recurso": "stylesheet",
+    "status": 200,
+    "content_type": "text/css",
+    "tamanho": 21844,
+    "post_data": null
+  },
+  {
+    "url": "https://static.nucleogov.com.br/res/js/libs/uploadifive/uploadifive.css?v=5.4.165",
+    "metodo": "GET",
+    "tipo_recurso": "stylesheet",
+    "status": 200,
+    "content_type": "text/css",
+    "tamanho": 845,
+    "post_data": null
+  },
+  {
+    "url": "https://static.nucleogov.com.br/res/js/libs/jquery-ui/jquery-ui.css?v=5.4.165",
+    "metodo": "GET",
+    "tipo_recurso": "stylesheet",
+    "status": 200,
+    "content_type": "text/css",
+    "tamanho": 23268,
+    "post_data": null
+  },
+  {
+    "url": "https://static.nucleogov.com.br/res/js/libs/custom-scrollbar/jquery.mCustomScrollbar.css?v=5.4.165",
+    "metodo": "GET",
+    "tipo_recurso": "stylesheet",
+    "status": 200,
+    "content_type": "text/css",
+    "tamanho": 53583,
+    "post_data": null
+  },
+  {
+    "url": "https://acessoainformacao.cidadeocidental.go.gov.br/res/texts/cidadao/modulos_painel.json",
+    "metodo": "GET",
+    "tipo_recurso": "xhr",
+    "status": 200,
+    "content_type": "application/json",
+    "tamanho": 3375,
+    "post_data": null
+  },
+  {
+    "url": "https://acessoainformacao.cidadeocidental.go.gov.br/api",
+    "metodo": "POST",
+    "tipo_recurso": "xhr",
+    "status": 200,
+    "content_type": "text/json; charset=utf-8",
+    "tamanho": 13330,
+    "post_data": "multi_request=true&params=%7B%220-0ewje8%22%3A%7B%22only_existing%22%3Atrue%2C%22acao%22%3A%22escalasmedicas%2FlistarEspecialidades%22%7D%2C%221-o8ibrq%22%3A%7B%22limit%22%3A%220%2C+15%22%2C%22acao%22%3A%22escalasmedicas%2FlistarCidadao%22%7D%7D"
+  },
+  {
+    "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-TR6NKC7LFF&gtm=45je6b91v9172094421za200zd9172094421xf1&_p=1794350044431&gcd=13l3l3l3l1l1&npa=0&dma=0&_eu=AEAAAAQ&ae=a&cid=2031311147.1794350045&frm=0&ngs=1&pscdl=noapi&rcb=3&sr=1280x720&uaa=x86&uab=64&uafvl=Chromium%3B158.0.8127.18%7CNot.A%252FBrand%3B24.0.0.0%7CHeadlessChrome%3B158.0.8127.18&uam=&uamb=0&uap=Linux&uapv=&uaw=0&ul=pt-br&_s=2&tag_exp=115938466~115938468~118897920~118897930~120213116~120385423~120412528~120420414~120469145~120469153~121246026~121246034~123329123~123814185&sid=1794350044&sct=1&seg=0&dl=https%3A%2F%2Facessoainformacao.cidadeocidental.go.gov.br%2Fcidadao%2Foutras_informacoes%2Fescalasmedicas&dt=Servi%C3%A7os%20de%20Sa%C3%BAde%20(Escalas)%20-%20Prefeitura%20de%20Cidade%20Ocidental%20-%20GO&en=scroll&epn.percent_scrolled=90&_et=6&tfd=7148",
+    "metodo": "POST",
+    "tipo_recurso": "fetch",
+    "status": 204,
+    "content_type": "text/plain",
+    "tamanho": 0,
+    "post_data": null
+  }
+]
