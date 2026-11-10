@@ -215,7 +215,7 @@ Toda execução gera uma linha na tabela `coleta`, com status `sucesso`, `sem_no
 `erro` e a mensagem do erro, quando houver.
 
 ```bash
-docker compose up -d coletor                              # agendado: todo dia às 06:15 (Brasília)
+docker compose up -d coletor                              # agendado: todo dia às 02:00 (Brasília)
 docker compose run --rm coletor python coletar.py          # execução manual
 docker compose run --rm coletor python coletar.py --forcar # reimporta (ex.: depois de editar os CSVs)
 docker compose run --rm coletor python coletar.py --competencia 2608   # um mês específico (AAMM)
@@ -327,7 +327,7 @@ As imagens nascem **privadas** no GHCR. Escolha uma das opções:
 
 ### 6. Primeira carga de dados
 
-O coletor roda sozinho todo dia às 06:15. Para não esperar até lá, rode uma vez à mão:
+O coletor roda sozinho todo dia às 02:00. Para não esperar até lá, rode uma vez à mão:
 no Easypanel, abra o **console** do serviço `coletor` e execute
 
 ```bash
