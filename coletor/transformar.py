@@ -57,7 +57,9 @@ def transformar_estabelecimento(e: dict) -> dict:
     endereco = _texto(e.get("endereco_estabelecimento"))
     numero = _texto(e.get("numero_estabelecimento"))
     if endereco and numero and numero.upper() not in ("S/N", "SN", "0"):
-        endereco = f"{endereco}, {numero}"
+        # "QUADRA 109 LOTE" + "09" -> "QUADRA 109 LOTE 09" ; "RUA 5" + "10" -> "RUA 5, 10"
+        termina_com_rotulo = endereco.split()[-1].upper() in ("LOTE", "LT", "CASA", "CS", "QD", "QUADRA", "LOJA")
+        endereco = f"{endereco} {numero}" if termina_com_rotulo else f"{endereco}, {numero}"
 
     return {
         "cnes": str(e["codigo_cnes"]).zfill(7),

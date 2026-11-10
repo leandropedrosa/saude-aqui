@@ -25,7 +25,7 @@ cnes,nome_cnes,nome,bairro,horario,telefone,lat,lng,ativo,observacao
 2438526,UBS FAMILIA JARDIM ABC,UBS Família Jardim ABC,Jardim ABC,,,,,sim,
 8008221,UBS FAMILIA JARDIM ABC RURAL,UBS Família Jardim ABC Rural,Jardim ABC,,,,,sim,
 8280320,UBS FAMILIA JARDIM ABC SATELITE,UBS Família Jardim ABC Satélite,Jardim Satélite,,,,,sim,
-2383403,UBS FAMILIA MESQUITA,UBS Família Povoado Mesquita,Zona Rural,,,,,sim,
+2383403,UBS FAMILIA MESQUITA,UBS Família Povoado Mesquita,Zona Rural,,,-16.0775786,-47.8677106,sim,coordenada aproximada (centro do Mesquita no OpenStreetMap); no CNES estava a 38 km
 0882658,UBS FAMILIA NAPOLES B,UBS Família Parque Nápoles B,Parque Nápoles B,,,,,sim,
 2438488,UBS FAMILIA OCIDENTAL PARK,UBS Família Ocidental Parque,Ocidental Parque,,,,,sim,
 7305117,UBS FAMILIA PARQUE ARAGUARI,UBS Família Parque Araguari,Parque Araguari,,,,,sim,
@@ -41,7 +41,7 @@ cnes,nome_cnes,nome,bairro,horario,telefone,lat,lng,ativo,observacao
 3042685,UBS FAMILIA SQ 16,UBS Família SQ 16,Centro,,,,,sim,
 3005119,UBS FAMILIA SQ 17,UBS Família SQ 17,Centro,,,,,sim,
 3005127,UBS FAMILIA SQ 18,UBS Família SQ 18,Centro,,,,,sim,
-2440024,UBS FAMILIA SQ 19,UBS Família SQ 19,Centro,,,,,sim,
+2440024,UBS FAMILIA SQ 19,UBS Família SQ 19,Centro,,,-16.1016737,-47.9235592,sim,coordenada aproximada (centro da SQ 19 no OpenStreetMap); no CNES estava a 57 km
 8524769,UBS RECREIO MOSSORO ESTENDIDA,UBS Recreio Mossoró (horário estendido),Recreio Mossoró,,,,,sim,
 3866696,UNIDADE DE CONTROLE DE ENDEMIAS,Unidade de Controle de Endemias,Centro,,,,,nao,"vigilância, sem atendimento ao público"
 3005135,UNIDADE MOVEL TERRESTRE I,Unidade Móvel Terrestre I,Centro,,,,,nao,"unidade móvel, sem endereço fixo"

@@ -10,6 +10,67 @@ Projeto de alunos de graduação da UFG. O código é propositalmente simples e 
 > está **vinculado** a cada unidade, e não quem está de plantão hoje. O site sempre orienta a
 > confirmar por telefone antes de ir.
 
+## Funcionalidades
+
+> As capturas abaixo usam os dados reais do CNES (competência setembro/2026).
+
+### Mapa e lista de unidades
+
+Mapa em tela cheia, com um painel de busca e a lista de unidades. O aviso fixo explica que os dados
+mostram profissionais **vinculados** (e não plantões) e informa a data da última atualização.
+
+![Visão geral no desktop](docs/capturas/desktop-visao-geral.png)
+
+### Unidades mais próximas
+
+"Usar minha localização" reordena a lista por distância, mostra quantos metros ou km faltam até
+cada unidade e marca a sua posição no mapa (ponto azul).
+
+![Lista ordenada pela localização](docs/capturas/desktop-minha-localizacao.png)
+
+### Detalhes da unidade e profissionais vinculados
+
+Ao clicar num cartão (ou num marcador), o mapa centraliza a unidade. O cartão mostra endereço,
+horário de funcionamento, telefone (o número abre a ligação), o botão **Como chegar** (Google Maps)
+e os **profissionais vinculados**, agrupados por categoria, com ocupação e carga horária semanal.
+
+![Unidade selecionada](docs/capturas/desktop-unidade-selecionada.png)
+
+### Filtros e busca
+
+Filtro por especialidade (agrupada por categoria: Medicina, Enfermagem, Odontologia…), por bairro
+e busca por nome ou bairro, que ignora acentos ("napoles" encontra "Nápoles").
+
+| Filtro por especialidade (médico pediatra) | Busca por texto ("nápoles") |
+|---|---|
+| ![Filtro por especialidade](docs/capturas/desktop-filtro-especialidade.png) | ![Busca](docs/capturas/desktop-busca.png) |
+
+### No celular
+
+O mapa fica na parte de cima e a lista numa gaveta, que se expande pela alça. Tocar num marcador
+abre a unidade correspondente na lista. Se a pessoa negar o acesso à localização, o site sugere
+escolher o bairro e já posiciona o cursor nesse filtro.
+
+<table>
+  <tr>
+    <th>Visão geral</th>
+    <th>Toque no marcador</th>
+    <th>Lista expandida</th>
+    <th>Localização negada</th>
+  </tr>
+  <tr>
+    <td><img src="docs/capturas/celular-visao-geral.png" alt="Visão geral no celular" width="200"></td>
+    <td><img src="docs/capturas/celular-clique-no-mapa.png" alt="Unidade escolhida pelo mapa" width="200"></td>
+    <td><img src="docs/capturas/celular-lista-expandida.png" alt="Lista expandida" width="200"></td>
+    <td><img src="docs/capturas/celular-localizacao-negada.png" alt="Localização negada" width="200"></td>
+  </tr>
+</table>
+
+### Acessibilidade
+
+Fonte mínima de 16 px, contraste AA, foco sempre visível e navegação pelo teclado na lista
+(Tab chega na lista, as setas ↑/↓ passam de uma unidade para outra e Enter abre ou fecha).
+
 ## De onde vêm os dados
 
 | Dado | Fonte | Atualização |

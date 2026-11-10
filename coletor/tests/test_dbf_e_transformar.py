@@ -62,6 +62,9 @@ def test_endereco_sem_numero_quando_s_n():
     u = transformar_estabelecimento({"codigo_cnes": 1, "nome_fantasia": "X",
                                      "endereco_estabelecimento": "RUA 5", "numero_estabelecimento": "10"})
     assert u["endereco"] == "RUA 5, 10"
+    u = transformar_estabelecimento({"codigo_cnes": 1, "nome_fantasia": "X",
+                                     "endereco_estabelecimento": "QUADRA 109 LOTE", "numero_estabelecimento": "09"})
+    assert u["endereco"] == "QUADRA 109 LOTE 09"
 
 
 def test_aplicar_ajustes():
