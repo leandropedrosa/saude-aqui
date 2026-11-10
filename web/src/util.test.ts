@@ -1,7 +1,7 @@
 import { montarParametros, type Unidade } from './api'
 import {
   agruparPorCategoria, filtrarPorTexto, formatarCompetencia, formatarData, formatarDistancia,
-  formatarTelefone, formatarTitulo, linkComoChegar,
+  formatarTelefone, formatarTitulo, linkComoChegar, numeroParaLigar,
 } from './util'
 
 describe('formatarDistancia', () => {
@@ -39,7 +39,13 @@ describe('formatarTitulo', () => {
 it('formatarTelefone', () => {
   expect(formatarTelefone('6136054227')).toBe('(61) 3605-4227')
   expect(formatarTelefone('61 996767128')).toBe('(61) 99676-7128')
+  expect(formatarTelefone('36252544')).toBe('(61) 3625-2544')  // sem DDD no CNES
   expect(formatarTelefone('192')).toBe('192')
+})
+
+it('numeroParaLigar acrescenta o DDD 61 quando falta', () => {
+  expect(numeroParaLigar('36252544')).toBe('6136252544')
+  expect(numeroParaLigar('(61) 3605-4227')).toBe('6136054227')
 })
 
 describe('montarParametros', () => {

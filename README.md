@@ -136,4 +136,48 @@ docker run --rm -it -v "$PWD":/app -w /app -u "$(id -u):$(id -g)" node:22-alpine
 Com Node 22 instalado: `npm install`, `npm test` e `API_URL=http://localhost:8000 npm run dev`
 (abre em http://localhost:5173).
 
-*(Seções do coletor e da implantação no Easypanel serão adicionadas nas próximas etapas.)*
+## Coletor
+
+Importa os dados do CNES/DATASUS para o banco. Cada execução faz o seguinte:
+
+1. sincroniza `db/ocupacoes.csv` → tabela `ocupacao`;
+2. busca as unidades na API de dados abertos, mantém só as públicas (CNPJ da mantenedora =
+   Município) e aplica os ajustes de `db/unidades.csv`;
+3. descobre a competência mais recente no FTP (`PFGOaamm.dbc`), baixa o arquivo para
+   `/dados/brutos/` e calcula o SHA-256. **Se o arquivo já foi importado, para aqui** e registra
+   `sem_novidade`;
+4. descomprime, lê só os registros de Cidade Ocidental, **descarta CNS, CPF e registro em
+   conselho** e grava os vínculos das ocupações de atendimento.
+
+Toda execução gera uma linha na tabela `coleta`, com status `sucesso`, `sem_novidade` ou
+`erro` e a mensagem do erro, quando houver.
+
+```bash
+docker compose up -d coletor                              # agendado: todo dia às 06:15 (Brasília)
+docker compose run --rm coletor python coletar.py          # execução manual
+docker compose run --rm coletor python coletar.py --forcar # reimporta (ex.: depois de editar os CSVs)
+docker compose run --rm coletor python coletar.py --competencia 2608   # um mês específico (AAMM)
+docker compose logs -f coletor                             # acompanhar os logs
+```
+
+O agendamento usa o [supercronic](https://github.com/aptible/supercronic) (arquivo
+`coletor/crontab`). Uma importação completa leva cerca de 10 segundos e usa menos de 50 MB
+de memória.
+
+**Depois de editar `db/unidades.csv` ou `db/ocupacoes.csv`**, gere a imagem de novo
+(`docker compose build coletor`) e rode com `--forcar`. Em produção, o GitHub Actions gera a
+imagem nova a cada push.
+
+### Testes do coletor
+
+Usam as amostras reais (já sem dados pessoais) de `coletor/amostras/` e um banco de teste
+separado. A rede não é acessada.
+
+```bash
+docker compose up -d db
+cd coletor
+pip install -r requirements-dev.txt
+pytest
+```
+
+*(A seção de implantação no Easypanel será adicionada na próxima etapa.)*

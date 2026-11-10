@@ -1,8 +1,8 @@
 import { useEffect, useRef } from 'react'
 import type { Unidade } from '../api'
 import {
-  agruparPorCategoria, apenasDigitos, formatarDistancia, formatarTelefone,
-  formatarTitulo, linkComoChegar,
+  agruparPorCategoria, formatarDistancia, formatarTelefone,
+  formatarTitulo, linkComoChegar, numeroParaLigar,
 } from '../util'
 import { IconeDoTipo } from './Icones'
 
@@ -60,7 +60,7 @@ export function CartaoUnidade({ unidade: u, selecionada, aoSelecionar }: Props) 
           <p>
             <strong>Telefone:</strong>{' '}
             {u.telefone
-              ? <a href={`tel:${apenasDigitos(u.telefone)}`}>{formatarTelefone(u.telefone)}</a>
+              ? <a href={`tel:${numeroParaLigar(u.telefone)}`}>{formatarTelefone(u.telefone)}</a>
               : 'não informado'}
           </p>
 

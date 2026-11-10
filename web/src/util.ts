@@ -70,14 +70,18 @@ export function agruparPorCategoria(profissionais: Profissional[]): [string, Pro
   return [...grupos.entries()]
 }
 
-/** Remove tudo que não é dígito, para montar links "tel:". */
-export function apenasDigitos(telefone: string): string {
-  return telefone.replace(/\D/g, '')
+// Todas as unidades ficam em Cidade Ocidental (GO): DDD 61
+const DDD_PADRAO = '61'
+
+/** Só os dígitos, com DDD: o CNES às vezes manda o telefone sem DDD ("36252544"). */
+export function numeroParaLigar(telefone: string): string {
+  const d = telefone.replace(/\D/g, '')
+  return d.length === 8 || d.length === 9 ? DDD_PADRAO + d : d
 }
 
-/** "6136054227" -> "(61) 3605-4227" ; formatos desconhecidos voltam como vieram. */
+/** "6136054227" -> "(61) 3605-4227" ; "36252544" -> "(61) 3625-2544" ; outros voltam como vieram. */
 export function formatarTelefone(telefone: string): string {
-  const d = apenasDigitos(telefone)
+  const d = numeroParaLigar(telefone)
   if (d.length === 10) return `(${d.slice(0, 2)}) ${d.slice(2, 6)}-${d.slice(6)}`
   if (d.length === 11) return `(${d.slice(0, 2)}) ${d.slice(2, 7)}-${d.slice(7)}`
   return telefone

@@ -1,0 +1,7 @@
+# Usado quando o build parte da raiz (docker compose): envia só o necessário
+*
+!coletor/*.py
+!coletor/crontab
+!coletor/requirements.txt
+!db/unidades.csv
+!db/ocupacoes.csv

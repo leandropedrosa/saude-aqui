@@ -7,3 +7,4 @@ dist/
 coletor/amostras/*.pdf
 coletor/amostras/*.xlsx
 .idea/
+.pytest_cache/
