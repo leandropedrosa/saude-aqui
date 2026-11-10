@@ -1,0 +1,43 @@
+# Configuração do nginx do front-end.
+# É um "template": a imagem oficial do nginx troca ${API_UPSTREAM} pelo valor
+# da variável de ambiente ao iniciar (padrão definido no Dockerfile).
+
+server {
+    listen 80;
+    server_name _;
+    root /usr/share/nginx/html;
+
+    # Compressão de texto: páginas carregam mais rápido no 4G
+    gzip on;
+    gzip_types text/css application/javascript application/json image/svg+xml;
+    gzip_min_length 1024;
+
+    # Segurança básica
+    add_header X-Content-Type-Options nosniff always;
+    add_header Referrer-Policy strict-origin-when-cross-origin always;
+    # Permite pedir a localização só para o próprio site
+    add_header Permissions-Policy "geolocation=(self)" always;
+
+    # Proxy: /api/... vai para o serviço da API
+    location /api/ {
+        proxy_pass ${API_UPSTREAM};
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_read_timeout 30s;
+    }
+
+    # Arquivos gerados pelo Vite têm hash no nome: podem ficar em cache por 1 ano
+    location /assets/ {
+        expires 1y;
+        add_header Cache-Control "public, immutable";
+        try_files $uri =404;
+    }
+
+    # Fallback de SPA: qualquer outra rota devolve o index.html (sem cache)
+    location / {
+        add_header Cache-Control "no-cache";
+        try_files $uri $uri/ /index.html;
+    }
+}

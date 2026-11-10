@@ -1,0 +1,319 @@
+/* =====================================================================
+   Estilos do Saúde Aqui, escritos "mobile-first": as regras gerais
+   valem para o celular e o bloco @media (min-width: 768px) adapta
+   para telas grandes.
+
+   Layout inspirado em mapas de "encontre uma unidade": mapa grande e
+   um painel com a lista (gaveta inferior no celular, lateral no desktop).
+   ===================================================================== */
+
+:root {
+  --cor-primaria: #0b5cad;        /* azul: contraste 6,6:1 sobre branco */
+  --cor-primaria-escura: #084682;
+  --cor-destaque: #b4410b;        /* laranja do marcador selecionado */
+  --cor-texto: #1f2933;
+  --cor-texto-suave: #4b5563;     /* contraste 7,5:1 sobre branco */
+  --cor-borda: #d5dbe3;
+  --cor-fundo: #e8eef5;
+  --cor-cartao: #f6f8fb;
+  --cor-aviso-fundo: #fff4ce;
+  --cor-aviso-borda: #d9a400;
+  --cor-aviso-texto: #3d2e00;
+  --raio: 14px;
+  --sombra: 0 4px 24px rgba(15, 30, 60, 0.18);
+  --largura-painel: 420px;
+}
+
+* { box-sizing: border-box; }
+
+html, body, #raiz { height: 100%; margin: 0; }
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", sans-serif;
+  font-size: 16px;               /* tamanho mínimo legível */
+  line-height: 1.45;
+  color: var(--cor-texto);
+  background: var(--cor-fundo);
+}
+
+h1, h2, h3, h4, p { margin: 0; }
+
+a { color: var(--cor-primaria); }
+
+/* Foco sempre visível para quem navega pelo teclado */
+:focus-visible {
+  outline: 3px solid var(--cor-destaque);
+  outline-offset: 2px;
+}
+
+.visualmente-oculto {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap;
+}
+
+/* ---------------------------------------------------------------- estrutura */
+
+.app {
+  position: relative;
+  height: 100dvh;
+  overflow: hidden;
+}
+
+/* Celular: mapa ocupa a parte de cima da tela */
+.area-mapa {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 45dvh;
+}
+
+.mapa { width: 100%; height: 100%; }
+
+/* Celular: painel é uma "gaveta" que começa no meio da tela */
+.painel {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  top: 45dvh;
+  z-index: 1100;                 /* acima dos controles do Leaflet (1000) */
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-radius: 18px 18px 0 0;
+  box-shadow: var(--sombra);
+  overflow: hidden;
+  transition: top 0.25s ease;
+}
+
+/* Parte que rola: filtros e lista. Cabeçalho e aviso ficam fixos acima. */
+.painel-rolagem {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+.gaveta-cheia .painel { top: 8dvh; }
+
+/* Alça da gaveta (só no celular) */
+.alca {
+  flex: none;
+  display: flex; justify-content: center;
+  width: 100%;
+  padding: 10px 0 4px;
+  border: 0; background: none; cursor: pointer;
+}
+.alca span {
+  width: 44px; height: 5px; border-radius: 3px;
+  background: #9aa5b1;
+}
+
+.cabecalho { flex: none; padding: 0 16px 6px; }
+.cabecalho h1 { font-size: 1.2rem; color: var(--cor-primaria); }
+.cabecalho p { display: none; font-size: 0.9rem; color: var(--cor-texto-suave); }  /* só no desktop */
+
+/* ---------------------------------------------------------------- aviso */
+
+.aviso {
+  flex: none;
+  margin: 0 12px 8px;
+  padding: 10px 12px;
+  background: var(--cor-aviso-fundo);
+  border: 1px solid var(--cor-aviso-borda);
+  border-radius: 10px;
+  color: var(--cor-aviso-texto);
+  font-size: 0.875rem;
+}
+.aviso-data { margin-top: 4px; font-weight: 600; }
+
+/* ---------------------------------------------------------------- filtros */
+
+.filtros {
+  display: flex; flex-direction: column; gap: 10px;
+  padding: 4px 16px 12px;
+}
+
+.busca {
+  display: flex; align-items: center; gap: 8px;
+  padding: 0 14px;
+  border: 1px solid var(--cor-borda);
+  border-radius: 999px;          /* formato de "pílula" */
+  background: #fff;
+  color: var(--cor-texto-suave);
+}
+.busca:focus-within { border-color: var(--cor-primaria); box-shadow: 0 0 0 3px rgba(11, 92, 173, 0.2); }
+.busca input {
+  flex: 1; min-width: 0;
+  padding: 11px 0;
+  border: 0; outline: none;
+  font: inherit; color: var(--cor-texto); background: none;
+}
+
+.filtros-linha { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.filtros-linha label { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.filtros-linha span { font-size: 0.85rem; font-weight: 600; color: var(--cor-texto-suave); }
+.filtros-linha select {
+  width: 100%;
+  padding: 9px 8px;
+  border: 1px solid var(--cor-borda);
+  border-radius: 10px;
+  background: #fff;
+  font: inherit; font-size: 0.95rem; color: var(--cor-texto);
+}
+
+.botao-localizacao {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 11px 14px;
+  border: 1px solid var(--cor-primaria);
+  border-radius: 10px;
+  background: #fff;
+  color: var(--cor-primaria);
+  font: inherit; font-weight: 600;
+  cursor: pointer;
+}
+.botao-localizacao:hover { background: #eef4fb; }
+.botao-localizacao.ativo { background: var(--cor-primaria); color: #fff; }
+.botao-localizacao:disabled { opacity: 0.7; cursor: wait; }
+
+.mensagem-local {
+  margin: 0 16px 10px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: #fde8e8; color: #7a1414;
+  font-size: 0.9rem;
+}
+
+/* ---------------------------------------------------------------- lista */
+
+.lista-cabecalho {
+  padding: 10px 16px;
+  border-top: 1px solid var(--cor-borda);
+}
+.lista-cabecalho h2 { font-size: 1.1rem; }
+.lista-cabecalho p { font-size: 0.875rem; color: var(--cor-texto-suave); }
+
+.lista-rolagem { padding: 0 12px 16px; }
+
+.lista { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+
+.cartao {
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio);
+  background: var(--cor-cartao);
+  overflow: hidden;
+}
+.cartao.selecionado { border-color: var(--cor-primaria); background: #fff; box-shadow: 0 0 0 2px var(--cor-primaria); }
+
+.cartao-topo {
+  display: flex; align-items: flex-start; gap: 12px;
+  width: 100%;
+  padding: 10px;
+  border: 0; background: none; text-align: left;
+  font: inherit; color: inherit; cursor: pointer;
+}
+.cartao-topo:hover { background: #eef3f9; }
+
+.cartao-icone {
+  flex: none;
+  display: grid; place-items: center;
+  width: 52px; height: 52px;
+  border-radius: 10px;
+  background: #dfeaf7;
+  color: var(--cor-primaria);
+}
+
+.cartao-texto { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 6px; }
+.cartao-nome { font-weight: 700; line-height: 1.25; }
+.cartao-etiquetas { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.etiqueta {
+  padding: 1px 7px;
+  border-radius: 5px;
+  background: #e3e8ef;
+  font-size: 0.78rem; color: var(--cor-texto-suave);
+}
+.cartao-bairro { font-size: 0.85rem; color: var(--cor-texto-suave); }
+
+.distancia {
+  flex: none;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: #dfeaf7;
+  color: var(--cor-primaria-escura);
+  font-size: 0.8rem; font-weight: 700;
+}
+
+.cartao-detalhes {
+  display: flex; flex-direction: column; gap: 6px;
+  padding: 4px 14px 14px;
+  font-size: 0.95rem;
+}
+.cartao-detalhes h3 { margin-top: 10px; font-size: 1rem; }
+.cartao-detalhes h4 { margin-top: 6px; font-size: 0.9rem; color: var(--cor-primaria-escura); }
+.cartao-detalhes ul { list-style: none; margin: 4px 0 0; padding: 0; }
+.cartao-detalhes li { display: flex; flex-direction: column; padding: 5px 0; border-bottom: 1px solid #edf0f4; }
+.cartao-detalhes li:last-child { border-bottom: 0; }
+.prof-nome { font-weight: 600; }
+.prof-detalhe { font-size: 0.875rem; color: var(--cor-texto-suave); }
+.vazio, .sem-mapa { color: var(--cor-texto-suave); font-size: 0.9rem; }
+
+.cartao-acoes { margin-top: 6px; }
+
+.botao {
+  display: inline-block;
+  padding: 9px 16px;
+  border: 0; border-radius: 10px;
+  background: var(--cor-primaria);
+  color: #fff;
+  font: inherit; font-weight: 600; text-decoration: none;
+  cursor: pointer;
+}
+.botao:hover { background: var(--cor-primaria-escura); }
+
+.estado { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; padding: 12px 4px; }
+
+/* ---------------------------------------------------------------- mapa */
+
+/* Botão "minha localização" flutuando sobre o mapa */
+.botao-mapa-localizar {
+  position: absolute;
+  right: 12px; bottom: 28px;
+  z-index: 1000;
+  display: grid; place-items: center;
+  width: 46px; height: 46px;
+  border: 0; border-radius: 12px;
+  background: #fff;
+  box-shadow: var(--sombra);
+  color: var(--cor-texto);
+  cursor: pointer;
+}
+
+/* Marcadores (pinos SVG criados em Mapa.tsx) */
+.marcador { background: none; border: 0; }
+.marcador svg > path:first-child { fill: var(--cor-primaria); stroke: #fff; stroke-width: 1.2; }
+.marcador-selecionado svg > path:first-child { fill: var(--cor-destaque); }
+.marcador svg { filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.35)); }
+
+.rotulo-marcador { font-weight: 700; font-size: 0.85rem; }
+
+/* No celular, zoom é por gesto de pinça: escondemos os botões +/- */
+.leaflet-control-zoom { display: none; }
+
+/* ================================================================ desktop */
+@media (min-width: 768px) {
+  .area-mapa { inset: 0; height: auto; }
+
+  .painel {
+    top: 16px; left: 16px; bottom: 16px; right: auto;
+    width: var(--largura-painel);
+    border-radius: 18px;
+  }
+
+  /* No desktop os filtros ficam fixos e só a lista rola */
+  .painel-rolagem { display: flex; flex-direction: column; overflow: hidden; }
+  .lista-rolagem { flex: 1; overflow-y: auto; }
+
+  .alca { display: none; }
+  .cabecalho { padding: 16px 16px 8px; }
+  .cabecalho h1 { font-size: 1.35rem; }
+  .cabecalho p { display: block; }
+
+  .leaflet-control-zoom { display: block; }
+  .botao-mapa-localizar { bottom: 100px; }
+}

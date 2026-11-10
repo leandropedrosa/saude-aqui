@@ -99,4 +99,41 @@ pip install -r requirements-dev.txt
 pytest
 ```
 
-*(Seções de front-end, coletor e implantação no Easypanel serão adicionadas nas próximas etapas.)*
+## Front-end
+
+React + Vite + TypeScript, com mapa **Leaflet + OpenStreetMap** (gratuito, sem chave de API).
+
+```bash
+docker compose up -d --build web    # http://localhost:8080 (o nginx repassa /api para a API)
+```
+
+* **Layout:** mapa em tela cheia com um painel lateral no desktop. No celular, o mapa fica
+  em cima e a lista aparece numa gaveta inferior, que pode ser expandida pela alça.
+* **Lista e mapa sincronizados:** clicar num cartão centraliza o marcador; clicar num
+  marcador abre e mostra o cartão.
+* **Filtros:** busca por nome/bairro (feita no próprio navegador), especialidade, bairro e
+  "Usar minha localização" (reordena por distância). Se a permissão for negada, o site
+  sugere escolher o bairro.
+* **"Como chegar"** é um link gratuito do Google Maps (`google.com/maps/dir/?api=1&destination=LAT,LNG`).
+* **Aviso fixo:** os dados mostram profissionais *vinculados* (CNES), e não plantões. Sempre
+  peça para confirmar por telefone.
+* **Acessibilidade:** fonte de 16 px, contraste AA, foco visível, Tab/Enter e setas ↑/↓ na lista.
+
+**Regras do OpenStreetMap:** a atribuição fica visível no canto do mapa, e o servidor de tiles
+`tile.openstreetmap.org` aceita só uso leve. Se o tráfego crescer, troque `VITE_TILES_URL`
+(e `VITE_TILES_ATRIBUICAO`) por um provedor com plano gratuito, sem mudar o código.
+
+### Desenvolvimento e testes do front-end
+
+Não é preciso ter Node instalado: dá para usar o Node pelo Docker.
+
+```bash
+cd web
+docker run --rm -it -v "$PWD":/app -w /app -u "$(id -u):$(id -g)" node:22-alpine npm install
+docker run --rm -it -v "$PWD":/app -w /app -u "$(id -u):$(id -g)" node:22-alpine npm test
+```
+
+Com Node 22 instalado: `npm install`, `npm test` e `API_URL=http://localhost:8000 npm run dev`
+(abre em http://localhost:5173).
+
+*(Seções do coletor e da implantação no Easypanel serão adicionadas nas próximas etapas.)*
