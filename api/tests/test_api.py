@@ -12,7 +12,7 @@ Resumo dos dados fictícios:
 
 import pytest
 
-from app.formatacao import formatar_nome, texto_horario
+from app.formatacao import chave_ordenacao, formatar_nome, texto_horario
 
 # Um ponto ao lado da UBS FICTÍCIA CENTRO (-16.0920, -47.9260)
 PERTO_DO_CENTRO = {"lat": -16.0921, "lng": -47.9261}
@@ -187,3 +187,8 @@ def test_texto_horario():
     assert texto_horario(None, "06", None).startswith("24 horas")
     assert texto_horario(None, "99", "ATENDIMENTO ESPECIAL") == "Atendimento especial"
     assert texto_horario(None, None, None) is None
+
+
+def test_ordem_alfabetica_ignora_acentos():
+    bairros = ["Setor de Mansões Sul", "São Matheus", "Centro", "Ábaco"]
+    assert sorted(bairros, key=chave_ordenacao) == ["Ábaco", "Centro", "São Matheus", "Setor de Mansões Sul"]

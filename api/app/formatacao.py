@@ -2,6 +2,8 @@
 Pequenas funções de formatação de texto para exibição.
 """
 
+import unicodedata
+
 # Palavras que ficam em minúsculas no meio de nomes próprios
 _PARTICULAS = {"da", "das", "de", "di", "do", "dos", "du", "e"}
 
@@ -35,3 +37,9 @@ def texto_horario(horario: str | None, turno_codigo: str | None,
     if turno_descricao:
         return turno_descricao.capitalize()
     return None
+
+
+def chave_ordenacao(texto: str) -> str:
+    """Chave para ordem alfabética "humana": 'São Matheus' fica antes de 'Setor'."""
+    sem_acento = unicodedata.normalize("NFD", texto).encode("ascii", "ignore").decode()
+    return sem_acento.lower()

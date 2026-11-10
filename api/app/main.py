@@ -16,7 +16,7 @@ from fastapi import APIRouter, FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
 
 from . import banco
-from .formatacao import formatar_nome, texto_horario
+from .formatacao import chave_ordenacao, formatar_nome, texto_horario
 from .modelos import (
     Especialidade,
     Profissional,
@@ -109,7 +109,8 @@ def bairros():
          WHERE ativo AND bairro IS NOT NULL
          ORDER BY bairro
     """)
-    return [l["bairro"] for l in linhas]
+    # Ordena em Python ignorando acentos: no banco, "São" viria depois de "Setor"
+    return sorted((l["bairro"] for l in linhas), key=chave_ordenacao)
 
 
 @rotas.get("/especialidades", response_model=list[Especialidade],
@@ -138,6 +139,7 @@ def unidades(bairro: str | None = Query(None, description="Filtrar por bairro (c
            AND (%(bairro)s::text IS NULL OR bairro = %(bairro)s)
          ORDER BY nome
     """, {"bairro": bairro})
+    linhas.sort(key=lambda l: chave_ordenacao(l["nome"]))  # ordem alfabética ignorando acentos
     return [_montar_unidade(l) for l in linhas]
 
 
@@ -193,6 +195,11 @@ def unidades_proximas(
         WHERE %(raio_km)s::float8 IS NULL OR distancia_km <= %(raio_km)s
         ORDER BY distancia_km NULLS LAST, nome
     """, p)
+
+    # Ordem: mais próxima primeiro (sem distância vai para o fim); empate pelo nome,
+    # ignorando acentos (no banco, "São" viria depois de "Setor")
+    unidades_encontradas.sort(key=lambda u: (
+        u["distancia_km"] is None, u["distancia_km"] or 0, chave_ordenacao(u["nome"])))
 
     # 2) Os profissionais dessas unidades, numa única consulta
     ids = [u["id"] for u in unidades_encontradas]

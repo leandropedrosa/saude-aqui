@@ -38,12 +38,13 @@ nome, ocupação e carga horária.
 ```
 saude-aqui/
 ├── docker-compose.yml          # desenvolvimento local
-├── docker-compose.prod.yml     # referência para o Easypanel (etapa 6)
+├── docker-compose.prod.yml     # produção (Easypanel), com imagens do GHCR
+├── .github/workflows/build.yml # testes + build e push das imagens para o GHCR
 ├── .env.example
 ├── db/          # Postgres: init.sql, unidades.csv, ocupacoes.csv
-├── api/         # FastAPI (etapa 3)
-├── coletor/     # baixa CNES/DATASUS e importa (etapa 5)
-└── web/         # React + Vite + TypeScript + Leaflet/OpenStreetMap (etapa 4)
+├── api/         # FastAPI
+├── coletor/     # baixa CNES/DATASUS e importa (agendado com supercronic)
+└── web/         # React + Vite + TypeScript + Leaflet/OpenStreetMap
 ```
 
 | Serviço | Imagem base | Limite de memória |
@@ -180,4 +181,128 @@ pip install -r requirements-dev.txt
 pytest
 ```
 
-*(A seção de implantação no Easypanel será adicionada na próxima etapa.)*
+## Implantação (AWS EC2 + Easypanel)
+
+```
+ push na main ──► GitHub Actions ──► testes ──► 4 imagens no GHCR ──► Easypanel (VM) puxa e roda
+```
+
+**Nenhuma imagem é compilada na VM.** O GitHub Actions (`.github/workflows/build.yml`)
+roda os testes e publica estas imagens:
+
+| Imagem | Limite de memória |
+|---|---|
+| `ghcr.io/leandropedrosa/saude-aqui-db:latest` | 384 MB |
+| `ghcr.io/leandropedrosa/saude-aqui-api:latest` | 192 MB |
+| `ghcr.io/leandropedrosa/saude-aqui-coletor:latest` | 256 MB |
+| `ghcr.io/leandropedrosa/saude-aqui-web:latest` | 64 MB |
+
+Cada imagem também ganha uma tag com o hash do commit, o que permite voltar a uma versão anterior.
+
+### 1. Criar a VM
+
+1. No console da AWS, crie uma instância **EC2 t3.small** (2 GB, x86_64) com **Ubuntu 24.04 LTS**
+   e disco de **20 GB** (gp3).
+2. **Security group:**
+   * 22 (SSH): só o seu IP;
+   * 80 e 443 (HTTP/HTTPS): qualquer origem;
+   * 3000 (painel do Easypanel): só o seu IP. Depois de configurar um domínio para o painel,
+     você pode fechar essa porta.
+3. Associe um **Elastic IP**, para o endereço não mudar quando a VM reiniciar.
+4. No seu provedor de DNS, crie um registro **A** apontando o domínio (ex.: `saudeaqui.exemplo.org`)
+   para o Elastic IP.
+
+### 2. Criar 2 GB de swap (rede de segurança para a memória)
+
+```bash
+ssh ubuntu@SEU_IP
+sudo fallocate -l 2G /swapfile
+sudo chmod 600 /swapfile
+sudo mkswap /swapfile
+sudo swapon /swapfile
+echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab   # mantém após reiniciar
+echo 'vm.swappiness=10' | sudo tee /etc/sysctl.d/99-swap.conf # usa swap só quando precisa
+sudo sysctl --system
+free -h                                                        # deve mostrar "Swap: 2.0Gi"
+```
+
+### 3. Instalar o Easypanel
+
+```bash
+curl -sSL https://get.easypanel.io | sudo sh
+```
+
+Abra `http://SEU_IP:3000` e crie o usuário administrador.
+
+### 4. Permitir que a VM baixe as imagens do GHCR
+
+As imagens nascem **privadas** no GHCR. Escolha uma das opções:
+
+* **Imagens públicas (mais simples):** no GitHub, abra *seu perfil → Packages*. Em cada
+  pacote `saude-aqui-*`, vá em *Package settings → Change visibility → Public*. As imagens
+  não têm segredos: a configuração e as senhas ficam nas variáveis do Easypanel.
+* **Imagens privadas:** crie um *Personal access token (classic)* só com a permissão
+  `read:packages` e cadastre no Easypanel em *Settings → Docker registries*
+  (registro `ghcr.io`, usuário do GitHub e o token).
+
+### 5. Criar o projeto no Easypanel
+
+1. Crie o projeto **saude-aqui** e adicione um serviço do tipo **Compose**.
+2. Cole o conteúdo de `docker-compose.prod.yml`. Se o repositório for de outro dono, troque
+   `leandropedrosa` nas linhas `image:`.
+3. Em **Environment**, defina as variáveis (gere uma senha forte, por exemplo com `openssl rand -hex 24`):
+
+   ```env
+   POSTGRES_DB=saude_aqui
+   POSTGRES_USER=saude_aqui
+   POSTGRES_PASSWORD=SENHA_FORTE
+   DATABASE_URL=postgresql://saude_aqui:SENHA_FORTE@db:5432/saude_aqui
+   CORS_ORIGINS=https://saudeaqui.exemplo.org
+   ```
+
+4. Em **Domains**, aponte o domínio para o serviço **web**, porta **80**. O Easypanel emite
+   o certificado HTTPS (Let's Encrypt) automaticamente.
+5. Clique em **Deploy**.
+
+### 6. Primeira carga de dados
+
+O coletor roda sozinho todo dia às 06:15. Para não esperar até lá, rode uma vez à mão:
+no Easypanel, abra o **console** do serviço `coletor` e execute
+
+```bash
+python coletar.py
+```
+
+Pelo SSH, use `docker ps` para achar o nome do container do coletor e rode
+`docker exec -it NOME_DO_CONTAINER python coletar.py`.
+
+Para conferir, acesse `https://saudeaqui.exemplo.org/api/status`, que deve mostrar a competência
+e o número de unidades.
+
+### Atualizar o site
+
+1. Faça push na `main`.
+2. Aguarde o workflow **Testes e imagens** ficar verde na aba *Actions* do GitHub.
+3. No Easypanel, clique em **Deploy** no serviço Compose para baixar as imagens novas.
+
+Se um deploy der problema, troque `:latest` pela tag do commit anterior
+(`:<hash>`) no compose do Easypanel e faça deploy de novo.
+
+### Google Cloud / chaves de API
+
+**Não há.** O mapa usa Leaflet + OpenStreetMap (sem chave, sem cartão de crédito) e o
+"Como chegar" é um link gratuito do Google Maps. Se o tráfego crescer, defina as *Variables*
+`VITE_TILES_URL` e `VITE_TILES_ATRIBUICAO` no GitHub (*Settings → Secrets and variables →
+Actions → Variables*) com um provedor de tiles que tenha plano gratuito. O próximo build já
+usa o provedor novo.
+
+### Manutenção
+
+* **Logs:** aba *Logs* de cada serviço no Easypanel. As execuções do coletor também ficam na
+  tabela `coleta`.
+* **Memória:** `free -h` e `docker stats` na VM. Em uso normal, os 4 serviços somam cerca de
+  100 MB; os limites somam 896 MB.
+* **Backup do banco** (exemplo, pela VM):
+  `docker exec NOME_DO_CONTAINER_DB pg_dump -U saude_aqui saude_aqui | gzip > backup-$(date +%F).sql.gz`.
+  Os dados podem ser recriados pelo coletor; o que mais importa preservar é o repositório
+  (com os CSVs de ajuste).

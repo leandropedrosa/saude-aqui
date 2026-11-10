@@ -33,7 +33,7 @@ def test_importa_unidades(con, estabelecimentos):
     total, ativas = con.execute("SELECT count(*), count(*) FILTER (WHERE ativo) FROM unidade").fetchone()
     assert (total, ativas) == (47, 38)
     bairro = con.execute("SELECT bairro FROM unidade WHERE cnes = '2438690'").fetchone()[0]
-    assert bairro == "FRIBURGO B"  # corrigido pelo unidades.csv (no CNES: "FIBURGO B")
+    assert bairro == "Friburgo B"  # corrigido pelo unidades.csv (no CNES: "FIBURGO B")
 
 
 def test_importa_vinculos_reais_de_setembro(con, estabelecimentos, registros_pf):

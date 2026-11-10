@@ -34,8 +34,12 @@ const SIGLAS = new Set(['UBS', 'UBSF', 'SAMU', 'CAPS', 'CTA', 'SAE', 'SQ', 'CEO'
   'UPA', 'CAF', 'I', 'II', 'III', 'IV'])
 const PARTICULAS = new Set(['a', 'as', 'da', 'das', 'de', 'do', 'dos', 'e', 'em'])
 
-/** "UBS FAMILIA DOM BOSCO" -> "UBS Familia Dom Bosco" (o CNES manda tudo em maiúsculas). */
+/**
+ * "UBS FAMILIA DOM BOSCO" -> "UBS Familia Dom Bosco" (o CNES manda tudo em maiúsculas).
+ * Textos que já têm minúsculas (corrigidos à mão em db/unidades.csv) ficam como estão.
+ */
 export function formatarTitulo(texto: string): string {
+  if (texto !== texto.toUpperCase()) return texto
   return texto
     .trim()
     .split(/\s+/)

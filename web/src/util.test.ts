@@ -34,6 +34,10 @@ describe('formatarTitulo', () => {
     expect(formatarTitulo('CAPS II CENTRO DE ATENCAO PSICOSSOCIAL')).toBe('CAPS II Centro de Atencao Psicossocial')
     expect(formatarTitulo('HOSPITAL FICTÍCIO')).toBe('Hospital Fictício')
   })
+  it('não mexe em textos já corrigidos à mão', () => {
+    expect(formatarTitulo('UBS Família Parque Nápoles A')).toBe('UBS Família Parque Nápoles A')
+    expect(formatarTitulo('UBS Recreio Mossoró (horário estendido)')).toBe('UBS Recreio Mossoró (horário estendido)')
+  })
 })
 
 it('formatarTelefone', () => {

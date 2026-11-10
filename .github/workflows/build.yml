@@ -1,0 +1,125 @@
+# =====================================================================
+# Testa e publica as 4 imagens Docker no GitHub Container Registry (GHCR).
+#
+# A VM de produção NÃO compila nada: o Easypanel só puxa as imagens
+# prontas daqui (ghcr.io/<dono>/saude-aqui-<servico>:latest).
+#
+# Roda a cada push na main (testes + publicação) e em pull requests
+# (só os testes). Também pode ser disparado à mão na aba "Actions".
+# =====================================================================
+name: Testes e imagens
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  packages: write   # necessário para publicar no GHCR
+
+jobs:
+  # ------------------------------------------------------------------ testes
+  testes:
+    runs-on: ubuntu-latest
+    services:
+      # Postgres usado pelos testes da API e do coletor (mesmas credenciais do .env.example)
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_USER: saude_aqui
+          POSTGRES_PASSWORD: troque-esta-senha
+          POSTGRES_DB: saude_aqui
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U saude_aqui"
+          --health-interval 5s --health-timeout 3s --health-retries 10
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Testes da API
+        working-directory: api
+        run: |
+          pip install -r requirements-dev.txt
+          pytest -q
+
+      - name: Testes do coletor
+        working-directory: coletor
+        run: |
+          pip install -r requirements-dev.txt
+          pytest -q
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+
+      - name: Testes e build do front-end
+        working-directory: web
+        env:
+          TZ: UTC
+        run: |
+          npm ci
+          npm test
+          npm run build
+
+  # ------------------------------------------------------------------ imagens
+  imagens:
+    needs: testes
+    if: github.event_name != 'pull_request'   # PR só testa, não publica
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - servico: db
+            contexto: db
+            dockerfile: db/Dockerfile
+          - servico: api
+            contexto: api
+            dockerfile: api/Dockerfile
+          - servico: coletor
+            contexto: .                       # precisa de db/*.csv
+            dockerfile: coletor/Dockerfile
+          - servico: web
+            contexto: web
+            dockerfile: web/Dockerfile
+
+    steps:
+      - uses: actions/checkout@v4
+
+      # O nome da imagem no GHCR precisa ser todo em minúsculas
+      - name: Nome da imagem
+        id: nome
+        run: echo "imagem=ghcr.io/${GITHUB_REPOSITORY_OWNER,,}/saude-aqui-${{ matrix.servico }}" >> "$GITHUB_OUTPUT"
+
+      - uses: docker/setup-buildx-action@v3
+
+      - uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: docker/build-push-action@v6
+        with:
+          context: ${{ matrix.contexto }}
+          file: ${{ matrix.dockerfile }}
+          platforms: linux/amd64               # a t3.small é x86_64
+          push: true
+          tags: |
+            ${{ steps.nome.outputs.imagem }}:latest
+            ${{ steps.nome.outputs.imagem }}:${{ github.sha }}
+          # Só o front usa: provedor de tiles do mapa (opcional; vazio = OpenStreetMap).
+          # Configure em Settings > Secrets and variables > Actions > Variables.
+          build-args: |
+            VITE_TILES_URL=${{ vars.VITE_TILES_URL }}
+            VITE_TILES_ATRIBUICAO=${{ vars.VITE_TILES_ATRIBUICAO }}
+          cache-from: type=gha,scope=${{ matrix.servico }}
+          cache-to: type=gha,mode=max,scope=${{ matrix.servico }}

@@ -1,0 +1,73 @@
+# =====================================================================
+# PRODUÇÃO (Easypanel na EC2 t3.small, 2 GB de RAM).
+#
+# Usa as imagens prontas publicadas pelo GitHub Actions no GHCR:
+# nada é compilado na VM. Para usar outro dono/organização, troque
+# "leandropedrosa" nas linhas "image:".
+#
+# Variáveis (definidas na aba "Environment" do Easypanel):
+#   POSTGRES_DB, POSTGRES_USER, POSTGRES_PASSWORD, DATABASE_URL, CORS_ORIGINS
+#
+# Memória total reservada: 384 + 192 + 256 + 64 = 896 MB (sobra folga
+# para o sistema e o próprio Easypanel; o swap de 2 GB é a rede de segurança).
+# =====================================================================
+
+services:
+  db:
+    image: ghcr.io/leandropedrosa/saude-aqui-db:latest
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      TZ: America/Sao_Paulo
+    volumes:
+      - dados_db:/var/lib/postgresql/data
+    # Sem "ports": o banco NÃO fica exposto na internet, só na rede interna
+    mem_limit: 384m
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 10s
+      timeout: 3s
+      retries: 10
+    restart: unless-stopped
+
+  api:
+    image: ghcr.io/leandropedrosa/saude-aqui-api:latest
+    environment:
+      DATABASE_URL: ${DATABASE_URL}
+      CORS_ORIGINS: ${CORS_ORIGINS}
+      TZ: America/Sao_Paulo
+    depends_on:
+      db:
+        condition: service_healthy
+    mem_limit: 192m
+    restart: unless-stopped
+
+  coletor:
+    image: ghcr.io/leandropedrosa/saude-aqui-coletor:latest
+    environment:
+      DATABASE_URL: ${DATABASE_URL}
+      TZ: America/Sao_Paulo
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - dados_brutos:/dados/brutos
+    mem_limit: 256m
+    restart: unless-stopped
+
+  web:
+    image: ghcr.io/leandropedrosa/saude-aqui-web:latest
+    environment:
+      API_UPSTREAM: http://api:8000
+    depends_on:
+      - api
+    # O Easypanel aponta o domínio (com HTTPS) para a porta 80 deste serviço
+    expose:
+      - "80"
+    mem_limit: 64m
+    restart: unless-stopped
+
+volumes:
+  dados_db:
+  dados_brutos:
