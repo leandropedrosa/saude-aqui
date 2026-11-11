@@ -242,7 +242,7 @@ Toda execução gera uma linha na tabela `coleta`, com status `sucesso`, `sem_no
 `erro` e a mensagem do erro, quando houver.
 
 ```bash
-docker compose up -d coletor                              # agendado: todo dia às 02:00 (Brasília)
+docker compose up -d coletor                              # agendado: toda segunda-feira às 02:00 (Brasília)
 docker compose run --rm coletor python coletar.py          # execução manual
 docker compose run --rm coletor python coletar.py --forcar # reimporta (ex.: depois de editar os CSVs)
 docker compose run --rm coletor python coletar.py --competencia 2608   # um mês específico (AAMM)
@@ -250,12 +250,28 @@ docker compose logs -f coletor                             # acompanhar os logs
 ```
 
 O agendamento usa o [supercronic](https://github.com/aptible/supercronic) (arquivo
-`coletor/crontab`). Uma importação completa leva cerca de 10 segundos e usa menos de 50 MB
+`coletor/crontab`): **uma vez por semana, segunda-feira às 02:00**, porque as fontes mudam no
+máximo semanalmente. Uma importação completa leva cerca de 10 segundos e usa menos de 50 MB
 de memória.
 
 **Depois de editar `db/unidades.csv` ou `db/ocupacoes.csv`**, gere a imagem de novo
 (`docker compose build coletor`) e rode com `--forcar`. Em produção, o GitHub Actions gera a
 imagem nova a cada push.
+
+### Dados versionados (`db/dados_iniciais.sql`)
+
+O repositório guarda uma cópia dos dados coletados, para que um servidor novo suba com o site
+funcionando sem precisar rodar o coletor. A imagem do banco carrega essa cópia na primeira
+inicialização (volume vazio); em bancos que já têm dados, ela é ignorada.
+
+Para atualizar a cópia (por exemplo, depois de uma coleta com dados novos):
+
+```bash
+sh db/exportar_dados.sh     # gera db/dados_iniciais.sql a partir do banco local
+git add db/dados_iniciais.sql && git commit -m "Atualiza dados iniciais" && git push
+```
+
+A cópia não tem dados pessoais: o banco nunca guarda CNS, CPF ou registro em conselho.
 
 ### Testes do coletor
 
@@ -352,20 +368,19 @@ As imagens nascem **privadas** no GHCR. Escolha uma das opções:
    o certificado HTTPS (Let's Encrypt) automaticamente.
 5. Clique em **Deploy**.
 
-### 6. Primeira carga de dados
+### 6. Dados: o site já sobe com eles
 
-O coletor roda sozinho todo dia às 02:00. Para não esperar até lá, rode uma vez à mão:
-no Easypanel, abra o **console** do serviço `coletor` e execute
-
-```bash
-python coletar.py
-```
-
-Pelo SSH, use `docker ps` para achar o nome do container do coletor e rode
-`docker exec -it NOME_DO_CONTAINER python coletar.py`.
+**Não é preciso rodar o coletor no servidor novo.** A imagem do banco já traz os dados
+coletados (arquivo versionado `db/dados_iniciais.sql`), que são carregados automaticamente
+na primeira inicialização, quando o volume do banco está vazio. Depois disso, o coletor mantém
+tudo atualizado sozinho, **toda segunda-feira às 02:00**.
 
 Para conferir, acesse `https://saudeaqui.exemplo.org/api/status`, que deve mostrar a competência
 e o número de unidades.
+
+Se quiser forçar uma atualização na hora: no Easypanel, abra o **console** do serviço `coletor`
+e execute `python coletar.py`. Pelo SSH, use `docker exec -it NOME_DO_CONTAINER python coletar.py`
+(o nome do container aparece em `docker ps`).
 
 ### Atualizar o site
 
@@ -392,5 +407,5 @@ usa o provedor novo.
   100 MB; os limites somam 896 MB.
 * **Backup do banco** (exemplo, pela VM):
   `docker exec NOME_DO_CONTAINER_DB pg_dump -U saude_aqui saude_aqui | gzip > backup-$(date +%F).sql.gz`.
-  Os dados podem ser recriados pelo coletor; o que mais importa preservar é o repositório
-  (com os CSVs de ajuste).
+  Mesmo sem backup, um banco novo sobe com a cópia versionada em `db/dados_iniciais.sql`
+  e o coletor completa o que faltar.

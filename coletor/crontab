@@ -2,6 +2,7 @@
 # Formato: minuto hora dia mês dia-da-semana comando
 CRON_TZ=America/Sao_Paulo
 
-# Todo dia às 02:00. Quando não há arquivo novo no DATASUS, a execução
+# Uma vez por semana: segunda-feira às 02:00 (as fontes mudam no máximo
+# uma vez por semana). Quando não há arquivo novo no DATASUS, a execução
 # só registra "sem_novidade" na tabela coleta e termina.
-0 2 * * * python /app/coletar.py
+0 2 * * 1 python /app/coletar.py

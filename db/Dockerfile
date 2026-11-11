@@ -4,8 +4,12 @@
 FROM postgres:16-alpine
 
 # Scripts em /docker-entrypoint-initdb.d rodam só na primeira inicialização
-# (quando o volume de dados está vazio).
+# (quando o volume de dados está vazio), em ordem alfabética:
+#   01: cria as tabelas
+#   02: carrega os dados já coletados (gerados por db/exportar_dados.sh), para um
+#       servidor novo subir com o site funcionando sem precisar rodar o coletor
 COPY init.sql /docker-entrypoint-initdb.d/01-init.sql
+COPY dados_iniciais.sql /docker-entrypoint-initdb.d/02-dados_iniciais.sql
 
 # Configuração para pouca memória (VM com 2 GB, limite de 384 MB para o banco)
 CMD ["postgres", \
