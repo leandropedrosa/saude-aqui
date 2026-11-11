@@ -44,6 +44,11 @@ INSERT INTO unidade (id, cnes, nome, tipo, endereco, bairro, lat, lng, telefone,
         NULL, NULL, NULL, '03', 'ATENDIMENTOS NOS TURNOS DA MANHA E A TARDE', NULL, TRUE);
 SELECT setval('unidade_id_seq', 5);
 
+-- Horário escrito no portal da Prefeitura (vale mais que o turno do CNES,
+-- mas menos que o horário manual: a unidade 2 continua com o horário manual)
+UPDATE unidade SET horario_portal = '24 horas'                           WHERE id = 3;
+UPDATE unidade SET horario_portal = 'Segunda a sexta das 8h às 22h'      WHERE id = 2;
+
 -- Competência atual: setembro/2026
 INSERT INTO vinculo (unidade_id, profissional, cbo, carga_horaria_semanal, competencia, coleta_id) VALUES
     (1, 'MARIA EXEMPLO DA SILVA',     '225142', 40, '2026-09-01', 2),

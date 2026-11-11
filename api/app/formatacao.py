@@ -28,10 +28,13 @@ def formatar_nome(nome: str) -> str:
 
 
 def texto_horario(horario: str | None, turno_codigo: str | None,
-                  turno_descricao: str | None) -> str | None:
-    """O horário digitado em unidades.csv tem prioridade sobre o turno do CNES."""
+                  turno_descricao: str | None, horario_portal: str | None = None) -> str | None:
+    """Ordem de prioridade: 1) digitado em unidades.csv; 2) portal da Prefeitura;
+    3) turno do CNES (texto curto ou descrição oficial)."""
     if horario:
         return horario
+    if horario_portal:
+        return horario_portal
     if turno_codigo in TURNOS:
         return TURNOS[turno_codigo]
     if turno_descricao:

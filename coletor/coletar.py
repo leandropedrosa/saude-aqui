@@ -4,11 +4,14 @@ Coletor do Saúde Aqui: importa os dados do CNES/DATASUS para o banco.
 Passos de cada execução:
   1. Sincroniza as ocupações (db/ocupacoes.csv -> tabela ocupacao)
   2. Busca as unidades na API de dados abertos e aplica db/unidades.csv
-  3. Descobre a competência (mês) mais recente no FTP do DATASUS
-  4. Baixa o arquivo PF, calcula o SHA-256 e, se ele já foi importado, para aqui
-  5. Descomprime, lê só os registros do município e grava os vínculos
+  3. Consulta o portal de escalas da Prefeitura (só publicações de 2026 em diante):
+     grava o horário de funcionamento e verifica se apareceu escala nova
+  4. Descobre a competência (mês) mais recente no FTP do DATASUS
+  5. Baixa o arquivo PF, calcula o SHA-256 e, se ele já foi importado, para aqui
+  6. Descomprime, lê só os registros do município e grava os vínculos
 
-Cada execução gera uma linha na tabela `coleta` (sucesso, sem_novidade ou erro).
+Cada execução gera uma linha na tabela `coleta` (sucesso, sem_novidade ou erro),
+com os avisos do portal na coluna `avisos`.
 
 Uso:
     python coletar.py                    # execução normal (é o que o agendador roda)
@@ -31,10 +34,14 @@ import datasus_dbc
 import psycopg
 
 from dbf import ler_registros
-from fontes import baixar_pf, buscar_estabelecimentos, competencias_disponiveis, sha256
+from fontes import (
+    baixar_arquivo_portal, baixar_pf, buscar_escalas_portal, buscar_estabelecimentos,
+    competencias_disponiveis, sha256,
+)
 from transformar import (
-    aplicar_ajustes, competencia_para_data, eh_unidade_publica, ler_ajustes_unidades,
-    ler_ocupacoes, transformar_estabelecimento, transformar_vinculo,
+    aplicar_ajustes, competencia_para_data, eh_listagem_cnes, eh_unidade_publica, escalas_desde,
+    horarios_por_cnes, ler_ajustes_unidades, ler_ocupacoes, mapa_portal_cnes, texto_primeira_pagina,
+    transformar_estabelecimento, transformar_vinculo,
 )
 
 log = logging.getLogger("coletor")
@@ -51,6 +58,11 @@ CNPJ_MANTENEDORA = os.environ.get("CNPJ_MANTENEDORA", "36862621000121")
 PASTA_CSV = Path(os.environ.get("PASTA_CSV", Path(__file__).resolve().parent.parent / "db"))
 # Onde guardar os arquivos originais baixados (volume no Docker)
 PASTA_BRUTOS = Path(os.environ.get("PASTA_BRUTOS", "/dados/brutos"))
+# Portal de escalas da Prefeitura (fonte complementar)
+PORTAL_URL = os.environ.get("PORTAL_URL", "https://acessoainformacao.cidadeocidental.go.gov.br")
+PORTAL_ARQUIVOS_URL = os.environ.get(
+    "PORTAL_ARQUIVOS_URL", "https://nucleogov.s3.us-east-2.amazonaws.com/pf_cidadeocidental/outros/")
+PORTAL_DESDE = date.fromisoformat(os.environ.get("PORTAL_DESDE", "2026-01-01"))
 
 
 # ---------------------------------------------------------------- etapas que mexem no banco
@@ -146,6 +158,59 @@ def importar_vinculos(con: psycopg.Connection, registros, competencia: date, col
     return len(linhas)
 
 
+def classificar_arquivo(midia: str) -> str:
+    """Baixa um anexo do portal e diz se é a listagem do CNES ou uma possível escala."""
+    if not midia.lower().endswith(".pdf"):
+        return "possivel_escala"  # planilhas e outros formatos: só podem ser escala
+    texto = texto_primeira_pagina(baixar_arquivo_portal(PORTAL_ARQUIVOS_URL, midia))
+    return "listagem_cnes" if eh_listagem_cnes(texto) else "possivel_escala"
+
+
+def processar_portal(con: psycopg.Connection, ajustes: dict[str, dict]) -> list[str]:
+    """Usa o portal da Prefeitura (publicações a partir de PORTAL_DESDE):
+
+    * grava o horário de funcionamento escrito pela Prefeitura em unidade.horario_portal;
+    * verifica cada arquivo novo UMA vez e avisa se não for a listagem do CNES.
+
+    Devolve a lista de avisos (vazia quando não há nada de novo).
+    """
+    escalas = escalas_desde(buscar_escalas_portal(PORTAL_URL), PORTAL_DESDE)
+    log.info("Portal: %d publicações desde %s", len(escalas), PORTAL_DESDE)
+
+    # 1) Horários de funcionamento
+    horarios = horarios_por_cnes(escalas, mapa_portal_cnes(ajustes))
+    with con.cursor() as cur:
+        cur.execute("UPDATE unidade SET horario_portal = NULL")
+        cur.executemany("UPDATE unidade SET horario_portal = %s WHERE cnes = %s",
+                        [(h, c) for c, h in horarios.items()])
+    log.info("Portal: horário de funcionamento gravado em %d unidades", len(horarios))
+
+    # 2) Arquivos novos (cada um é baixado e verificado só uma vez)
+    ja_vistos = {m for (m,) in con.execute("SELECT midia FROM arquivo_portal").fetchall()}
+    avisos = []
+    for e in escalas:
+        midia = e.get("midia")
+        if not midia or midia in ja_vistos:
+            continue
+        ja_vistos.add(midia)
+        try:
+            tipo = classificar_arquivo(midia)
+        except Exception as erro:  # um anexo com problema não derruba a coleta
+            log.warning("Portal: não foi possível verificar %s: %s", midia, erro)
+            tipo = "erro"
+        con.execute("""
+            INSERT INTO arquivo_portal (midia, portal_unidade_id, unidade_nome, data_inicio, data_fim, titulo, tipo)
+            VALUES (%s, %s, %s, %s, %s, %s, %s)
+        """, (midia, str(e.get("unidade_id")), (e.get("nome") or "").strip(),
+              e.get("data_inicio"), e.get("data_fim"), e.get("titulo_midia"), tipo))
+        if tipo == "possivel_escala":
+            aviso = (f"Possível escala nova no portal: {(e.get('nome') or '').strip()} "
+                     f"({e.get('data_inicio')} a {e.get('data_fim')}), arquivo {e.get('titulo_midia')}")
+            log.warning(aviso)
+            avisos.append(aviso)
+    return avisos
+
+
 def ja_importado(con: psycopg.Connection, hash_arquivo: str) -> bool:
     linha = con.execute(
         "SELECT 1 FROM coleta WHERE hash_sha256 = %s AND status = 'sucesso' LIMIT 1", (hash_arquivo,)
@@ -175,10 +240,22 @@ def executar(forcar: bool = False, competencia_aamm: str | None = None) -> int:
             # 1 e 2: ocupações e unidades (sempre: os CSVs podem ter mudado)
             sincronizar_ocupacoes(con, ler_ocupacoes(PASTA_CSV / "ocupacoes.csv"))
             estabelecimentos = buscar_estabelecimentos(CNES_API_URL, MUNICIPIO_IBGE)
-            importar_unidades(con, estabelecimentos, ler_ajustes_unidades(PASTA_CSV / "unidades.csv"))
+            ajustes = ler_ajustes_unidades(PASTA_CSV / "unidades.csv")
+            importar_unidades(con, estabelecimentos, ajustes)
             con.commit()
 
-            # 3 e 4: arquivo de profissionais
+            # 3: portal da Prefeitura (complementar: se falhar, a coleta do CNES continua)
+            try:
+                avisos = processar_portal(con, ajustes)
+                con.commit()
+            except Exception as erro:
+                con.rollback()
+                log.warning("Portal da Prefeitura indisponível: %s", erro)
+                avisos = [f"Portal da Prefeitura indisponível: {type(erro).__name__}: {erro}"[:500]]
+            if avisos:
+                atualizar_coleta(con, coleta_id, avisos="\n".join(avisos))
+
+            # 4 e 5: arquivo de profissionais
             aamm = competencia_aamm or competencias_disponiveis(CNES_FTP_PF, UF)[0]
             arquivo = baixar_pf(CNES_FTP_PF, UF, aamm, PASTA_BRUTOS)
             hash_arquivo = sha256(arquivo)
@@ -191,7 +268,7 @@ def executar(forcar: bool = False, competencia_aamm: str | None = None) -> int:
                 atualizar_coleta(con, coleta_id, status="sem_novidade")
                 return 0
 
-            # 5: descomprime (DBC -> DBF) numa pasta temporária e importa
+            # 6: descomprime (DBC -> DBF) numa pasta temporária e importa
             with tempfile.TemporaryDirectory() as pasta_tmp:
                 dbf = Path(pasta_tmp) / arquivo.with_suffix(".dbf").name
                 datasus_dbc.decompress(str(arquivo), str(dbf))

@@ -192,3 +192,15 @@ def test_texto_horario():
 def test_ordem_alfabetica_ignora_acentos():
     bairros = ["Setor de Mansões Sul", "São Matheus", "Centro", "Ábaco"]
     assert sorted(bairros, key=chave_ordenacao) == ["Ábaco", "Centro", "São Matheus", "Setor de Mansões Sul"]
+
+
+def test_horario_prioridade_manual_portal_cnes(cliente):
+    unidades = {u["nome"]: u["horario"] for u in cliente.get("/api/unidades").json()}
+    assert unidades["UBS FICTÍCIA JARDIM ABC"] == "Seg a sex, 13h às 19h"  # manual vence o portal
+    assert unidades["HOSPITAL FICTÍCIO"] == "24 horas"                      # portal vence o CNES
+    assert unidades["UBS FICTÍCIA CENTRO"] == "Manhã e tarde"               # só o turno do CNES
+
+
+def test_texto_horario_com_portal():
+    assert texto_horario(None, "03", None, "Segunda a sexta das 8h às 17h") == "Segunda a sexta das 8h às 17h"
+    assert texto_horario("Manual", "03", None, "Portal") == "Manual"

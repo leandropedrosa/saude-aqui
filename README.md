@@ -77,6 +77,7 @@ Fonte mínima de 16 px, contraste AA, foco sempre visível e navegação pelo te
 |---|---|---|
 | Unidades (nome, endereço, bairro, telefone, coordenadas, turno) | API de dados abertos do Ministério da Saúde (`apidadosabertos.saude.gov.br/cnes/estabelecimentos`) | contínua |
 | Profissionais × unidade (nome, ocupação CBO, carga horária semanal) | FTP do DATASUS, arquivo mensal `PFGOaamm.dbc` | mensal (~2 meses de atraso) |
+| Horário de funcionamento escrito pela Prefeitura; aviso de escala nova | [Portal de escalas da Prefeitura](https://acessoainformacao.cidadeocidental.go.gov.br/cidadao/outras_informacoes/escalasmedicas) (só publicações de 2026 em diante) | quando a Prefeitura publica |
 
 Os detalhes da investigação estão em [`coletor/amostras/ACHADOS.md`](coletor/amostras/ACHADOS.md).
 
@@ -88,8 +89,10 @@ nome, ocupação e carga horária.
 * **`db/unidades.csv`**: ajustes manuais por unidade (chave: código CNES). Uma coluna vazia
   significa "usar o valor do CNES".
   * `nome`, `bairro`, `telefone`, `lat`, `lng`: corrigem o que veio do CNES.
-  * `horario`: texto livre (ex.: `Seg a sex, 7h às 17h`). Quando preenchido, aparece no
-    lugar do turno do CNES.
+  * `horario`: texto livre (ex.: `Seg a sex, 7h às 17h`). Quando preenchido, tem prioridade
+    sobre o horário do portal da Prefeitura e sobre o turno do CNES.
+  * `portal_id`: código da unidade no portal de escalas da Prefeitura. Uma unidade do portal
+    pode cobrir duas do CNES (ex.: "UBSF SQ 11/12" → SQ 11 e SQ 12).
   * `ativo`: `nao` esconde a unidade do site (ex.: setores administrativos, SAMU).
 * **`db/ocupacoes.csv`**: quais ocupações (CBO) aparecem no site. Mude `incluir` para
   `sim`/`nao`; não apague linhas. Depois de editar, rode o coletor com `--forcar`.
@@ -210,6 +213,25 @@ Importa os dados do CNES/DATASUS para o banco. Cada execução faz o seguinte:
    `sem_novidade`;
 4. descomprime, lê só os registros de Cidade Ocidental, **descarta CNS, CPF e registro em
    conselho** e grava os vínculos das ocupações de atendimento.
+
+Antes do passo 3, o coletor também consulta o **portal de escalas da Prefeitura**, considerando
+só as publicações de 2026 em diante (variável `PORTAL_DESDE`):
+
+* grava o **horário de funcionamento** escrito pela Prefeitura (ex.: "Segunda a sexta das 8h às 22h
+  e sábados das 8h às 12h"). A ordem de prioridade é: horário manual do `unidades.csv`, depois o
+  do portal, depois o turno do CNES;
+* baixa e verifica cada arquivo anexo **uma única vez** (tabela `arquivo_portal`). Até hoje todos
+  os arquivos de 2026 são a "Listagem de Profissionais" do CNES, cujo conteúdo o site já tem por
+  outra fonte (mais completa e mais recente). **Se a Prefeitura publicar uma escala de verdade**
+  (outro tipo de PDF, uma planilha etc.), o coletor registra um aviso no log e na coluna `avisos`
+  da tabela `coleta`. Aí basta escrever o leitor para o formato novo;
+* se o portal estiver fora do ar, a coleta do CNES continua normalmente e o problema vira um aviso.
+
+Para ver os avisos:
+`docker compose exec db psql -U saude_aqui -d saude_aqui -c "SELECT baixado_em, avisos FROM coleta WHERE avisos IS NOT NULL ORDER BY id DESC"`
+
+**Banco criado antes desta versão?** Aplique a migração uma vez:
+`docker compose exec -T db psql -U saude_aqui -d saude_aqui < db/migracoes/001_portal_prefeitura.sql`
 
 Toda execução gera uma linha na tabela `coleta`, com status `sucesso`, `sem_novidade` ou
 `erro` e a mensagem do erro, quando houver.

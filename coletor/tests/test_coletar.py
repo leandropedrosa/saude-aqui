@@ -90,6 +90,8 @@ def fontes_falsas(monkeypatch, tmp_path, estabelecimentos, registros_pf):
     monkeypatch.setattr(coletar, "competencias_disponiveis", lambda url, uf: ["2609", "2608"])
     monkeypatch.setattr(coletar, "baixar_pf", baixar)
     monkeypatch.setattr(coletar.datasus_dbc, "decompress", lambda dbc, dbf: shutil.copy(dbf_amostra, dbf))
+    # Portal da Prefeitura: sem publicações (testado à parte em test_portal.py)
+    monkeypatch.setattr(coletar, "buscar_escalas_portal", lambda url: [])
     return conteudo
 
 
@@ -127,3 +129,15 @@ def test_executar_registra_erro(con, fontes_falsas, monkeypatch):
     status, _, _, erro = ultima_coleta(con)
     assert status == "erro"
     assert "API fora do ar" in erro
+
+
+def test_portal_fora_do_ar_nao_derruba_a_coleta(con, fontes_falsas, monkeypatch):
+    def falhar(url):
+        raise ConnectionError("portal fora do ar")
+    monkeypatch.setattr(coletar, "buscar_escalas_portal", falhar)
+
+    assert coletar.executar() == 0
+    status, total, _, _ = ultima_coleta(con)
+    assert (status, total) == ("sucesso", 414)
+    avisos = con.execute("SELECT avisos FROM coleta ORDER BY id DESC LIMIT 1").fetchone()[0]
+    assert "Portal da Prefeitura indisponível" in avisos

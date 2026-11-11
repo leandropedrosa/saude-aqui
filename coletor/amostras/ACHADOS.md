@@ -224,3 +224,27 @@ FTP e, se não apareceu, encerra.
 6. **Interface:** usar "profissionais vinculados a esta unidade", nunca "disponíveis agora",
    e manter o aviso de confirmar por telefone.
 7. O pedido pela LAI (item 8) foi adiado.
+
+---
+
+# Reinvestigação dos PDFs do portal (10/11/2026)
+
+A pedido do grupo, baixamos e classificamos **todos** os 25 PDFs distintos do portal (a Fase 0
+tinha aberto só 3):
+
+* **24 PDFs** (2024, fev/2025 e 2026) são a "Listagem de Profissionais" do CNES: nome, CBO e
+  carga horária semanal, **sem dias nem horários**.
+* **1 PDF de ago/2023** (49 páginas, anexado a todas as unidades) é diferente: um quadro de
+  pessoal por setor com **horário fixo da unidade** (ex.: "07:30 às 17h, segunda a sexta";
+  "07:30 às 22h + sábado 8h às 13h"). Tem uma página de **atendimento pediátrico por dia da
+  semana** (pediatra na UBSF Friburgo B na segunda, Araguari na quarta e SQ 19 na sexta) e
+  lista os médicos do hospital apenas como "PLANTONISTA", **sem as datas dos plantões**.
+
+Conclusão: nenhum arquivo publicado traz "quem está de plantão em uma data". O mais próximo é
+o quadro de 2023, que tem horários semanais fixos e está desatualizado (3 anos). Se a Prefeitura
+publicar uma versão atual nesse formato, dá para escrever um parser para ela.
+
+**Decisão (10/11/2026):** o coletor passa a consultar o portal como **fonte complementar**, só
+para publicações de 2026 em diante. Ele aproveita o horário de funcionamento escrito pela
+Prefeitura e verifica cada anexo novo: se não for a listagem do CNES, gera um aviso de
+"possível escala nova".

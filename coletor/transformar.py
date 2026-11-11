@@ -10,7 +10,10 @@ CNS_PROF (Cartão SUS), CPF_PROF, CONSELHO e REGISTRO são descartados aqui.
 """
 
 import csv
+import io
 import logging
+import re
+from collections import defaultdict
 from datetime import date
 from pathlib import Path
 
@@ -143,3 +146,61 @@ def transformar_vinculo(registro: dict) -> dict:
             + _horas(registro.get("HORA_AMB"))
         ),
     }
+
+
+# ---------------------------------------------------------------- portal da Prefeitura
+
+def escalas_desde(escalas: list[dict], desde: date) -> list[dict]:
+    """Só as escalas com início a partir de `desde` (o grupo decidiu: 2026 em diante)."""
+    return [e for e in escalas if e.get("data_inicio") and date.fromisoformat(e["data_inicio"]) >= desde]
+
+
+def formatar_horario_portal(texto: str | None) -> str | None:
+    """'SEGUNDA A SEXTA FEIRA DAS 8H ÁS 17H' -> 'Segunda a sexta feira das 8h às 17h'."""
+    if not texto or not texto.strip():
+        return None
+    t = " ".join(texto.split()).lower()
+    t = re.sub(r"\bás\b", "às", t)                       # erro comum no portal: "ás"
+    if re.fullmatch(r"24 ?h(oras)?", t):
+        return "24 horas"
+    return t[0].upper() + t[1:]
+
+
+def mapa_portal_cnes(ajustes: dict[str, dict]) -> dict[str, list[str]]:
+    """Coluna portal_id de unidades.csv -> {id da unidade no portal: [CNES, ...]}."""
+    mapa: dict[str, list[str]] = defaultdict(list)
+    for cnes, linha in ajustes.items():
+        portal_id = (linha.get("portal_id") or "").strip()
+        if portal_id:
+            mapa[portal_id].append(cnes)
+    return dict(mapa)
+
+
+def horarios_por_cnes(escalas: list[dict], mapa: dict[str, list[str]]) -> dict[str, str]:
+    """Horário de funcionamento do portal para cada CNES (usa a escala mais recente da unidade)."""
+    mais_recente: dict[str, dict] = {}
+    for e in escalas:
+        uid = str(e.get("unidade_id"))
+        if uid not in mais_recente or e["data_inicio"] > mais_recente[uid]["data_inicio"]:
+            mais_recente[uid] = e
+    resultado = {}
+    for uid, e in mais_recente.items():
+        horario = formatar_horario_portal(e.get("horario_funcionamento"))
+        for cnes in mapa.get(uid, []):
+            if horario:
+                resultado[cnes] = horario
+    return resultado
+
+
+def texto_primeira_pagina(conteudo_pdf: bytes) -> str:
+    """Texto da 1ª página de um PDF (pypdf: leve e sem dependências nativas)."""
+    from pypdf import PdfReader
+    leitor = PdfReader(io.BytesIO(conteudo_pdf))
+    if not leitor.pages:
+        return ""
+    return leitor.pages[0].extract_text() or ""
+
+
+def eh_listagem_cnes(texto: str) -> bool:
+    """A "Listagem de Profissionais" impressa do CNES não é escala de plantão."""
+    return "Listagem de Profissionais" in texto and "CNES" in texto

@@ -1,13 +1,15 @@
 """
-Acesso às fontes oficiais do CNES:
+Acesso às fontes de dados:
 
 * FTP do DATASUS: arquivos mensais de profissionais (PFufAAMM.dbc)
 * API de dados abertos do Ministério da Saúde: estabelecimentos
+* Portal de escalas da Prefeitura (NúcleoGov): lista de escalas e arquivos anexos
 
 Só funções de download aqui; a interpretação dos dados fica em transformar.py.
 """
 
 import hashlib
+import json
 import logging
 import re
 import time
@@ -94,3 +96,31 @@ def _get_com_tentativas(cliente: httpx.Client, url: str, params: dict, tentativa
             log.warning("Falha na API (%s), tentativa %d de %d", erro, n, tentativas)
             time.sleep(5 * n)
     raise RuntimeError("inalcançável")
+
+
+# ---------------------------------------------------------------- portal da Prefeitura
+
+# O servidor do portal responde 403 para clientes "estranhos": nos identificamos como navegador
+_UA_NAVEGADOR = ("Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
+                 "(KHTML, like Gecko) Chrome/140.0 Safari/537.36")
+
+
+def buscar_escalas_portal(url_portal: str) -> list[dict]:
+    """Lista todas as escalas publicadas no portal (a mesma chamada que a página faz)."""
+    parametros = {"q": {"limit": "0, 500", "acao": "escalasmedicas/listarCidadao"}}
+    cabecalhos = {"User-Agent": _UA_NAVEGADOR, "X-Requested-With": "XMLHttpRequest",
+                  "Referer": f"{url_portal}/cidadao/outras_informacoes/escalasmedicas"}
+    with httpx.Client(headers=cabecalhos, timeout=60) as cliente:
+        resposta = cliente.post(f"{url_portal}/api",
+                                data={"multi_request": "true", "params": json.dumps(parametros)})
+        resposta.raise_for_status()
+        escalas = resposta.json()["q"]["dados"]
+    log.info("Portal da Prefeitura: %d escalas publicadas", len(escalas))
+    return escalas
+
+
+def baixar_arquivo_portal(url_arquivos: str, midia: str) -> bytes:
+    """Baixa um anexo do portal. O link assinado falha com acentos, então usamos o endereço público."""
+    resposta = httpx.get(f"{url_arquivos}{midia}", timeout=60)
+    resposta.raise_for_status()
+    return resposta.content

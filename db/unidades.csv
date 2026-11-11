@@ -1,48 +1,48 @@
-cnes,nome_cnes,nome,bairro,horario,telefone,lat,lng,ativo,observacao
-9307907,ACADEMIA DE SAUDE FRUBURGO B,Academia da Saúde Friburgo B,Friburgo B,,,,,sim,
-9307788,ACADEMIA DE SAUDE JARDIM ABC,Academia da Saúde Jardim ABC,Jardim ABC,,,,,sim,
-9307796,ACADEMIA DE SAUDE NAPOLES A,Academia da Saúde Parque Nápoles A,Parque Nápoles A,,,,,sim,
-0068861,ACADEMIA DE SAUDE OCIDENTAL PARK,Academia da Saúde Ocidental Parque,Ocidental Parque,,,,,sim,
-9960775,ACADEMIA DE SAUDE PARQUE ARAGUARI,Academia da Saúde Parque Araguari,Parque Araguari,,,,,sim,
-2887037,CAF CENTRAL DE ASSISTENCIA FARMACEUTICA DE CIDADE OCIDENTAL,CAF – Central de Assistência Farmacêutica,Centro,,,,,nao,"almoxarifado, sem atendimento ao público"
-7732341,CAPS II CENTRO DE ATENCAO PSICOSSOCIAL,CAPS II – Centro de Atenção Psicossocial,Setor de Mansões Sul,,,,,sim,
-8176779,CASA DE PARTO CIDADE OCIDENTAL,Casa de Parto de Cidade Ocidental,Centro,,,,,sim,
-7568606,CENTRAL DE ARMAZENAGEM E DISTRIBUICAO DE IMUNOBIOLOGICO,Central de Armazenagem e Distribuição de Imunobiológicos,Centro,,,,,nao,"almoxarifado, sem atendimento ao público"
-8183031,CENTRAL DE REGULACAO DE CIDADE OCIDENTAL,Central de Regulação de Cidade Ocidental,Centro,,,,,nao,setor administrativo
-8484090,CENTRO DE ESPECIALIDADES ODONTOLOGICAS I,CEO I – Centro de Especialidades Odontológicas,Centro,,,,,sim,
-5028167,CENTRO DE REABILITACAO E PREVENCAO CIDADE OCIDENTAL,Centro de Reabilitação e Prevenção,Parque Araguari,,,,,sim,
-8484120,CENTRO ESPECIALIZADO EM PSICOLOGIA,Centro Especializado em Psicologia,Centro,,,,,sim,
-4250753,CTA SAE,CTA e SAE – Centro de Testagem e Aconselhamento,Centro,,,,,sim,
-4765753,FARMACIA CENTRAL DE CIDADE OCIDENTAL,Farmácia Central de Cidade Ocidental,Centro,,,,,sim,
-2569728,HOSPITAL MUNICIPAL DE CIDADE OCIDENTAL,Hospital Municipal de Cidade Ocidental,Centro,,,,,sim,
-6310079,SAMU SERVICO DE ATENDIMENTO MOVEL DE URGENCIA,SAMU – Serviço de Atendimento Móvel de Urgência,Ocidental Parque,,,,,nao,atendimento móvel: ligue 192
-7664745,SAMU SERVICO DE ATENDIMENTO MOVEL DE URGENCIA JARDIM ABC,SAMU – Jardim ABC,Jardim ABC,,,,,nao,atendimento móvel: ligue 192
-3866718,SECRETARIA MUNICIPAL DE SAUDE CIDADE OCIDENTAL,Secretaria Municipal de Saúde,Centro,,,,,nao,setor administrativo
-7713304,UBS FAMILIA DOM BOSCO,UBS Família Dom Bosco,Dom Bosco,,,,,sim,
-2440032,UBS FAMILIA FRIBURGO A,UBS Família Friburgo A,Friburgo A,,,,,sim,
-2438690,UBS FAMILIA FRIBURGO B,UBS Família Friburgo B,Friburgo B,,,,,sim,
-4527550,UBS FAMILIA FRIBURGO B1,UBS Família Friburgo B1,Friburgo B,,,,,sim,
-2438526,UBS FAMILIA JARDIM ABC,UBS Família Jardim ABC,Jardim ABC,,,,,sim,
-8008221,UBS FAMILIA JARDIM ABC RURAL,UBS Família Jardim ABC Rural,Jardim ABC,,,,,sim,
-8280320,UBS FAMILIA JARDIM ABC SATELITE,UBS Família Jardim ABC Satélite,Jardim Satélite,,,,,sim,
-2383403,UBS FAMILIA MESQUITA,UBS Família Povoado Mesquita,Zona Rural,,,-16.0775786,-47.8677106,sim,coordenada aproximada (centro do Mesquita no OpenStreetMap); no CNES estava a 38 km
-0882658,UBS FAMILIA NAPOLES B,UBS Família Parque Nápoles B,Parque Nápoles B,,,,,sim,
-2438488,UBS FAMILIA OCIDENTAL PARK,UBS Família Ocidental Parque,Ocidental Parque,,,,,sim,
-7305117,UBS FAMILIA PARQUE ARAGUARI,UBS Família Parque Araguari,Parque Araguari,,,,,sim,
-7713320,UBS FAMILIA PARQUE ESTRELA DALVA,UBS Família Parque Estrela Dalva III,Parque Estrela Dalva III,,,,,sim,
-2438518,UBS FAMILIA PARQUE NAPOLIS A,UBS Família Parque Nápoles A,Parque Nápoles A,,,,,sim,
-7713339,UBS FAMILIA PARQUE NAPOLIS A 1,UBS Família Parque Nápoles A1,Parque Nápoles A,,,,,sim,
-0877999,UBS FAMILIA RECREIO MOSSORO,UBS Família Recreio Mossoró,Recreio Mossoró,,,,,sim,
-0068837,UBS FAMILIA SAO MATHEUS,UBS Família São Matheus,São Matheus,,,,,sim,
-3005070,UBS FAMILIA SQ 11,UBS Família SQ 11,Centro,,,,,sim,
-3042677,UBS FAMILIA SQ 12,UBS Família SQ 12,Centro,,,,,sim,
-3005089,UBS FAMILIA SQ 13,UBS Família SQ 13,Centro,,,,,sim,
-3005100,UBS FAMILIA SQ 15,UBS Família SQ 15,Centro,,,,,sim,
-3042685,UBS FAMILIA SQ 16,UBS Família SQ 16,Centro,,,,,sim,
-3005119,UBS FAMILIA SQ 17,UBS Família SQ 17,Centro,,,,,sim,
-3005127,UBS FAMILIA SQ 18,UBS Família SQ 18,Centro,,,,,sim,
-2440024,UBS FAMILIA SQ 19,UBS Família SQ 19,Centro,,,-16.1016737,-47.9235592,sim,coordenada aproximada (centro da SQ 19 no OpenStreetMap); no CNES estava a 57 km
-8524769,UBS RECREIO MOSSORO ESTENDIDA,UBS Recreio Mossoró (horário estendido),Recreio Mossoró,,,,,sim,
-3866696,UNIDADE DE CONTROLE DE ENDEMIAS,Unidade de Controle de Endemias,Centro,,,,,nao,"vigilância, sem atendimento ao público"
-3005135,UNIDADE MOVEL TERRESTRE I,Unidade Móvel Terrestre I,Centro,,,,,nao,"unidade móvel, sem endereço fixo"
-3005143,UNIDADE MOVEL TERRESTRE II,Unidade Móvel Terrestre II,Centro,,,,,nao,"unidade móvel, sem endereço fixo"
+cnes,nome_cnes,nome,bairro,horario,telefone,lat,lng,portal_id,ativo,observacao
+9307907,ACADEMIA DE SAUDE FRUBURGO B,Academia da Saúde Friburgo B,Friburgo B,,,,,7,sim,
+9307788,ACADEMIA DE SAUDE JARDIM ABC,Academia da Saúde Jardim ABC,Jardim ABC,,,,,9,sim,
+9307796,ACADEMIA DE SAUDE NAPOLES A,Academia da Saúde Parque Nápoles A,Parque Nápoles A,,,,,8,sim,
+0068861,ACADEMIA DE SAUDE OCIDENTAL PARK,Academia da Saúde Ocidental Parque,Ocidental Parque,,,,,10,sim,
+9960775,ACADEMIA DE SAUDE PARQUE ARAGUARI,Academia da Saúde Parque Araguari,Parque Araguari,,,,,6,sim,
+2887037,CAF CENTRAL DE ASSISTENCIA FARMACEUTICA DE CIDADE OCIDENTAL,CAF – Central de Assistência Farmacêutica,Centro,,,,,,nao,"almoxarifado, sem atendimento ao público"
+7732341,CAPS II CENTRO DE ATENCAO PSICOSSOCIAL,CAPS II – Centro de Atenção Psicossocial,Setor de Mansões Sul,,,,,24,sim,
+8176779,CASA DE PARTO CIDADE OCIDENTAL,Casa de Parto de Cidade Ocidental,Centro,,,,,,sim,
+7568606,CENTRAL DE ARMAZENAGEM E DISTRIBUICAO DE IMUNOBIOLOGICO,Central de Armazenagem e Distribuição de Imunobiológicos,Centro,,,,,,nao,"almoxarifado, sem atendimento ao público"
+8183031,CENTRAL DE REGULACAO DE CIDADE OCIDENTAL,Central de Regulação de Cidade Ocidental,Centro,,,,,28,nao,setor administrativo
+8484090,CENTRO DE ESPECIALIDADES ODONTOLOGICAS I,CEO I – Centro de Especialidades Odontológicas,Centro,,,,,,sim,
+5028167,CENTRO DE REABILITACAO E PREVENCAO CIDADE OCIDENTAL,Centro de Reabilitação e Prevenção,Parque Araguari,,,,,,sim,
+8484120,CENTRO ESPECIALIZADO EM PSICOLOGIA,Centro Especializado em Psicologia,Centro,,,,,,sim,
+4250753,CTA SAE,CTA e SAE – Centro de Testagem e Aconselhamento,Centro,,,,,34,sim,
+4765753,FARMACIA CENTRAL DE CIDADE OCIDENTAL,Farmácia Central de Cidade Ocidental,Centro,,,,,19,sim,
+2569728,HOSPITAL MUNICIPAL DE CIDADE OCIDENTAL,Hospital Municipal de Cidade Ocidental,Centro,,,,,26,sim,
+6310079,SAMU SERVICO DE ATENDIMENTO MOVEL DE URGENCIA,SAMU – Serviço de Atendimento Móvel de Urgência,Ocidental Parque,,,,,22,nao,atendimento móvel: ligue 192
+7664745,SAMU SERVICO DE ATENDIMENTO MOVEL DE URGENCIA JARDIM ABC,SAMU – Jardim ABC,Jardim ABC,,,,,23,nao,atendimento móvel: ligue 192
+3866718,SECRETARIA MUNICIPAL DE SAUDE CIDADE OCIDENTAL,Secretaria Municipal de Saúde,Centro,,,,,21,nao,setor administrativo
+7713304,UBS FAMILIA DOM BOSCO,UBS Família Dom Bosco,Dom Bosco,,,,,13,sim,
+2440032,UBS FAMILIA FRIBURGO A,UBS Família Friburgo A,Friburgo A,,,,,5,sim,
+2438690,UBS FAMILIA FRIBURGO B,UBS Família Friburgo B,Friburgo B,,,,,4,sim,
+4527550,UBS FAMILIA FRIBURGO B1,UBS Família Friburgo B1,Friburgo B,,,,,,sim,
+2438526,UBS FAMILIA JARDIM ABC,UBS Família Jardim ABC,Jardim ABC,,,,,35,sim,
+8008221,UBS FAMILIA JARDIM ABC RURAL,UBS Família Jardim ABC Rural,Jardim ABC,,,,,,sim,
+8280320,UBS FAMILIA JARDIM ABC SATELITE,UBS Família Jardim ABC Satélite,Jardim Satélite,,,,,,sim,
+2383403,UBS FAMILIA MESQUITA,UBS Família Povoado Mesquita,Zona Rural,,,-16.0775786,-47.8677106,1,sim,coordenada aproximada (centro do Mesquita no OpenStreetMap); no CNES estava a 38 km
+0882658,UBS FAMILIA NAPOLES B,UBS Família Parque Nápoles B,Parque Nápoles B,,,,,11,sim,
+2438488,UBS FAMILIA OCIDENTAL PARK,UBS Família Ocidental Parque,Ocidental Parque,,,,,11,sim,
+7305117,UBS FAMILIA PARQUE ARAGUARI,UBS Família Parque Araguari,Parque Araguari,,,,,36,sim,
+7713320,UBS FAMILIA PARQUE ESTRELA DALVA,UBS Família Parque Estrela Dalva III,Parque Estrela Dalva III,,,,,3,sim,
+2438518,UBS FAMILIA PARQUE NAPOLIS A,UBS Família Parque Nápoles A,Parque Nápoles A,,,,,12,sim,
+7713339,UBS FAMILIA PARQUE NAPOLIS A 1,UBS Família Parque Nápoles A1,Parque Nápoles A,,,,,12,sim,
+0877999,UBS FAMILIA RECREIO MOSSORO,UBS Família Recreio Mossoró,Recreio Mossoró,,,,,5,sim,
+0068837,UBS FAMILIA SAO MATHEUS,UBS Família São Matheus,São Matheus,,,,,2,sim,
+3005070,UBS FAMILIA SQ 11,UBS Família SQ 11,Centro,,,,,18,sim,
+3042677,UBS FAMILIA SQ 12,UBS Família SQ 12,Centro,,,,,18,sim,
+3005089,UBS FAMILIA SQ 13,UBS Família SQ 13,Centro,,,,,17,sim,
+3005100,UBS FAMILIA SQ 15,UBS Família SQ 15,Centro,,,,,15,sim,
+3042685,UBS FAMILIA SQ 16,UBS Família SQ 16,Centro,,,,,16,sim,
+3005119,UBS FAMILIA SQ 17,UBS Família SQ 17,Centro,,,,,,sim,
+3005127,UBS FAMILIA SQ 18,UBS Família SQ 18,Centro,,,,,14,sim,
+2440024,UBS FAMILIA SQ 19,UBS Família SQ 19,Centro,,,-16.1016737,-47.9235592,37,sim,coordenada aproximada (centro da SQ 19 no OpenStreetMap); no CNES estava a 57 km
+8524769,UBS RECREIO MOSSORO ESTENDIDA,UBS Recreio Mossoró (horário estendido),Recreio Mossoró,,,,,,sim,
+3866696,UNIDADE DE CONTROLE DE ENDEMIAS,Unidade de Controle de Endemias,Centro,,,,,33,nao,"vigilância, sem atendimento ao público"
+3005135,UNIDADE MOVEL TERRESTRE I,Unidade Móvel Terrestre I,Centro,,,,,,nao,"unidade móvel, sem endereço fixo"
+3005143,UNIDADE MOVEL TERRESTRE II,Unidade Móvel Terrestre II,Centro,,,,,,nao,"unidade móvel, sem endereço fixo"

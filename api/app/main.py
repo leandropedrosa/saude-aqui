@@ -69,7 +69,8 @@ def _montar_unidade(linha: dict) -> dict:
     """Converte uma linha da tabela unidade no formato do modelo Unidade."""
     return {
         **linha,
-        "horario": texto_horario(linha["horario"], linha["turno_codigo"], linha["turno_descricao"]),
+        "horario": texto_horario(linha["horario"], linha["turno_codigo"],
+                                 linha["turno_descricao"], linha["horario_portal"]),
     }
 
 
@@ -132,7 +133,7 @@ def especialidades():
 def unidades(bairro: str | None = Query(None, description="Filtrar por bairro (como em /bairros)")):
     linhas = banco.consultar("""
         SELECT id, cnes, nome, tipo, endereco, bairro, lat, lng, telefone,
-               horario, turno_codigo, turno_descricao
+               horario, horario_portal, turno_codigo, turno_descricao
           FROM unidade
          WHERE ativo
            AND lat IS NOT NULL AND lng IS NOT NULL
@@ -179,7 +180,7 @@ def unidades_proximas(
     unidades_encontradas = banco.consultar(f"""
         SELECT * FROM (
             SELECT u.id, u.cnes, u.nome, u.tipo, u.endereco, u.bairro, u.lat, u.lng,
-                   u.telefone, u.horario, u.turno_codigo, u.turno_descricao,
+                   u.telefone, u.horario, u.horario_portal, u.turno_codigo, u.turno_descricao,
                    CASE WHEN %(lat)s::float8 IS NULL OR u.lat IS NULL THEN NULL
                         ELSE round(distancia_km(%(lat)s, %(lng)s, u.lat, u.lng)::numeric, 2)::float8
                    END AS distancia_km
