@@ -20,6 +20,10 @@ Projeto de alunos de graduação da UFG. O código é propositalmente simples e 
 Mapa em tela cheia, com um painel de busca e a lista de unidades. O aviso fixo explica que os dados
 mostram profissionais **vinculados** (e não plantões) e informa a data da última atualização.
 
+Unidades próximas umas das outras aparecem **agrupadas** num círculo com a quantidade. Ao clicar
+no grupo (ou aproximar o mapa), os pinos se separam. Ao escolher uma unidade na lista, o mapa
+aproxima até o pino dela aparecer, mesmo que ela estivesse dentro de um grupo.
+
 ![Visão geral no desktop](docs/capturas/desktop-visao-geral.png)
 
 ### Unidades mais próximas

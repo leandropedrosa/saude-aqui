@@ -4,6 +4,11 @@
 // O <MapContainer> é montado UMA vez só, ao abrir o site. Trocar
 // filtros só atualiza os marcadores, sem recriar o mapa.
 //
+// Marcadores próximos são AGRUPADOS (leaflet.markercluster): com o mapa
+// afastado, aparece um círculo com a quantidade; ao clicar nele ou
+// aproximar, os pinos se separam. A partir do zoom ZOOM_SEM_AGRUPAR todos
+// os pinos aparecem soltos.
+//
 // Regras do OpenStreetMap: manter a atribuição visível (o Leaflet já faz)
 // e uso leve dos servidores de tiles. Se o tráfego crescer, troque
 // VITE_TILES_URL por um provedor com plano gratuito (MapTiler, Stadia, Carto).
@@ -11,8 +16,10 @@
 
 import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
+import 'leaflet.markercluster/dist/MarkerCluster.css'
 import { useEffect, useMemo } from 'react'
 import { CircleMarker, MapContainer, Marker, TileLayer, Tooltip, ZoomControl, useMap } from 'react-leaflet'
+import MarkerClusterGroup from 'react-leaflet-cluster'
 import type { Posicao, Unidade } from '../api'
 import { formatarTitulo } from '../util'
 
@@ -22,6 +29,10 @@ const TILES_ATRIBUICAO = import.meta.env.VITE_TILES_ATRIBUICAO ||
 
 // Centro aproximado de Cidade Ocidental (GO)
 const CENTRO_INICIAL: [number, number] = [-16.085, -47.935]
+
+// A partir deste zoom os marcadores não são mais agrupados. Ao selecionar uma
+// unidade, o mapa aproxima pelo menos até aqui, para o pino dela ficar visível.
+const ZOOM_SEM_AGRUPAR = 16
 
 // Largura do painel lateral no desktop (igual ao CSS), para não esconder marcadores atrás dele
 const LARGURA_PAINEL = 440
@@ -42,6 +53,17 @@ function criarIcone(selecionado: boolean, hospital: boolean) {
     iconSize: [tamanho, tamanho * 1.25],
     iconAnchor: [tamanho / 2, tamanho * 1.25], // a ponta do pino fica na coordenada
     tooltipAnchor: [0, -tamanho * 1.15],
+  })
+}
+
+/** Ícone do grupo: círculo azul com a quantidade de unidades agrupadas. */
+function criarIconeGrupo(grupo: L.MarkerCluster) {
+  const total = grupo.getChildCount()
+  const tamanho = total < 10 ? 40 : 48
+  return L.divIcon({
+    className: 'grupo-marcadores',
+    html: `<span aria-label="${total} unidades">${total}</span>`,
+    iconSize: [tamanho, tamanho],
   })
 }
 
@@ -85,7 +107,7 @@ function ControleCamera({ unidades, selecionada, posicao }: Omit<Props, 'aoSelec
   // Quando uma unidade é selecionada (na lista ou no mapa), centraliza nela
   useEffect(() => {
     const u = unidades.find((x) => x.id === selecionada)
-    if (u?.lat != null && u.lng != null) voarPara(mapa, u.lat, u.lng, Math.max(mapa.getZoom(), 15))
+    if (u?.lat != null && u.lng != null) voarPara(mapa, u.lat, u.lng, Math.max(mapa.getZoom(), ZOOM_SEM_AGRUPAR))
   }, [selecionada, mapa])
 
   return null
@@ -112,6 +134,14 @@ export function Mapa({ unidades, selecionada, aoSelecionar, posicao }: Props) {
       <ZoomControl position="bottomright" />
       <ControleCamera unidades={unidades} selecionada={selecionada} posicao={posicao} />
 
+      <MarkerClusterGroup
+        chunkedLoading
+        maxClusterRadius={45}             // distância (px) para juntar pinos num grupo
+        disableClusteringAtZoom={ZOOM_SEM_AGRUPAR}
+        showCoverageOnHover={false}
+        spiderfyOnMaxZoom={false}
+        iconCreateFunction={criarIconeGrupo}
+      >
       {unidades.filter((u) => u.lat !== null && u.lng !== null).map((u) => {
         const ativo = u.id === selecionada
         const hospital = !!u.tipo?.toLowerCase().includes('hospital')
@@ -136,6 +166,7 @@ export function Mapa({ unidades, selecionada, aoSelecionar, posicao }: Props) {
           </Marker>
         )
       })}
+      </MarkerClusterGroup>
 
       {posicao && (
         <CircleMarker
