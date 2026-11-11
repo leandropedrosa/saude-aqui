@@ -292,11 +292,13 @@ pytest
 ## Implantação (AWS EC2 + Easypanel)
 
 ```
- push na main ──► GitHub Actions ──► testes ──► 4 imagens no GHCR ──► Easypanel (VM) puxa e roda
+ segunda 02:00 (ou "Run workflow") ──► GitHub Actions ──► testes ──► 4 imagens no GHCR ──► Easypanel (VM) puxa e roda
 ```
 
 **Nenhuma imagem é compilada na VM.** O GitHub Actions (`.github/workflows/build.yml`)
-roda os testes e publica estas imagens:
+roda os testes e publica estas imagens. Ele **não roda a cada push**: roda só uma vez por semana,
+**segunda-feira às 02:00** (horário de Brasília), ou quando alguém clica em
+*Actions → Testes e imagens → Run workflow*.
 
 | Imagem | Limite de memória |
 |---|---|
@@ -389,12 +391,9 @@ e execute `python coletar.py`. Pelo SSH, use `docker exec -it NOME_DO_CONTAINER 
 ### Atualizar o site
 
 1. Faça push na `main`.
-2. Aguarde o workflow **Testes e imagens** ficar verde na aba *Actions* do GitHub.
+2. Espere a execução semanal (segunda-feira às 02:00) ou, para publicar na hora, clique em
+   *Actions → Testes e imagens → Run workflow* no GitHub e aguarde ficar verde.
 3. No Easypanel, clique em **Deploy** no serviço Compose para baixar as imagens novas.
-
-Commits que mudam **só documentação** (arquivos `.md` e a pasta `docs/`) não disparam o workflow,
-porque não há código novo para testar nem imagem para publicar. Para rodá-lo mesmo assim, use
-*Actions → Testes e imagens → Run workflow*.
 
 Se um deploy der problema, troque `:latest` pela tag do commit anterior
 (`:<hash>`) no compose do Easypanel e faça deploy de novo.

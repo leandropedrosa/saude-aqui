@@ -4,25 +4,19 @@
 # A VM de produção NÃO compila nada: o Easypanel só puxa as imagens
 # prontas daqui (ghcr.io/<dono>/saude-aqui-<servico>:latest).
 #
-# Roda a cada push na main (testes + publicação) e em pull requests
-# (só os testes). Também pode ser disparado à mão na aba "Actions".
+# Roda SÓ em horário fixo: uma vez por semana, segunda-feira às 02:00
+# (horário de Brasília), o mesmo horário do coletor. Pushes não disparam
+# o workflow. Para publicar uma mudança na hora, use o botão
+# "Run workflow" na aba Actions (gatilho workflow_dispatch).
 #
-# Commits que mudam SÓ documentação (arquivos .md e a pasta docs/, com as
-# capturas de tela) não disparam o workflow: não há código novo para testar
-# nem imagem nova para publicar.
+# Observação: o GitHub pode atrasar execuções agendadas em alguns minutos
+# e desativa agendamentos em repositórios sem nenhuma atividade por 60 dias.
 # =====================================================================
 name: Testes e imagens
 
 on:
-  push:
-    branches: [main]
-    paths-ignore:
-      - "**.md"
-      - "docs/**"
-  pull_request:
-    paths-ignore:
-      - "**.md"
-      - "docs/**"
+  schedule:
+    - cron: "0 5 * * 1"   # segunda-feira 05:00 UTC = 02:00 em Brasília (UTC-3)
   workflow_dispatch:
 
 permissions:
@@ -83,7 +77,6 @@ jobs:
   # ------------------------------------------------------------------ imagens
   imagens:
     needs: testes
-    if: github.event_name != 'pull_request'   # PR só testa, não publica
     runs-on: ubuntu-latest
     strategy:
       matrix:
