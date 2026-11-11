@@ -259,8 +259,8 @@ máximo semanalmente. Uma importação completa leva cerca de 10 segundos e usa 
 de memória.
 
 **Depois de editar `db/unidades.csv` ou `db/ocupacoes.csv`**, gere a imagem de novo
-(`docker compose build coletor`) e rode com `--forcar`. Em produção, o GitHub Actions gera a
-imagem nova a cada push.
+(`docker compose build coletor`) e rode com `--forcar`. Em produção, a imagem nova sai na
+execução semanal do GitHub Actions (segunda-feira às 02:00) ou na hora, pelo botão *Run workflow*.
 
 ### Dados versionados (`db/dados_iniciais.sql`)
 
