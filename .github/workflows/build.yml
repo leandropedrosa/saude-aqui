@@ -6,13 +6,23 @@
 #
 # Roda a cada push na main (testes + publicação) e em pull requests
 # (só os testes). Também pode ser disparado à mão na aba "Actions".
+#
+# Commits que mudam SÓ documentação (arquivos .md e a pasta docs/, com as
+# capturas de tela) não disparam o workflow: não há código novo para testar
+# nem imagem nova para publicar.
 # =====================================================================
 name: Testes e imagens
 
 on:
   push:
     branches: [main]
+    paths-ignore:
+      - "**.md"
+      - "docs/**"
   pull_request:
+    paths-ignore:
+      - "**.md"
+      - "docs/**"
   workflow_dispatch:
 
 permissions:

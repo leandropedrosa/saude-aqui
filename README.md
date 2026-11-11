@@ -392,6 +392,10 @@ e execute `python coletar.py`. Pelo SSH, use `docker exec -it NOME_DO_CONTAINER 
 2. Aguarde o workflow **Testes e imagens** ficar verde na aba *Actions* do GitHub.
 3. No Easypanel, clique em **Deploy** no serviço Compose para baixar as imagens novas.
 
+Commits que mudam **só documentação** (arquivos `.md` e a pasta `docs/`) não disparam o workflow,
+porque não há código novo para testar nem imagem para publicar. Para rodá-lo mesmo assim, use
+*Actions → Testes e imagens → Run workflow*.
+
 Se um deploy der problema, troque `:latest` pela tag do commit anterior
 (`:<hash>`) no compose do Easypanel e faça deploy de novo.
 
