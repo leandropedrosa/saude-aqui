@@ -12,7 +12,8 @@ Projeto de alunos de graduação da UFG. O código é propositalmente simples e 
 
 ## Funcionalidades
 
-> As capturas abaixo usam os dados reais do CNES (competência setembro/2026).
+> As capturas abaixo usam os dados reais do CNES (competência setembro/2026) e os horários
+> publicados no portal da Prefeitura em 2026.
 
 ### Mapa e lista de unidades
 
@@ -33,6 +34,10 @@ cada unidade e marca a sua posição no mapa (ponto azul).
 Ao clicar num cartão (ou num marcador), o mapa centraliza a unidade. O cartão mostra endereço,
 horário de funcionamento, telefone (o número abre a ligação), o botão **Como chegar** (Google Maps)
 e os **profissionais vinculados**, agrupados por categoria, com ocupação e carga horária semanal.
+
+O **horário de funcionamento** vem do portal de escalas da Prefeitura quando ela o publica (como
+"Segunda a sexta feira das 8h às 17h" na UBS SQ 13). Nas demais unidades aparece o turno
+cadastrado no CNES ("Manhã e tarde", "24 horas"…).
 
 ![Unidade selecionada](docs/capturas/desktop-unidade-selecionada.png)
 
